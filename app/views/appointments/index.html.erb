@@ -1,0 +1,66 @@
+<div class="skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header class="main-header">
+			<%= render "privates/navbarprivate" %>
+		</header>
+		<aside class="main-sidebar">
+			<%= render "privates/menubar" %>
+		</aside>
+		<div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1 min-height">
+          <h1 class="col-xs-offset-1"><i class="fa fa-book"></i> Consultas</h1>
+          <h4 class="col-xs-offset-1">Tenha acesso a todas a todas as consultas de seus pacientes de todas as suas clínicas, adicione novas, atualize-as...</h4>
+          <div class="div-content">
+            <a href="/newappointment" class="btn btn-primary margin col-xs-offset-1"><i class="fa fa-plus-circle"></i> Cadastrar Nova Consulta</a>
+            <div class="panel panel-default col-xs-10 col-xs-offset-1 div-content">
+              <form action="" method="post" class="form-horizontal">
+                <legend>
+                  <i class="fa fa-search"></i> Pesquisar Consultas
+                </legend>
+                <div class="form-group col-xs-12 col-sm-6">
+                  <input type="text" placeholder="Digite o nome do paciente" class="form-control" />
+                </div>
+                <div class="form-group col-xs-12 col-sm-6">
+                      <input type="text" placeholder="Digite a data de pesquisa" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fa fa-search"></i> Pesquisar
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="table-responsive col-xs-12">
+            <table class="table table-hover">
+              <tr>
+                <td class="text-center"><strong>Data</strong></td>
+                <td class="text-center"><strong>Paciente</strong></td>
+                <td class="text-center"><strong>Clínica</strong></td>
+                <td class="text-center"><strong>Hora</strong></td>
+                <td class="text-center"><strong>Valor</strong></td>
+                <td class="text-center"><strong>Descrição</strong></td>
+                <td class="text-center"><strong>Opções</strong></td>
+              </tr>
+              <% current_user.appointments.each do |appointment| %>
+                <tr>
+                  <td class="text-center"><%= appointment.dateAppointment %></td>
+                  <td class="text-center"><%= appointment.patient.name %></td>
+                  <td class="text-center"><%= appointment.clinic.name %></td>
+                  <td class="text-center"><%= appointment.schedule %></td>
+                  <td class="text-center"><%= appointment.price %></td>
+                  <td class="text-center"><%= appointment.description %></td>
+                  <td class="text-center"><%= link_to '', appointment, title: 'Details', class: 'btn btn-success btn-xs fa fa-ellipsis-h' %> <%= link_to '', edit_appointment_path(appointment), title: 'Editar', class: 'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', appointment, method: :delete, data: { confirm: 'Are you sure?' }, title:'Delete', class: 'btn btn-danger btn-xs fa fa-times'  %></td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+	<%= render "privates/footerprivate" %>
+</div>

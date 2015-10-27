@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  series: 1
+  repeats: MyString
+  duration: 2015-10-11 17:46:15
+  training_id: 
+
+two:
+  name: MyString
+  description: MyString
+  series: 1
+  repeats: MyString
+  duration: 2015-10-11 17:46:15
+  training_id: 

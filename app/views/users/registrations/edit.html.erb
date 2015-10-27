@@ -1,0 +1,144 @@
+<div class="skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header class="main-header">
+			<%= render "privates/navbarprivate" %>
+		</header>
+		<aside class="main-sidebar">
+			<%= render "privates/menubar" %>
+		</aside>
+		<div class="content-wrapper">
+			<div class="perfil-content">
+				<div class="panel panel-default col-xs-10 col-xs-offset-1">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+          <div class="form-horizontal">
+					<h1 class="col-xs-12 col-xs-offset-1"><i class="fa fa-user"></i> Meu Perfil   <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'option' %></small></h1>
+					<h4 class="col-xs-12 col-xs-offset-1">Tenha acesso as informações de seu perfil e atualize-as quando necessário.</h4>
+					<div class="panel panel-default col-xs-4 col-xs-offset-4 col-sm-5 col-md-3 col-md-offset-5 div-content padding">
+						<div class="field">
+								  <%= image_tag current_user.cover.url(:medium),class:'img-responsive' %>
+						</div>
+						<div id="div_file">
+							<p id="texto">
+								Carregar Foto
+							</p>
+							<%= f.file_field :cover, as: :file, class:'btn_enviar' %>
+						</div>
+					</div>
+					<div class="panel panel-default col-xs-10 col-xs-offset-1 div-content">
+							<legend>
+								<i class="fa fa-tags"></i> Dados Pessoais
+							</legend>
+							<div class="form-group">
+								<label for="nome" class="col-sm-2 control-label">Nome</label>
+								<div class="col-sm-9">
+									<%= f.text_field :name, class:'form-control', :placeholder => 'Digite seu nome Completo' %>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="telefone" class="col-sm-2 control-label">Telefone</label>
+								<div class="col-sm-9">
+									<input type="text" placeholder="Digite o seu telefone para contato" class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="telefonealternativo" class="col-sm-2 control-label">Telefone 2</label>
+								<div class="col-sm-9">
+									<input type="text" placeholder="Digite o seu telefone alternativo" class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="cpf" class="col-sm-2 control-label">CPF</label>
+								<div class="col-sm-9">
+									<input type="text" placeholder="Digite o seu número de CPF" class="form-control cpf" />
+								</div>
+							</div>
+							<legend>
+								<i class="fa fa-map-marker"> Dados de Endereço</i>
+							</legend>
+							<div class="form-group">
+								<label for="bairro" class="control-label col-sm-2">Bairro</label>
+								<div class="col-sm-9">
+										<%= f.text_field :name, class:'form-control', :placeholder => 'Digite seu nome Completo' %>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="rua" class="control-label col-sm-2">Rua</label>
+								<div class="col-sm-5">
+									<input type="text" placeholder="Digite o nome do seu Bairro" class="form-control" />
+								</div>
+								<label for="numero" class="control-label col-sm-2">Número</label>
+								<div class="col-sm-2">
+									<input type="text" placeholder="Digite o número da sua residência" class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="cep" class="control-label col-sm-2">CEP</label>
+								<div class="col-sm-5">
+									<input type="text" placeholder="Insira seu CEP" class="form-control" />
+								</div>
+								<label for="referencia" class="control-label col-sm-2">Referência</label>
+								<div class="col-sm-2">
+									<input type="text" placeholder="Digite sua referência" class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="cidade" class="control-label col-sm-2">Cidade</label>
+								<div class="col-sm-9">
+									<select class="form-control">
+										<option>Xanxerê</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="estado" class="control-label col-sm-2">Estado</label>
+								<div class="col-sm-9">
+									<select class="form-control">
+										<option>Santa Catarina</option>
+									</select>
+								</div>
+							</div>
+							<legend>
+								<i class="fa fa-lock"> Dados da conta</i>
+							</legend>
+							<div class="form-group">
+								<label for="email" class="control-label col-sm-2">E-mail</label>
+								<div class="col-sm-9">
+								 <%= f.email_field :email, class:'form-control', :disabled =>
+								  true %>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="senha" class="control-label col-sm-2">Nova Senha</label>
+								<div class="col-sm-9">
+									  <%= f.password_field :password, autocomplete: "off", :placeholder => 'Digite sua nova Senha', class:'form-control' %>
+								</div>
+							</div>
+              <div class="form-group">
+                <label for="confirmar-senha" class="control-label col-sm-2">Confirmar nova Senha</label>
+                <div class="col-sm-9">
+                   <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Digite sua nova senha novamente', class:'form-control' %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="senhaatual" class="control-label col-sm-2">Senha atual</label>
+                <div class="col-sm-9">
+                   <%= f.password_field :current_password, autocomplete: "off", :placeholder => 'Digite sua senha atual para confirmação das alterações', class:'form-control' %>
+                </div>
+              </div>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-5">
+									<button type="submit" class="btn btn-primary btn-lg">
+										<i class="fa fa-save"></i> Salvar
+									</button>
+								</div>
+							</div>
+					</div>
+        </div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%= render "privates/footerprivate" %>
+</div>

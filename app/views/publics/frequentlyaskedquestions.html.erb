@@ -1,0 +1,121 @@
+<%= render "publics/navbarpublic" %>
+<div class="page-container">
+  <div class="container">
+    <ul class="list-inline">
+      <li>
+        <%= link_to '',new_user_session_path, class: 'fa fa-home fa-2x', title: 'Home' %>
+      </li>
+      <li class="lead">
+        >
+      </li>
+      <li>
+        <%= link_to '', help_path, title: t('callcenter'), class: 'fa fa-question-circle fa-2x' %>
+      </li>
+      <li class="lead">
+        >
+      </li>
+      <li>
+        <i class="fa fa-question fa-2x" title="<%= t('frequently_questions') %>"></i>
+      </li>
+    </ul>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h1><%= t('callcenter') %></h1>
+        <div class="div-content">
+          <h1><%= t('frequently_questions') %></h1>
+          <h4 class="line-height"><%= t('frequently_questions_title') %></h4>
+        </div>
+        <div class="div-content">
+          <a id="question-one" class="btn btn-primary btn-xs pull-left"><i class="fa fa-plus"></i></a>
+          <h4 class="question-title"><%= t('question_one') %></h4>
+          <div id="div-plus">
+            <div class="div-content">
+              <p class="lead">
+                <%= t('question_one_answer') %>
+                <br/>
+                <%= link_to t('see_more'), about_path %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="div-content">
+          <a id="question-two" class="btn btn-primary btn-xs pull-left"><i class="fa fa-plus"></i></a>
+          <h4 class="question-title"><%= t('question_two') %></h4>
+          <div id="div-plus1">
+            <div class="div-content">
+              <p class="lead">
+                <strong><%= t('yess') %></strong> <%= t('question_two_answer') %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="div-content">
+          <a id="question-tree" class="btn btn-primary btn-xs pull-left"><i class="fa fa-plus"></i></a>
+          <h4 class="question-title"><%= t('question_three') %></h4>
+          <div id="div-plus2">
+            <div class="div-content">
+              <p class="lead">
+                <strong><%= t('yess') %></strong> <%= t('question_three_answer') %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="div-content">
+          <a id="question-for" class="btn btn-primary btn-xs pull-left"><i class="fa fa-plus"></i></a>
+          <h4 class="question-title"><%= t('question_for') %></h4>
+          <div id="div-plus3">
+            <div class="div-content">
+              <p class="lead">
+                <strong><%= t('yess') %></strong> <%= t('question_for_answer') %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="div-content">
+          <a id="question-five" class="btn btn-primary btn-xs pull-left"><i class="fa fa-plus"></i></a>
+          <h4 class="question-title"><%= t('question_five') %></h4>
+          <div id="div-plus4">
+            <div class="div-content">
+              <p class="lead">
+                <strong><%= t('noo') %></strong> <%= t('question_five_answer') %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="div-content">
+          <a id="question-six" class="btn btn-primary btn-xs pull-left"><i class="fa fa-plus"></i></a>
+          <h4 class="question-title"><%= t('question_six') %></h4>
+          <div id="div-plus5">
+            <div class="div-content">
+              <p class="lead">
+                <strong><%= t('yess') %></strong> <%= t('question_six_answer') %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="div-content">
+          <a id="question-seven" class="btn btn-primary btn-xs pull-left"><i class="fa fa-plus"></i></a>
+          <h4 class="question-title"><%= t('question_seven') %></h4>
+          <div id="div-plus6">
+            <div class="div-content">
+              <p class="lead">
+                <%= t('question_seven_answer') %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="div-content">
+          <a id="question-eight" class="btn btn-primary btn-xs pull-left"><i class="fa fa-plus"></i></a>
+          <h4 class="question-title"><%= t('question_eigth') %></h4>
+          <div id="div-plus7">
+            <div class="div-content">
+              <p class="lead">
+                <strong><%= t('noo') %></strong> <%= t('question_eigth_answer') %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "publics/footerpublic" %>

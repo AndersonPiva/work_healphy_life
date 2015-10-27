@@ -1,0 +1,83 @@
+	<%= render "publics/navbarpublic" %>
+	<%= notice %>
+	<div class="page-content">
+		<div class="container">
+			<ul id="cbp-bislideshow" class="cbp-bislideshow">
+					<li><img src="/assets/1.jpg" alt="image01"/></li>
+					<li><img src="/assets/2.jpg" alt="image02"/></li>
+					<li><img src="/assets/3.jpg" alt="image03"/></li>
+					<li><img src="/assets/4.jpg" alt="image04"/></li>
+					<li><img src="/assets/5.jpg" alt="image05"/></li>
+					<li><img src="/assets/6.jpg" alt="image06"/></li>
+					<li><img src="/assets/7.jpg" alt="image06"/></li>
+				</ul>
+			<div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 div-content">
+				<h2 class="text-uppercase"><%= t('totally_free') %></h2>
+				<p class="lead">
+					<%= t('have_better_controll') %>
+					<br />
+					<%= t('simple_way') %>
+				</p>
+				<p>
+			</div>
+			<div id="panel" class="panel panel-default col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0">
+				<div class="panel-body">
+					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+						<div class="field form-group input-group">
+							<label for="e-mail" class="input-group-addon"><i class="fa fa-envelope"></i> </label>
+							<%= f.email_field :email, autofocus: true, :placeholder => "E-mail", class:'form-control'%>
+						</div>
+						<div id="form-password" class="field form-group input-group">
+							<label for="password" class="input-group-addon"><i class="fa fa-lock fa-fw"></i></label>
+						   <%= f.password_field :password, autocomplete: "off", :placeholder => t('password'), class: 'form-control' %>
+						</div>
+            <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <label><%= t('remember_me') %></label>
+            </div>
+            <% end -%>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-block">
+								<%= t('login') %>
+							</button>
+						</div>
+					<% end %>
+					<div class="help-block text-center">
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to t('forgot_password'), new_password_path(resource_name) %><br />
+            <% end -%>
+					</div>
+					<div class="help-block text-center">
+						<a href="/resendconfirmationinstructions"><%= t('resend_confirmation') %></a>
+					</div>
+				</div>
+			</div>
+			<div id="panel-singin" class="panel panel-default col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0 clear">
+				<div class="pn-heading">
+					<h4><%= t('new_lifehealthy') %> <small><%= t('signin') %></small></h4>
+				</div>
+				<div class="panel-body">
+						<div class="form-group input-group">
+							<label for="nome" class="input-group-addon"><i class="fa fa-user"></i></label>
+							<input type="text" placeholder="<%= t('completed_name') %>" class="form-control"/>
+						</div>
+						<div class="form-group input-group">
+							<label for="e-mail" class="input-group-addon"><i class="fa fa-envelope-o "></i></label>
+							<input type="email" placeholder="<%= t('email') %>" class="form-control" />
+						</div>
+						<div class="form-group input-group">
+							<label for="senha" class="input-group-addon"><i class="fa fa-lock fa-fw"></i></label>
+							<input type="password" placeholder="<%= t('write_password') %>" class="form-control" />
+						</div>
+						<div class="form-group">
+              <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                <%= link_to t('sign_in'), new_registration_path(resource_name), class:'btn btn-primary btn-block'%>
+              <% end -%>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%= render "publics/footerpublic" %>

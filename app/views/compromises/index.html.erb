@@ -1,0 +1,48 @@
+<div class="skin-blue sidebar-min">
+  <div class="wrapper">
+    <header class="main-header">
+      <%= render "privates/navbarprivate" %>
+    </header>
+    <aside class="main-sidebar">
+      <%= render "privates/menubar" %>
+    </aside>
+    <div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1 min-height">
+          <h1 class="col-xs-offset-1">
+            <i class="fa fa-calendar"></i>
+            Compromissos</h1>
+          <h4 class="col-xs-offset-1">Tenha acesso a toda a sua agenda compromissos.</h4>
+          <div class="div-content">
+            <a class="btn btn-primary margin col-xs-offset-1" href="/newcompromise">
+              <i class="fa fa-plus-circle"></i>
+              Cadastrar novo Compromisso</a>
+          </div>
+          <div class="panel panel-default col-xs-offset-1 div-content">
+            <div class="panel-body">
+              <div class="table-responsive" id="calendar">
+                <h2 id="month">
+                  <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
+                  <%=h @date.strftime("%B %Y") %>
+                  <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
+                </h2>
+                <%= calendar_for @compromises, :year => @date.year, :month => @date.month do |t| %>
+                <%= t.head('DOM','SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB') %>
+                <%= t.day do |day, compromises| %>
+                <%= day.day %>
+                <% compromises.each do |compromise| %><br>
+                <%= link_to h(compromise.title), compromise %>
+                <%= link_to '', edit_compromise_path(compromise), title: 'Editar' ,class:'btn btn-primary btn-xs fa fa-pencil' %>
+                <%= link_to '', compromise, method: :delete, data: { confirm: 'Tem certeza?' }, title: 'Delete', class:'btn btn-danger btn-xs fa fa-times' %>
+                <% end %>
+                <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "privates/footerprivate" %>
+</div>

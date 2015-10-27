@@ -1,0 +1,67 @@
+<%= render "publics/navbarpublic" %>
+	<div class="page-container">
+		<div class="container">
+			<ul class="list-inline">
+				<li>
+					<%= link_to '',new_user_session_path, class: 'fa fa-home fa-2x', title: 'Home' %>
+				</li>
+				<li class="lead">
+					>
+				</li>
+				<li>
+					<i title="Contato" class="fa fa-phone-square fa-2x"></i>
+				</li>
+			</ul>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h1><%= t('contact') %></h1>
+					<div class="div-content">
+						<h1><%= t('contact_us') %></h1>
+						<h4 class="line-height"><%= t('contact_one') %></h4>
+					</div>
+					<div class="panel-default col-xs-12 col-sm-6 pull-right div-content">
+						<div class="panel-body">
+							<img alt="atendente" src="/assets/atendente.jpg" class="img-responsive pull-left " />
+							<br />
+							<br />
+							<label class="lead"><i class="fa fa-phone"></i> <%= t('telephone') %>: +55 (49) 3454-1171</label>
+							<br />
+							<label class="lead"><i class="fa fa-tablet"> <%= t('mobile-phone') %>: +55 (49) 9956-8050</i></label>
+							<br />
+							<label class="lead"><i class="fa fa-envelope"> E-mail:</i> vidaSvl@contato.com</label>
+						</div>
+					</div>
+					<form class="form-personalite div-content">
+						<div class="form-group">
+							<label class="col-xs-6" for="name" ><%= t('name') %></label>
+							<div class=" col-xs-12 col-sm-6">
+								<input type="text" placeholder="<%= t('completed_name') %>" required="" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-6" for="email" >E-mail</label>
+							<div class="col-xs-12 col-sm-6">
+								<input type="email" placeholder="<%= t('email') %>" required="" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-6" for="assunto" ><%= t('topic') %></label>
+							<div class="col-xs-12 col-sm-6">
+								<input type="text" placeholder="<%= t('topic_treated') %>" required="" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-6" for="assunto" ><%= t('message') %></label>
+							<div class="col-xs-12 col-sm-6">
+								<textarea placeholder="<%= t('write_message') %>" required="" class="form-control"></textarea>
+								<button type="submit" class="btn btn-primary">
+									<%= t('send') %>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%= render "publics/footerpublic" %>

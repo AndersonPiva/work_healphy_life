@@ -1,0 +1,55 @@
+<nav class="navbar navbar-static-top" role="navigation">
+    <a href="/dashboard" class="logo"> <img alt="Logo" src="/assets/logo.png" /> </a>
+  <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> </a>
+  <div class="container">
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <li class="dropdown notifications-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-bell-o"></i> <span class="label label-warning">10</span> </a>
+          <ul class="dropdown-menu">
+            <li class="header">
+              Você têm 10 novas notificações
+            </li>
+            <li>
+              <ul class="menu">
+                <li>
+                  <a href="#"> <i class="fa fa-users text-aqua"></i> 5 new members joined today </a>
+                </li>
+                <li>
+                  <a href="#"> <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems </a>
+                </li>
+                <li>
+                  <a href="#"> <i class="fa fa-users text-red"></i> 5 new members joined </a>
+                </li>
+                <li>
+                  <a href="#"> <i class="fa fa-shopping-cart text-green"></i> 25 sales made </a>
+                </li>
+                <li>
+                  <a href="#"> <i class="fa fa-user text-red"></i> You changed your username </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag current_user.cover.url(:thumb),class:'tamanho'%><span class="hidden-xs"><%= current_user.name %><span class="caret"></span></span> </a>
+          <ul id="drop-menu" class="dropdown-menu list-unstyled">
+            <li>
+            <span><i class="fa fa-user"></i> <%= link_to "Meu Perfil", edit_user_registration_path %></span>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="/about" target="_blank"><i class="fa fa-info-circle"></i> Sobre</a>
+            </li>
+            <li>
+              <a href="/help" target="_blank"><i class="fa fa-support"></i> Suporte</a>
+            </li>
+            <li>
+              <span><i class="fa fa-sign-out"> </i> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,164 @@
+<%= render 'navbarpublic' %>
+<div class="page-container">
+		<div class="container">
+			<ul class="list-inline">
+				<li>
+					<%= link_to '', new_user_session_path, title: 'Home', class: 'fa fa-home fa-2x' %>
+				</li>
+				<li class="lead">
+					>
+				</li>
+				<li>
+					<i class="fa fa-bookmark fa-2x" title="<%= t('functions_upp') %>"></i>
+				</li>
+			</ul>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h1><%= t('functions_upp') %></h1>
+					<div class="div-content">
+						<h1><%= t('available_resources') %></h1>
+						<h4 class="line-height"><%= t('functions_subtitle') %></h4>
+					</div>
+				</div>
+				<div class="content-section-a">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-6 col-lg-5 ">
+								<h2 class="section-heading text-center"><%= t('functions_one') %></h2
+								<p>
+									<%= t('functions_one_answer') %>
+								</p>
+							</div>
+							<div class="col-sm-6 col-lg-4 col-lg-offset-2">
+								<div class="col-xs-5 col-xs-offset-3 text-center">
+									<img alt="Disciplined Training logo" src="/assets/cel-phone.png" class="img-responsive" />
+									<%= link_to t('see_more'), aboutapp_path, class: 'btn btn-primary' %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-section-b">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-push-6  col-sm-6 col-lg-4 col-lg-offset-1">
+								<h2 class="section-heading">Agenda Virtual</h2>
+								<p class="line-height">
+									Chega de complicação! Controle todas as consultas, compromissos e demais tarefas da clínica em uma agenda virtual simples e muito fácil de ser utilizada.
+								</p>
+							</div>
+							<div id="icon-one" class="col-lg-5 col-sm-pull-6  col-sm-6 text-center">
+								<i class="fa fa-calendar fa-5x"></i>
+							</div>
+						</div>
+					</div>
+					<div class="content-section-a">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-6 col-lg-5 ">
+									<h2 class="section-heading text-center">Controle de dietas</h2
+									<p class="line-height">
+										Através de um conjunto de ferramentas fácil de serem gerenciadas, é possivel montar todas as dietas necessárias para cada um dos paciente, independente do seu tipo específico. Além disso, o vida saudável calcula automaticamente o total de calorias de cada refeição, livrando você de ter que calcular tudo manualmente.
+									</p>
+								</div>
+								<div class="col-sm-6 col-lg-4 col-lg-offset-2 text-center">
+									<i id="icon-two" class="fa fa-cutlery fa-5x"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content-section-b">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-push-6  col-sm-6 col-lg-4 col-lg-offset-1">
+									<h2 class="section-heading">Manipulação de Treinos</h2>
+									<p class="line-height">
+										Monte treinos personalizados de hipertrofia ou emagrecimento de acordo com as necessidades físicas e dejesos pessoais de cada um de seus pacientes.
+									</p>
+								</div>
+								<div class="col-lg-5 col-sm-pull-6  col-sm-6 text-right">
+									<i id="icon-three" class="fa fa-bullseye fa-5x"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content-section-a">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-6 col-lg-5 ">
+									<h2 class="section-heading text-center">Avaliação Física</h2
+									<p class="line-height">
+										Realize avaliações físicas de maneira simples e eficaz para seus pacientes, incluindo IMC e dóbras cutâneas.
+									</p>
+								</div>
+								<div class="col-sm-6 col-lg-4 col-lg-offset-2 text-right">
+									<i id="icon-for" class="fa fa-book fa-5x"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content-section-b">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-push-6  col-sm-6 col-lg-4 col-lg-offset-1">
+									<h2 class="section-heading">Histórico de evolução do quadro clínico</h2>
+									<p class="line-height">
+										Acompanhe de forma detalhada o quadro de evolução de cada um de seus pacientes, para sempre estar por dentro e auxiliar no caso de possíveis dificuldades e regressões.
+									</p>
+								</div>
+								<div class="col-lg-5 col-sm-pull-6  col-sm-6 text-center">
+									<i id="icon-five" class="fa fa-database fa-5x"></i>
+								</div>
+							</div>
+						</div>
+						<div class="content-section-a">
+							<div class="container">
+								<div class="row">
+									<div class="col-sm-6 col-lg-5 ">
+										<h2 class="section-heading text-center">Dashboard</h2
+										<p>
+											Tenha acesso a uma Dashboard contendo as principais funcionalidades e resumos estatísticos na página inicial da aplicação.
+										</p>
+									</div>
+									<div class="col-sm-6 col-lg-4 col-lg-offset-2 text-center">
+										<i id="icon-six" class="fa fa-dashboard fa-5x"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="content-section-b">
+							<div class="container">
+								<div class="row">
+									<div class="col-sm-push-6 col-sm-6 col-lg-4 col-lg-offset-1">
+										<h2 class="section-heading">Compatibilidade com dispositivos móveis</h2>
+										<p class="line-height">
+											Facilidade de acesso garantida! Com o Vida Saudável você pode acessar tudo instantaneamente de seu tablet ou smartphone, estando livre para consultar qualquer informação no lugar em que bem desejar.
+										</p>
+									</div>
+									<div class="col-lg-5 col-sm-pull-6  col-sm-6 text-center">
+										<i id="icon-seven" class="fa fa-tablet fa-5x"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="content-section-a">
+							<div class="container">
+								<div class="row">
+									<div class="col-sm-6 col-lg-5">
+										<h2 class="section-heading text-center">E-mails</h2
+										<p>
+											Confirmação do atendimento garantida por meio da ferramenta de envio automático de e-mails para os pacientes um dia antes da consulta.
+										</p>
+									</div>
+									<div class="col-sm-6 col-lg-4 col-lg-offset-2 text-center">
+										<i id="icon-eight" class="fa fa-envelope fa-5x margin"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<%= render 'footerpublic' %>

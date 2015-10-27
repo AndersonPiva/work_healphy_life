@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	</head>
+	<body>
+    <h1 style="text-align: center;">Avaliação Física</h1>
+    <table border="1px">
+      <thead>
+        <tr>
+          <td colspan="6" style="text-align: center; background-color: #489CDF;">
+            <strong>Identificação do Aluno</strong>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="width: 100px; text-align: center;">
+            <strong>Nome:</strong>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <%= @rating.patient.name %>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <strong>Sexo:</strong>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <%= @rating.patient.genre %>
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 100px; text-align: center;">
+            <strong>Idade:</strong>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            15
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <strong>Objetivo:</strong>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <%= @rating.patient.objective %>
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 100px; text-align: center;">
+            <strong>Peso (kg)</strong>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            80
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <strong>Altura (m)</strong>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            1.80
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <strong>Clínica:</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            Teste
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" style="text-align: center; background-color: #489CDF;">
+            <strong>Observações:</strong>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            bla bla bla bla bla bla bla bla bla bal lba bla lbal bla lbla lalb a bla bla bla bla bla bla bla bla bla bal lba bla lbal bla lbla lalb a.
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <table border="1px" style="margin-top: 35px;">
+      <thead>
+        <tr>
+          <td colspan="7" style="text-align: center; background-color: #489CDF;">
+            <strong>Antopométrica</strong>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="2" style="text-align: center; background-color: #CCEEFF;">
+            <strong>Dobras Cutâneas (mm)</strong>
+          </td>
+          <td colspan="3" style="text-align: center; background-color: #CCEEFF">
+            <strong>Circunferência (cm)</strong>
+          </td>
+          <td colspan="2" style="text-align: center; background-color: #CCEEFF">
+            <strong>Diâmetro (cm)</strong>
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 150px; text-align: center;">
+            <strong>Tríceps</strong>
+          </td>
+          <td style="width: 100px; text-align: center;">
+            10,0
+          </td>
+          <td style="width: 150px; text-align: center;">
+            <strong>Braço (dir/esq)</strong>
+          </td>
+          <td style="width: 100px; text-align: center;">
+            38.0
+          </td>
+          <td style="width: 100px; text-align: center;">
+            38.0
+          </td>
+          <td style="width: 100px; text-align: center;">
+            <strong>Rádio</strong>
+          </td>
+          <td style="width: 100px; text-align: center;">
+            5,3
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 150px; text-align: center;">
+            <strong>Subescapular</strong>
+          </td>
+          <td style="width: 100px; text-align: center;">
+            10.0
+          </td>
+          <td style="width: 150px; text-align: center;">
+            <strong>Abdômen</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            72.0
+          </td>
+          <td style="width: 100px; text-align: center;">
+            <strong>Fêmur</strong>
+          </td>
+          <td style="width: 100px; text-align: center;">
+            7.6
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 150px; text-align: center;">
+            <strong>Suprailiaca</strong>
+          </td>
+          <td style="width: 100px; text-align: center;">
+            6.0
+          </td>
+          <td style="width: 150px; text-align: center;">
+            <strong>Quadril</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            83.0
+          </td>
+          <td colspan="2" style="text-align: center">
+            -
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 150px; text-align: center;">
+            <strong>Abdômen</strong>
+          </td>
+          <td style="width: 100px; text-align: center;">
+            15.0
+          </td>
+          <td style="width: 150px; text-align: center;">
+            <strong>Cintura</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            71.0
+          </td>
+          <td colspan="2" style="text-align: center;">
+            -
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            -
+          </td>
+          <td style="width: 150px; text-align: center;">
+            <strong>Coxa (dir/esq)</strong>
+          </td>
+          <td style="width: 100px; text-align: center">
+            60.0
+          </td>
+          <td style="width: 100px; text-align: center">
+            60.0
+          </td>
+          <td colspan="2" style="text-align: center">
+            -
+          </td>
+        </tr>
+      </tbody>
+    </table>
+		<table border="1px" style="margin-top: 35px;">
+			<tr>
+				<td colspan="2" style="text-align: center; background-color: #489CDF;">
+					<strong>Composição Corporal</strong>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 250px; text-align: center;">
+					<strong>Massa Magra</strong>
+				</td>
+				<td style="width: 150px; text-align: center;">
+					49,5
+				</td>
+			</tr>
+			<tr>
+				<td>
+
+				</td>
+			</tr>
+		</table>
+
+		<%= javascript_include_tag "https://www.google.com/jsapi" %>
+		<%= wicked_pdf_javascript_include_tag "chartkick" %>
+
+		<%= pie_chart({"Football" => 10, "Basketball" => 19}) %>
+	</body>
+</html>

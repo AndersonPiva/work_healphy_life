@@ -1,0 +1,52 @@
+<%= form_for(@compromise) do |f| %>
+<% if @compromise.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@compromise.errors.count, "error") %>
+    prohibited this compromise from being saved:</h2>
+
+  <ul>
+    <% @compromise.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="form-horizontal">
+  <legend>
+    <i class="fa fa-tags"></i>
+    Dados Gerais
+  </legend>
+  <div class="form-group field">
+    <label class="col-sm-2 control-label" for="nome">Titulo</label>
+    <div class="col-sm-9">
+      <%= f.text_field :title, :placeholder => 'Digite título do compromisso', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label class="col-sm-2 control-label" for="telefone1">Data</label>
+    <div class="col-sm-9">
+      <%= f.date_select :date %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label class="col-sm-2 control-label" for="telefone1">Hora</label>
+    <div class="col-sm-9">
+      <%= f.time_select :schedule %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label class="col-sm-2 control-label" for="telefone2">Descrição</label>
+    <div class="col-sm-9">
+      <%= f.text_area :description, :placeholder => 'Digite a descrição para o compromisso', clasS: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4 col-sm-offset-5">
+      <button class="btn btn-primary btn-lg" type="submit">
+        <i class="fa fa-save"></i>
+        Salvar
+      </button>
+    </div>
+  </div>
+</div>
+<% end %> 

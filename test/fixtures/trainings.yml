@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weekDay: MyString
+  muscularGroups: MyString
+  description: MyString
+  dateStart: 2015-10-11
+  dateEnd: 2015-10-11
+  duration: 2015-10-11 17:25:14
+  patient_id: 
+
+two:
+  weekDay: MyString
+  muscularGroups: MyString
+  description: MyString
+  dateStart: 2015-10-11
+  dateEnd: 2015-10-11
+  duration: 2015-10-11 17:25:14
+  patient_id: 

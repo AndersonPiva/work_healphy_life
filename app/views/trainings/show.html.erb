@@ -1,0 +1,113 @@
+<div class="skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header class="main-header">
+			<%= render "privates/navbarprivate" %>
+		</header>
+		<aside class="main-sidebar">
+			<%= render "privates/menubar" %>
+		</aside>
+		<div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1">
+          <h1 class="col-xs-offset-1"><i class="fa fa-bullseye"></i> Detalhes do Treino</h1>
+          <h4 class="col-xs-offset-1">Veja todos os detalhes do treino que você cadastrou para seu paciente.</h4>
+          <div class="div-content">
+            <div class="panel panel-default col-xs-10 col-xs-offset-1">
+                <legend>
+                  <i class="fa fa-tags"></i> Dados Gerais
+                </legend>
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <label for="paciente" class="control-label col-sm-2">Paciente</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" value="<%= @training.patient.name %>" disabled/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="weekDay" class="control-label col-sm-2">Dia da Semana</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" value="<%= @training.weekDay %>" disabled/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="muscularGroups" class="control-label col-sm-2">Grupos Musculares</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" value="<%= @training.muscularGroups %>" disabled/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="description" class="control-label col-sm-2">Descrição</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" value="<%= @training.description %>" disabled/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="dataStart" class="control-label col-sm-2">Data de Início</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" value="<%= @training.dateStart %>" disabled/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="dateEnd" class="control-label col-sm-2">Data de Fim</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" value="<%= @training.dateEnd %>" disabled/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="duration" class="control-label col-sm-2">Duração</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" value="<%= @training.duration %>" disabled/>
+                    </div>
+                  </div>
+                </div>
+                <legend>
+                  <i class="fa fa-star"></i> Exercícios
+                </legend>
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <tr>
+                      <td class="text-center">
+                        <strong>Nome</strong>
+                      </td>
+                      <td class="text-center">
+                        <strong>Descrição</strong>
+                      </td>
+                      <td class="text-center">
+                        <strong>Séries</strong>
+                      </td>
+                      <td class="text-center">
+                        <strong>Repetições</strong>
+                      </td>
+                      <td class="text-center">
+                        <strong>Duração</strong>
+                      </td>
+                    </tr>
+                    <% @training.exercises.each do |exercise| %>
+                      <tr>
+                        <td class="text-center">
+                          <%= exercise.name %>
+                        </td>
+                        <td class="text-center">
+                          <%= exercise.description %>
+                        </td>
+                        <td class="text-center">
+                          <%= exercise.series %>
+                        </td>
+                        <td class="text-center">
+                          <%= exercise.repeats %>
+                        </td>
+                        <td class="text-center">
+                          <%= exercise.duration %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </table>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+	<%= render "privates/footerprivate" %>
+</div>

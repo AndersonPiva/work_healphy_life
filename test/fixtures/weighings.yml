@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dateWeighing: 2015-10-01
+  weight: 1.5
+  patient_id: 
+
+two:
+  dateWeighing: 2015-10-01
+  weight: 1.5
+  patient_id: 

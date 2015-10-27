@@ -1,0 +1,66 @@
+<div class="skin-blue sidebar-mini slim-heigth">
+	<div class="wrapper">
+		<header class="main-header">
+			<%= render "privates/navbarprivate" %>
+		</header>
+		<aside class="main-sidebar">
+			<%= render "privates/menubar" %>
+		</aside>
+		<div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1">
+          <h1 class="col-xs-offset-1"><i class="fa fa-plus-book"></i> Detalhes da Consulta</h1>
+          <h4 class="col-xs-offset-1">Tenha acesso a todos os detalhes da consulta</h4>
+          <div class="div-content">
+            <div class="panel panel-default col-xs-10 col-xs-offset-1">
+              <div class="form-horizontal">
+              <legend>
+                <i class="fa fa-tags"></i> Dados Gerais
+              </legend>
+              <div class="form-group field">
+                <label for="data" class="col-sm-2 control-label">Data</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" value="<%= @appointment.dateAppointment%>" disabled/>
+                </div>
+              </div>
+              <div class="form-group field">
+                <label for="horario" class="col-sm-2 control-label">Horario</label>
+                <div class="col-sm-9">
+                      <input type="text" class="form-control" value="<%= @appointment.schedule%>" disabled />
+                </div>
+              </div>
+              <div class="form-group field">
+                <label for="preco" class="col-sm-2 control-label">Preco</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" value="<%= @appointment.price%>" disabled />
+                </div>
+              </div>
+              <div class="form-group field">
+                <label for="description" class="control-label col-sm-2">Descricao</label>
+                <div class="col-sm-9">
+                      <input type="text" class="form-control" value="<%= @appointment.description%>" disabled/>
+                </div>
+              </div>
+              <div class="form-group field">
+                <label for="description" class="control-label col-sm-2">Paciente</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @appointment.patient.name%>" disabled/>
+                </div>
+              </div>
+              <div class="form-group field">
+                <label for="description" class="control-label col-sm-2">Clinica</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @appointment.clinic.name%>" disabled/>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+              </div>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+	<%= render "privates/footerprivate" %>
+</div>

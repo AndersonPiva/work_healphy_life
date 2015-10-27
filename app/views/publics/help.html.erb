@@ -1,0 +1,40 @@
+<%= render "publics/navbarpublic" %>
+<div class="page-container">
+  <div class="container">
+    <ul class="list-inline">
+      <li>
+        <%= link_to '',new_user_session_path, class: 'fa fa-home fa-2x', title: 'Home' %>
+      </li>
+      <li class="lead">
+        >
+      </li>
+      <li>
+        <i class="fa fa-question-circle fa-2x" title="<%= t('callcenter') %>"></i>
+      </li>
+    </ul>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h1><%= t('callcenter') %></h1>
+        <div class="div-content">
+          <h1><%= t('online_support') %></h1>
+          <h4 class="line-height"><%= t('help_one') %></h4>
+        </div>
+        <div class="col-xs-12 col-sm-6 text-center div-content">
+          <%= link_to '', frequentlyaskedquestions_path, class: 'fa fa-question fa-5x' %>
+          <h3><%= t('frequently_questions') %></h3>
+          <p class="lead">
+            <%= t('help_three') %>
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-6 text-center div-content">
+          <%= link_to '', yourcontact_path, class: 'fa fa-envelope-square fa-5x' %>
+          <h3><%= t('contact') %></h3>
+          <p class="lead">
+            <%= t('help_for') %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "publics/footerpublic" %>

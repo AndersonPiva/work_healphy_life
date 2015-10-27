@@ -1,0 +1,3 @@
+class PublicsController < ApplicationController
+
+end

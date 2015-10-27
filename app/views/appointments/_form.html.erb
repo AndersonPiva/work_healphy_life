@@ -1,0 +1,65 @@
+<%= form_for(@appointment) do |f| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+      <ul>
+      <% @appointment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-horizontal">
+  <legend>
+    <i class="fa fa-tags"></i> Dados Gerais
+  </legend>
+  <div class="form-group field">
+    <label for="data" class="col-sm-2 control-label">Data</label>
+    <div class="col-sm-9">
+      <%= f.date_select :dateAppointment %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label for="horario" class="col-sm-2 control-label">Horario</label>
+    <div class="col-sm-9">
+          <%= f.time_select :schedule %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label for="preco" class="col-sm-2 control-label">Preco</label>
+    <div class="col-sm-9">
+      <%= f.text_field :price, :placeholder => 'Digite o valor da consulta', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label for="description" class="control-label col-sm-2">Descricao</label>
+    <div class="col-sm-9">
+          <%= f.text_area :description, :placeholder => 'Digite a descricao geral da consulta', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label for="description" class="control-label col-sm-2">Paciente</label>
+    <div class="col-sm-9">
+        <%= f.collection_select(:patient_id, current_user.patients, :id, :name, prompt: 'Por favor selecione o paciente' , class: 'form-control') %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label for="description" class="control-label col-sm-2">Clinica</label>
+    <div class="col-sm-9">
+        <%= f.collection_select(:clinic_id, current_user.clinics, :id, :name, prompt: 'Por favor selecione a clínica', class: 'form-control') %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.text_field :user_id,value:current_user.id ,class: "hidden-xs hidden-sm hidden-md hidden-lg hidden-xl" %>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4 col-sm-offset-5">
+      <button type="submit" class="btn btn-primary btn-lg">
+        <i class="fa fa-save"></i> Salvar
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<% end %>

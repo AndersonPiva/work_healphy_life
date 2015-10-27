@@ -1,0 +1,167 @@
+<%= form_for(@patient) do |f| %>
+  <div class="form-horizontal">
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+      <ul>
+      <% @patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <legend>
+    <i class="fa fa-tags"></i> Dados Pessoais
+  </legend>
+  <div class="form-group field">
+    <label for="nome" class="col-sm-2 control-label">Nome</label>
+    <div class="col-sm-9">
+       <%= f.text_field :name,:placeholder => 'Digite o nome do seu paciente', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="dataNasc" class="col-sm-2 control-label">Data de Nasc.</label>
+    <div class="col-sm-9">
+      <%= f.date_select :birthdate, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+      <label for="clinica" class="control-label col-sm-2">Clínica</label>
+      <div class="col-sm-9">
+        <%= f.collection_select(:clinic_id, current_user.clinics, :id, :name, prompt: 'Por favor selecione a clínica', class: 'form-control') %>
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="sexo" class="col-sm-2 control-label">Sexo</label>
+    <div class="col-sm-9">
+      <%= f.select("genre", %w(Masculino Feminino), {include_blank: "Selecione seu sexo"},class:'form-control') %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cpf" class="control-label col-sm-2">CPF</label>
+    <div class="col-sm-9">
+         <%= f.text_field :cpf, :placeholder => 'Digite o número de CPF do seu paciente', class: 'form-control' %>
+    </div>
+  </div>
+  <legend>
+    <i class="fa fa-user"></i> Dados de perfil
+  </legend>
+  <div class="form-group">
+    <label for="peso" class="control-label col-sm-2">Peso</label>
+    <div class="col-sm-9">
+        <%= f.text_field :weigth, :placeholder => 'Digite o peso do seu paciente', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="altura" class="control-label col-sm-2">Altura(m)</label>
+    <div class="col-sm-9">
+          <%= f.text_field :heigth, :placeholder => 'Digite a altura do seu paciente em metros', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="bf" class="control-label col-sm-2">BF</label>
+    <div class="col-sm-9">
+       <%= f.text_field :bf, :placeholder => 'Digite o percentual de gordura do seu paciente', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="objetivo" class="control-label col-sm-2">Objetivo</label>
+    <div class="col-sm-9">
+       <%= f.text_field :objective, :placeholder => 'Digite o objetivo do seu paciente', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="observacoes" class="control-label col-sm-2">Observações</label>
+    <div class="col-sm-9">
+     <%= f.text_field :observations, :placeholder => 'Digite alguma observações sobre o paciente caso necessario', class: 'form-control' %>
+    </div>
+  </div>
+  <legend>
+    <i class="fa fa-map-marker"></i> Dados de Endereço
+  </legend>
+
+  <div class="form-group">
+    <label for="bairro" class="control-label col-sm-2">Bairro</label>
+    <div class="col-sm-9">
+      <input type="text" placeholder="Digite o nome do seu Bairro" class="form-control" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="rua" class="control-label col-sm-2">Rua</label>
+    <div class="col-sm-5">
+      <input type="text" placeholder="Digite o nome do seu Bairro" class="form-control" />
+    </div>
+    <label for="numero" class="control-label col-sm-2">Número</label>
+    <div class="col-sm-2">
+      <input type="text" placeholder="Digite o número da sua residência" class="form-control" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cep" class="control-label col-sm-2">CEP</label>
+    <div class="col-sm-5">
+      <input type="text" placeholder="Insira seu CEP" class="form-control" />
+    </div>
+    <label for="referencia" class="control-label col-sm-2">Referência</label>
+    <div class="col-sm-2">
+      <input type="text" placeholder="Digite sua referência" class="form-control" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cidade" class="control-label col-sm-2">Cidade</label>
+    <div class="col-sm-9">
+      <select class="form-control">
+        <option>Xanxerê</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="estado" class="control-label col-sm-2">Estado</label>
+    <div class="col-sm-9">
+      <select class="form-control">
+        <option>Santa Catarina</option>
+      </select>
+    </div>
+  </div>
+  <legend>
+    <i class="fa fa-envelope"></i> Dados de Contato
+  </legend>
+  <div class="form-group">
+    <label for="telefone" class="control-label col-sm-2">Telefone</label>
+    <div class="col-sm-9">
+      <%= f.text_field :telephone, :placeholder => 'Digite o telefone de contato do paciente', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email" class="control-label col-sm-2">E-mail</label>
+    <div class="col-sm-9">
+        <%= f.email_field :email, :placeholder => 'Digite o e-mail do seu paciente', class: 'form-control' %>
+    </div>
+  </div>
+  <legend>
+    <i class="fa fa-lock"></i> Dados da Conta
+  </legend>
+  <div class="form-group">
+    <label for="usuario" class="control-label col-sm-2">Login</label>
+    <div class="col-sm-9">
+       <%= f.text_field :login, :placeholder => 'Digite o nome do login que o paciente usará para acessar o aplicativo mobile', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="senha" class="control-label col-sm-2">Senha</label>
+    <div class="col-sm-9">
+      <%= f.text_field :password, :placeholder => 'Digite a senha de acesso do aplicativo para o seu paciente', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.text_field :user_id,value:current_user.id ,class: "hidden-xs hidden-sm hidden-md hidden-lg hidden-xl" %>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4 col-sm-offset-5">
+      <button type="submit" class="btn btn-primary btn-lg">
+        <i class="fa fa-save"></i> Salvar
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+<% end %>

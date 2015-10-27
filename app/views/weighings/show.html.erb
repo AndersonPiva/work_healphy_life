@@ -1,0 +1,46 @@
+<div class="skin-blue sidebar-mini slim-heigth">
+	<div class="wrapper">
+		<header class="main-header">
+			<%= render "privates/navbarprivate" %>
+		</header>
+		<aside class="main-sidebar">
+			<%= render "privates/menubar" %>
+		</aside>
+		<div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1">
+          <h1 class="col-xs-offset-1"><i class="fa fa-building"></i> Detalhes da pesagem</h1>
+          <h4 class="col-xs-offset-1">Tenha acesso aos detalhes da pesagem</h4>
+          <div class="div-content">
+            <div class="panel panel-default col-xs-10 col-xs-offset-1">
+              <div class="form-horizontal">
+              <legend>
+                <i class="fa fa-tags"></i> Dados Gerais
+              </legend>
+              <div class="form-group field">
+                <label for="data" class="col-sm-2 control-label">Data</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" value="<%= @weighing.dateWeighing%>" disabled/>
+                </div>
+              </div>
+              <div class="form-group field">
+                <label for="horario" class="col-sm-2 control-label">Paciente</label>
+                <div class="col-sm-9">
+                      <input type="text" class="form-control" value="<%= @weighing.patient.name%>" disabled/>
+                </div>
+              </div>
+              <div class="form-group field">
+                <label for="preco" class="col-sm-2 control-label">Peso</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @weighing.weight%>" disabled/>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+	<%= render "privates/footerprivate" %>
+</div>
