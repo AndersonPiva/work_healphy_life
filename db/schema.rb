@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020004358) do
+ActiveRecord::Schema.define(version: 20151028055754) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "city",       limit: 255
@@ -64,6 +64,15 @@ ActiveRecord::Schema.define(version: 20151020004358) do
   end
 
   add_index "compromises", ["user_id"], name: "index_compromises_on_user_id", using: :btree
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.string   "subject",    limit: 255
+    t.text     "message",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "exercises", force: :cascade do |t|
     t.string   "name",        limit: 255
