@@ -13,7 +13,7 @@ pt:
   password: "Senha"
   login: "Entrar"
   forgot_password: "Esqueceu sua senha?"
-  language: "Linguagem:"
+  language: "Idioma:"
   portuguese: "Português"
   english: "Inglês"
   resend_confirmation: "Reenviar instruções de confirmação de sua conta"

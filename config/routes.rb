@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'privates#dashboard'
   get 'help' =>  'publics#help'
-  get 'yourcontact' => 'publics#yourcontact'
+  get 'yourcontact' => 'contacts#new'
   get 'frequentlyaskedquestions' =>'publics#frequentlyaskedquestions'
   get 'about' => 'publics#about'
   get 'patients' =>'patients#index'
