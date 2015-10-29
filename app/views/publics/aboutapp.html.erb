@@ -14,25 +14,25 @@
     </ul>
     <div class="panel panel-default">
       <div class="panel-body">
-        <h1>Sobre</h1>
+        <h1><%= t('about') %></h1>
         <div class="div-content">
           <h1>Disciplined Training</h1>
-          <h4 class="line-height">Veja todas as informações sobre o aplicativo do Vida Saudável</h4>
+          <h4 class="line-height"><%= t('aboutapp_one') %></h4>
         </div>
       </div>
       <div class="content-section-a">
         <div class="row">
           <div class="col-xs-5 col-xs-offset-4 col-sm-offset-1">
-            <img alt="Disciplined Training Logo Smartphone" src="images/cel-phone.png" class="img-responsive" />
+            <img alt="Disciplined Training Logo Smartphone" src="/assets/cel-phone.png" class="img-responsive" />
           </div>
           <div class="col-xs-5 col-xs-offset-4 col-sm-offset-1">
-            <img alt="Disciplined Training Logo Tablet" src="images/tablet.png" class="img-responsive" />
+            <img alt="Disciplined Training Logo Tablet" src="/assets/tablet.png" class="img-responsive" />
           </div>
           <div class="col-xs-10 col-xs-offset-1">
             <div class="panel-body">
-              <h4 class="line-height">O Aplicativo Disciplined Training do Sistema Vida Saudável foi desenvolvido com o intuíto de garantir uma comunicação e acompanhamento de qualidade e satisfação entre o personal trainer/nutricionista e seus pacientes sem a necessidade obrigatória de consultas presenciais.</h4>
+              <h4 class="line-height"><%= t('aboutapp_two') %></h4>
               <div class="div-content">
-                <h1>Recursos Disponíveis</h1>
+                <h1><%= t('available_resources') %></h1>
               </div>
             </div>
           </div>
@@ -42,13 +42,13 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-push-6  col-sm-6 col-lg-4 col-lg-offset-1">
-              <h2 class="section-heading">Recebimento e Downloads de Dietas</h2>
+              <h2 class="section-heading"><%= t('reiceipt_and_download_diets') %></h2>
               <p class="line-height">
-                Ao utilizar o aplicativo Disciplined Training você paciente vai receber todas as atualizações de dietas e treinos diretamente no seu celular no exato momento em que seu personal atualiza-la no sistema e poderá baixa-las no formato pdf.
+                <%= t('reiceipt_and_download_diets_answer') %>
               </p>
             </div>
             <div id="icon-one" class="col-lg-5 col-sm-pull-6  col-sm-6 text-center">
-              <i class="fa fa-file-pdf-o fa-13x"></i>
+              <i class="fa fa-file-pdf-o fa-5x"></i>
             </div>
           </div>
         </div>
@@ -56,13 +56,13 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-6 col-lg-5 ">
-                <h2 class="section-heading text-center">Atualização de Medidas</h2
+                <h2 class="section-heading text-center"><%= t('update_measures') %></h2
                 <p class="line-height">
-                  O Paciente pode atualizar em qualquer momento suas medidas corporais para que o seu personal trainer/nutricionista possa acompanhar sua evolução física e clínica.
+                  <%= t('update_measures_answer') %>
                 </p>
               </div>
               <div class="col-sm-6 col-lg-4 col-lg-offset-2 text-center">
-                <i id="icon-two" class="fa fa-refreh fa-13x"></i>
+                <i id="icon-two" class="fa fa-refresh fa-5x"></i>
               </div>
             </div>
           </div>
@@ -71,13 +71,13 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-push-6  col-sm-6 col-lg-4 col-lg-offset-1">
-                <h2 class="section-heading">Agendamento de Consultas</h2>
+                <h2 class="section-heading"><%= t('shedule_consults') %></h2>
                 <p class="line-height">
-                  É possível ao paciente agendar suas futuras consultas diretamente da aplicação sem precisar ligar para o consultório.
+                  <%= t('shedule_consults_answer') %>
                 </p>
               </div>
               <div id="icon-one" class="col-lg-5 col-sm-pull-6  col-sm-6 text-center">
-                <i class="fa fa-calendar fa-13x"></i>
+                <i class="fa fa-calendar fa-5x"></i>
               </div>
             </div>
           </div>
@@ -85,13 +85,13 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-6 col-lg-5 ">
-                  <h2 class="section-heading text-center">Sistema de notificações Instantâneas</h2
+                  <h2 class="section-heading text-center"><%= t('instant_system_notifications') %></h2
                   <p class="line-height">
-                    Você paciente sempre será avisado em tempo real assim que seu personal trainer/nutricionista incluir alguma dieta/treino ao seu perfil com uma notificação. Além disso, você sempre será lembrado 1 hora antes pelo aplicativo que o horário da sua refeição ou treino está se aproximando.
+                    <%= t('instant_system_notifications_answer') %>
                   </p>
                 </div>
                 <div class="col-sm-6 col-lg-4 col-lg-offset-2 text-center">
-                  <i id="icon-two" class="fa fa-bell-o fa-13x"></i>
+                  <i id="icon-two" class="fa fa-bell-o fa-5x"></i>
                 </div>
               </div>
             </div>
@@ -101,13 +101,13 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-push-6  col-sm-6 col-lg-4 col-lg-offset-1">
-                <h2 class="section-heading">Confirmação da Realizações de Treinos</h2>
+                <h2 class="section-heading"><%= t('confirmation_training_achievemnts') %></h2>
                 <p class="line-height">
-                  Junto a notificação do lembrete do horário do treino, você poderá confirmar para o personal/nutricionista se realmente irá realizar ou não atividade marcada, e justificar a sua resposta se necessário.
+                  <%= t('confirmation_training_achievemnts_answer') %>
                 </p>
               </div>
               <div id="icon-one" class="col-lg-5 col-sm-pull-6  col-sm-6 text-center">
-                <i class="fa fa-check-circle fa-13x"></i>
+                <i class="fa fa-check-circle fa-5x"></i>
               </div>
             </div>
           </div>
@@ -115,7 +115,7 @@
         <div class="content-section-a">
           <div class="container">
             <div class="row">
-              <h1 class="text-center">Não perca tempo... Baixe agora mesmo!</h1>
+              <h1 class="text-center"><%= t('dont_lose_time') %></h1>
               <p class="text-center hidden-xs">
                 <i class="fa fa-angle-double-down fa-13x"></i>
               </p>
