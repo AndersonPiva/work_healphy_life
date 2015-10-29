@@ -8,4 +8,5 @@ class Patient < ActiveRecord::Base
   has_many :trainings, :dependent => :delete_all
   has_many :realizations, :dependent => :delete_all
   has_many :ratings, :dependent => :delete_all
+  has_many :diets, :dependent => :delete_all
 end

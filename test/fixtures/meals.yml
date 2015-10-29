@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  time: 2015-10-29 02:27:23
+  totalCalories: 1.5
+  diet_id: 
+
+two:
+  name: MyString
+  time: 2015-10-29 02:27:23
+  totalCalories: 1.5
+  diet_id: 

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dateStart: 2015-10-29
+  dateEnd: 2015-10-29
+  duration: 1
+  totalCalories: 1.5
+  status: MyString
+  type: 
+  patient_id: 
+
+two:
+  dateStart: 2015-10-29
+  dateEnd: 2015-10-29
+  duration: 1
+  totalCalories: 1.5
+  status: MyString
+  type: 
+  patient_id: 

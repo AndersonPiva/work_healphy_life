@@ -1,0 +1,25 @@
+<%= simple_form_for(@diet) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :dateStart %>
+    <%= f.input :dateEnd %>
+    <%= f.input :duration %>
+    <%= f.input :totalCalories %>
+    <%= f.input :status %>
+    <%= f.input :type %>
+    <%= f.collection_select(:patient_id, current_user.patients, :id, :name, prompt: 'Por favor selecione o paciente' , class: 'form-control') %>
+  </div>
+
+  <div style="position: static; top: 50%">
+    <%= f.simple_fields_for :meals do |meal| %>
+    <%= render "meal_fields", :f => meal %>
+    <% end %>
+
+    <%= link_to_add_association 'Adicionar Refeição', f, :meals%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

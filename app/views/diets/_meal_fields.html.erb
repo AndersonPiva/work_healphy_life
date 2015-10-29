@@ -1,0 +1,17 @@
+<div class="nested-fields">
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :time %>
+    <%= f.input :totalCalories %>
+  </div>
+
+    <%= link_to_remove_association "Remover Refeição", f, :class => "btn btn-danger" %>
+
+    <div style="position: static; top: 50%">
+      <%= f.simple_fields_for :foods do |food| %>
+      <%= render "food_fields", :f => food %>
+      <% end %>
+
+      <%= link_to_add_association 'Adicionar Alimento', f, :foods%>
+    </div>
+</div>

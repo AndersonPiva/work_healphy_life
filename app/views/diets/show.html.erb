@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Datestart:</strong>
+  <%= @diet.dateStart %>
+</p>
+
+<p>
+  <strong>Dateend:</strong>
+  <%= @diet.dateEnd %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @diet.duration %>
+</p>
+
+<p>
+  <strong>Totalcalories:</strong>
+  <%= @diet.totalCalories %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @diet.status %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @diet.type %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @diet.patient %>
+</p>
+
+<%= link_to 'Edit', edit_diet_path(@diet) %> |
+<%= link_to 'Back', diets_path %>

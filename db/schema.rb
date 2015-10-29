@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028055754) do
+ActiveRecord::Schema.define(version: 20151029045423) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "city",       limit: 255
@@ -74,6 +74,20 @@ ActiveRecord::Schema.define(version: 20151028055754) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "diets", force: :cascade do |t|
+    t.date     "dateStart"
+    t.date     "dateEnd"
+    t.integer  "duration",      limit: 4
+    t.float    "totalCalories", limit: 24
+    t.string   "status",        limit: 255
+    t.string   "type",          limit: 255
+    t.integer  "patient_id",    limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "diets", ["patient_id"], name: "index_diets_on_patient_id", using: :btree
+
   create_table "exercises", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "description", limit: 255
@@ -86,6 +100,28 @@ ActiveRecord::Schema.define(version: 20151028055754) do
   end
 
   add_index "exercises", ["training_id"], name: "index_exercises_on_training_id", using: :btree
+
+  create_table "foods", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.float    "quantity",   limit: 24
+    t.float    "calories",   limit: 24
+    t.integer  "meal_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "foods", ["meal_id"], name: "index_foods_on_meal_id", using: :btree
+
+  create_table "meals", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.time     "time"
+    t.float    "totalCalories", limit: 24
+    t.integer  "diet_id",       limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "meals", ["diet_id"], name: "index_meals_on_diet_id", using: :btree
 
   create_table "measurements", force: :cascade do |t|
     t.date     "date"
@@ -207,7 +243,10 @@ ActiveRecord::Schema.define(version: 20151028055754) do
   add_foreign_key "appointments", "users"
   add_foreign_key "clinics", "users"
   add_foreign_key "compromises", "users"
+  add_foreign_key "diets", "patients"
   add_foreign_key "exercises", "trainings"
+  add_foreign_key "foods", "meals"
+  add_foreign_key "meals", "diets"
   add_foreign_key "measurements", "patients"
   add_foreign_key "patients", "clinics"
   add_foreign_key "patients", "users"

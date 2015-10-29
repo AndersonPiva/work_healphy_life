@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Diets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Datestart</th>
+      <th>Dateend</th>
+      <th>Duration</th>
+      <th>Totalcalories</th>
+      <th>Status</th>
+      <th>Type</th>
+      <th>Patient</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diets.each do |diet| %>
+      <tr>
+        <td><%= diet.dateStart %></td>
+        <td><%= diet.dateEnd %></td>
+        <td><%= diet.duration %></td>
+        <td><%= diet.totalCalories %></td>
+        <td><%= diet.status %></td>
+        <td><%= diet.type %></td>
+        <td><%= diet.patient %></td>
+        <td><%= link_to 'Show', diet %></td>
+        <td><%= link_to 'Edit', edit_diet_path(diet) %></td>
+        <td><%= link_to 'Destroy', diet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Diet', new_diet_path %>
