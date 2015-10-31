@@ -81,43 +81,39 @@
               <div class="form-group">
                 <label for="bairro" class="control-label col-sm-2">Bairro</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" disabled />
+                  <input type="text" class="form-control" value="<%= @patient.address.district %>" disabled />
                 </div>
               </div>
               <div class="form-group">
                 <label for="rua" class="control-label col-sm-2">Rua</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" disabled />
+                  <input type="text" class="form-control" value="<%= @patient.address.street %>" disabled />
                 </div>
                 <label for="numero" class="control-label col-sm-2">Número</label>
                 <div class="col-sm-2">
-                	<input type="text" class="form-control" disabled />
+                	<input type="text" class="form-control" value="<%= @patient.address.number %>" disabled />
                 </div>
               </div>
               <div class="form-group">
                 <label for="cep" class="control-label col-sm-2">CEP</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" disabled />
+                  <input type="text" class="form-control" value="<%= @patient.address.cep %>" disabled />
                 </div>
                 <label for="referencia" class="control-label col-sm-2">Referência</label>
                 <div class="col-sm-2">
-                  <input type="text" class="form-control" disabled />
+                  <input type="text" class="form-control" value="<%= @patient.address.reference %>" disabled />
                 </div>
               </div>
               <div class="form-group">
                 <label for="cidade" class="control-label col-sm-2">Cidade</label>
                 <div class="col-sm-9">
-                  <select class="form-control" disabled>
-                    <option>Xanxerê</option>
-                  </select>
+                  <input type="text" class="form-control" value="<%= @patient.address.city %>" disabled/>
                 </div>
               </div>
               <div class="form-group" disabled>
                 <label for="estado" class="control-label col-sm-2">Estado</label>
                 <div class="col-sm-9">
-                  <select class="form-control">
-                    <option>Santa Catarina</option>
-                  </select>
+                  <input type="text" class="form-control" value="<%= @patient.address.state %>" disabled/>
                 </div>
               </div>
               <legend>
@@ -147,7 +143,7 @@
               <div class="form-group">
                 <label for="senha" class="control-label col-sm-2">Senha</label>
                 <div class="col-sm-9">
-                	<input type="text" value="<%=@patient.password%>" class="form-control" disabled/>
+                	<input type="text" value="<%= @patient.password %>" class="form-control" disabled/>
                 </div>
               </div>
             </div>

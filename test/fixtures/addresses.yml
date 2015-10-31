@@ -6,8 +6,10 @@ one:
   district: MyString
   street: MyString
   cep: MyString
-  number: 1
+  number: MyString
   reference: MyString
+  user_id: 
+  clinic_id: 
 
 two:
   city: MyString
@@ -15,5 +17,7 @@ two:
   district: MyString
   street: MyString
   cep: MyString
-  number: 1
+  number: MyString
   reference: MyString
+  user_id: 
+  clinic_id: 

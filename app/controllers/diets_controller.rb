@@ -6,7 +6,13 @@ class DietsController < ApplicationController
   # GET /diets
   # GET /diets.json
   def index
-    @diets = Diet.all
+    @diets_for_user = []
+
+    Diet.all.each do |diet|
+      if diet.patient.user.id == current_user.id
+        @diets_for_user << diet
+      end
+    end
   end
 
   # GET /diets/1
@@ -27,7 +33,7 @@ class DietsController < ApplicationController
   # POST /diets.json
   def create
     @diet = Diet.new(diet_params)
-
+    @diet.duration = @diet.dateEnd - @diet.dateStart
     respond_to do |format|
       if @diet.save
         format.html { redirect_to @diet, notice: 'Diet was successfully created.' }
@@ -71,6 +77,6 @@ class DietsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def diet_params
-      params.require(:diet).permit(:id, :dateStart, :dateEnd, :duration, :totalCalories, :status, :type, :patient_id, meals_attributes: [:id, :name, :time, :totalCalories, :_destroy])
+      params.require(:diet).permit(:id, :dateStart, :dateEnd, :duration, :totalCalories, :kind, :patient_id, meals_attributes: [:id, :name, :time, :totalCalories, :description, :_destroy])
     end
 end

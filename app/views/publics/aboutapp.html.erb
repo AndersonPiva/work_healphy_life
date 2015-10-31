@@ -3,13 +3,13 @@
   <div class="container">
     <ul class="list-inline">
       <li>
-        <a href="index.html" target="_blank" title="Home"><i class="fa fa-home fa-2x"></i></a>
+        <%= link_to '', new_user_session_path, title: 'Home', class: 'fa fa-home fa-2x' %>
       </li
       <li class="lead">
         >
       </li>
       <li>
-        <i title="Disciplined Training Sobre" class="fa fa-question-circle fa-2x"></i>
+        <i title="<%= t('disciplined_training_about') %>" class="fa fa-question-circle fa-2x"></i>
       </li>
     </ul>
     <div class="panel panel-default">

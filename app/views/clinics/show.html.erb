@@ -48,43 +48,39 @@
               <div class="form-group">
                 <label for="bairro" class="control-label col-sm-2">Bairro</label>
                 <div class="col-sm-9">
-                  <input type="text" placeholder="Digite o nome do seu Bairro" class="form-control" disabled />
+                  <input type="text" class="form-control" value="<%= @clinic.address.district %>" disabled />
                 </div>
               </div>
               <div class="form-group">
                 <label for="rua" class="control-label col-sm-2">Rua</label>
                 <div class="col-sm-5">
-                  <input type="text" placeholder="Digite o nome do seu Bairro" class="form-control" disabled />
+                  <input type="text" class="form-control" value="<%= @clinic.address.street %>" disabled />
                 </div>
                 <label for="numero" class="control-label col-sm-2">Número</label>
                 <div class="col-sm-2">
-                  <input type="text" placeholder="Digite o número da sua residência" class="form-control" disabled />
+                  <input type="text" class="form-control" value="<%= @clinic.address.number %>" disabled />
                 </div>
               </div>
               <div class="form-group">
                 <label for="cep" class="control-label col-sm-2">CEP</label>
                 <div class="col-sm-5">
-                  <input type="text" placeholder="Insira seu CEP" class="form-control" disabled />
+                  <input type="text" class="form-control" value="<%= @clinic.address.cep %>" disabled />
                 </div>
                 <label for="referencia" class="control-label col-sm-2">Referência</label>
                 <div class="col-sm-2">
-                  <input type="text" placeholder="Digite sua referência" class="form-control" disabled />
+                  <input type="text" class="form-control" value="<%= @clinic.address.reference %>" disabled />
                 </div>
               </div>
               <div class="form-group">
                 <label for="cidade" class="control-label col-sm-2">Cidade</label>
                 <div class="col-sm-9">
-                  <select class="form-control" disabled>
-                    <option>Xanxerê</option>
-                  </select>
+                  <input type="text" class="form-control" value="<%= @clinic.address.city %>" disabled/>
                 </div>
               </div>
               <div class="form-group">
                 <label for="estado" class="control-label col-sm-2">Estado</label>
                 <div class="col-sm-9">
-                  <select class="form-control" disabled>
-                    <option>Santa Catarina</option>
-                  </select>
+                	<input type="text" class="form-control" value="<%= @clinic.address.state %>" disabled/>
                 </div>
               </div>
             </div>

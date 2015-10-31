@@ -38,69 +38,27 @@
 							<div class="form-group">
 								<label for="telefone" class="col-sm-2 control-label">Telefone</label>
 								<div class="col-sm-9">
-									<input type="text" placeholder="Digite o seu telefone para contato" class="form-control" />
+									<%= f.text_field :telephone1, :placeholder => 'Digite seu telefone para contato', class: 'form-control' %>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="telefonealternativo" class="col-sm-2 control-label">Telefone 2</label>
 								<div class="col-sm-9">
-									<input type="text" placeholder="Digite o seu telefone alternativo" class="form-control" />
+									<%= f.text_field :telephone2, :placeholder => 'Digite seu telefone alternativo para contato', class: 'form-control' %>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="cpf" class="col-sm-2 control-label">CPF</label>
 								<div class="col-sm-9">
-									<input type="text" placeholder="Digite o seu número de CPF" class="form-control cpf" />
-								</div>
-							</div>
-							<legend>
-								<i class="fa fa-map-marker"> Dados de Endereço</i>
-							</legend>
-							<div class="form-group">
-								<label for="bairro" class="control-label col-sm-2">Bairro</label>
-								<div class="col-sm-9">
-										<%= f.text_field :name, class:'form-control', :placeholder => 'Digite seu nome Completo' %>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="rua" class="control-label col-sm-2">Rua</label>
-								<div class="col-sm-5">
-									<input type="text" placeholder="Digite o nome do seu Bairro" class="form-control" />
-								</div>
-								<label for="numero" class="control-label col-sm-2">Número</label>
-								<div class="col-sm-2">
-									<input type="text" placeholder="Digite o número da sua residência" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="cep" class="control-label col-sm-2">CEP</label>
-								<div class="col-sm-5">
-									<input type="text" placeholder="Insira seu CEP" class="form-control" />
-								</div>
-								<label for="referencia" class="control-label col-sm-2">Referência</label>
-								<div class="col-sm-2">
-									<input type="text" placeholder="Digite sua referência" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="cidade" class="control-label col-sm-2">Cidade</label>
-								<div class="col-sm-9">
-									<select class="form-control">
-										<option>Xanxerê</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="estado" class="control-label col-sm-2">Estado</label>
-								<div class="col-sm-9">
-									<select class="form-control">
-										<option>Santa Catarina</option>
-									</select>
+									<%= f.text_field :cpf, :placeholder => 'Digite seu número de cpf', class: 'form-control' %>
 								</div>
 							</div>
 							<legend>
 								<i class="fa fa-lock"> Dados da conta</i>
 							</legend>
+							<p class="text-danger">
+								Caso você não queira alterar a senha, deixe os campos relacionados a uma nova senha em branco. No entanto é necessário colocar a senha atual para confirmar as demais alterações.
+							</p>
 							<div class="form-group">
 								<label for="email" class="control-label col-sm-2">E-mail</label>
 								<div class="col-sm-9">

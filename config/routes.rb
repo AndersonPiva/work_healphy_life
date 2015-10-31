@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :addresses
   resources :foods
   resources :meals
   resources :diets
@@ -50,6 +51,8 @@ Rails.application.routes.draw do
   get 'ratings' => 'ratings#index'
   get 'functions' => 'publics#functions'
   get 'aboutapp' => 'publics#aboutapp'
+  get 'diets' => 'diets#index'
+  get 'newdiet' => 'diets#new' 
   devise_scope :user do
     get "login", to: "devise/sessions#new"
     get "resendconfirmationinstructions", to: "devise/confirmations#new"

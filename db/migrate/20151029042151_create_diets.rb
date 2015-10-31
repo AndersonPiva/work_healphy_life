@@ -4,9 +4,7 @@ class CreateDiets < ActiveRecord::Migration
       t.date :dateStart
       t.date :dateEnd
       t.integer :duration
-      t.float :totalCalories
-      t.string :status
-      t.string :type
+      t.string :kind
       t.references :patient, index: true, foreign_key: true
 
       t.timestamps null: false

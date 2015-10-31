@@ -6,6 +6,10 @@ body {
 	padding: 0;
 }
 
+form .clearfix:before, form .clearfix:after {
+  display: inline;
+}
+
 #avaliacao{
 	margin: 0;
 	padding: 0;

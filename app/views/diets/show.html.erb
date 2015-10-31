@@ -1,39 +1,89 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Datestart:</strong>
-  <%= @diet.dateStart %>
-</p>
-
-<p>
-  <strong>Dateend:</strong>
-  <%= @diet.dateEnd %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @diet.duration %>
-</p>
-
-<p>
-  <strong>Totalcalories:</strong>
-  <%= @diet.totalCalories %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @diet.status %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @diet.type %>
-</p>
-
-<p>
-  <strong>Patient:</strong>
-  <%= @diet.patient %>
-</p>
-
-<%= link_to 'Edit', edit_diet_path(@diet) %> |
-<%= link_to 'Back', diets_path %>
+<div class="skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header class="main-header">
+			<%= render "privates/navbarprivate" %>
+		</header>
+		<aside class="main-sidebar">
+			<%= render "privates/menubar" %>
+		</aside>
+		<div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1">
+          <h1 class="col-xs-offset-1"><i class="fa fa-cutlery"></i> Detalhes da Dieta</h1>
+          <h4 class="col-xs-offset-1">Veja os detalhes da dieta para acompanhar a evolução clínica de seu paciente.</h4>
+          <div class="div-content">
+            <div class="panel panel-default col-xs-10 col-xs-offset-1">
+              <div class="form-horizontal">
+                <legend>
+                  Dados Gerais
+                </legend>
+                <div class="form-group">
+                  <label for="patient" class="control-label col-sm-3">Paciente</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @diet.patient.name %>" disabled/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="dateStart" class="control-label col-sm-3"> Data de Inínicio </label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @diet.dateStart %>" disabled/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="label" class="control-label col-sm-3">Data de Término</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @diet.dateEnd %>" disabled/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="kind" class="control-label col-sm-3">Tipo</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @diet.kind %>" disabled/>
+                  </div>
+                </div>
+                <legend>
+                  <i class="fa fa-star"></i> Refeições
+                </legend>
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <tr>
+                      <td class="text-center">
+                        <strong>Nome</strong>
+                      </td>
+                      <td class="text-center">
+                        <strong>Horário</strong>
+                      </td>
+                      <td class="text-center">
+                        <strong>Alimentos</strong>
+                      </td>
+                      <td class="text-center">
+                        <strong>Total de Calorias</strong>
+                      </td>
+                    </tr>
+                    <% @diet.meals.each do |meal| %>
+                      <tr>
+                        <td class="text-center">
+                          <%= meal.name %>
+                        </td>
+                        <td class="text-center">
+                          <%= meal.time %>
+                        </td>
+                        <td class="text-center">
+                          <%= meal.description %>
+                        </td>
+                        <td class="text-center">
+                          <%= meal.totalCalories %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+	<%= render "privates/footerprivate" %>
+</div>

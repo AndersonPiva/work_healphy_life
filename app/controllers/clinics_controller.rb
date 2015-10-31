@@ -17,6 +17,7 @@ class ClinicsController < ApplicationController
   # GET /clinics/new
   def new
     @clinic = Clinic.new
+    @clinic.build_address
   end
 
   # GET /clinics/1/edit
@@ -27,7 +28,7 @@ class ClinicsController < ApplicationController
   # POST /clinics.json
   def create
     @clinic = Clinic.new(clinic_params)
-
+    @clinic.user_id = current_user.id
     respond_to do |format|
       if @clinic.save
         format.html { redirect_to @clinic, notice: 'Clinic was successfully created.' }
@@ -71,6 +72,6 @@ class ClinicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clinic_params
-      params.require(:clinic).permit(:name, :telephone1, :telephone2, :cpfCnpj, :user_id)
+      params.require(:clinic).permit(:id, :name, :telephone1, :telephone2, :cpfCnpj, :user_id, address_attributes: [:id, :city, :state, :district, :street, :cep, :number, :reference])
     end
 end

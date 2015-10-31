@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029045423) do
+ActiveRecord::Schema.define(version: 20151030004502) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "city",       limit: 255
@@ -19,11 +19,16 @@ ActiveRecord::Schema.define(version: 20151029045423) do
     t.string   "district",   limit: 255
     t.string   "street",     limit: 255
     t.string   "cep",        limit: 255
-    t.integer  "number",     limit: 4
+    t.string   "number",     limit: 255
     t.string   "reference",  limit: 255
+    t.integer  "clinic_id",  limit: 4
+    t.integer  "patient_id", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "addresses", ["clinic_id"], name: "index_addresses_on_clinic_id", using: :btree
+  add_index "addresses", ["patient_id"], name: "index_addresses_on_patient_id", using: :btree
 
   create_table "appointments", force: :cascade do |t|
     t.date     "dateAppointment"
@@ -77,13 +82,11 @@ ActiveRecord::Schema.define(version: 20151029045423) do
   create_table "diets", force: :cascade do |t|
     t.date     "dateStart"
     t.date     "dateEnd"
-    t.integer  "duration",      limit: 4
-    t.float    "totalCalories", limit: 24
-    t.string   "status",        limit: 255
-    t.string   "type",          limit: 255
-    t.integer  "patient_id",    limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "duration",   limit: 4
+    t.string   "kind",       limit: 255
+    t.integer  "patient_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "diets", ["patient_id"], name: "index_diets_on_patient_id", using: :btree
@@ -101,21 +104,11 @@ ActiveRecord::Schema.define(version: 20151029045423) do
 
   add_index "exercises", ["training_id"], name: "index_exercises_on_training_id", using: :btree
 
-  create_table "foods", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.float    "quantity",   limit: 24
-    t.float    "calories",   limit: 24
-    t.integer  "meal_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "foods", ["meal_id"], name: "index_foods_on_meal_id", using: :btree
-
   create_table "meals", force: :cascade do |t|
     t.string   "name",          limit: 255
     t.time     "time"
     t.float    "totalCalories", limit: 24
+    t.string   "description",   limit: 255
     t.integer  "diet_id",       limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -201,7 +194,9 @@ ActiveRecord::Schema.define(version: 20151029045423) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
-    t.integer  "address_id",             limit: 4
+    t.string   "telephone1",             limit: 255
+    t.string   "telephone2",             limit: 255
+    t.string   "cpf",                    limit: 255
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
@@ -224,7 +219,6 @@ ActiveRecord::Schema.define(version: 20151029045423) do
     t.datetime "cover_updated_at"
   end
 
-  add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
@@ -238,6 +232,8 @@ ActiveRecord::Schema.define(version: 20151029045423) do
 
   add_index "weighings", ["patient_id"], name: "index_weighings_on_patient_id", using: :btree
 
+  add_foreign_key "addresses", "clinics"
+  add_foreign_key "addresses", "patients"
   add_foreign_key "appointments", "clinics"
   add_foreign_key "appointments", "patients"
   add_foreign_key "appointments", "users"
@@ -245,7 +241,6 @@ ActiveRecord::Schema.define(version: 20151029045423) do
   add_foreign_key "compromises", "users"
   add_foreign_key "diets", "patients"
   add_foreign_key "exercises", "trainings"
-  add_foreign_key "foods", "meals"
   add_foreign_key "meals", "diets"
   add_foreign_key "measurements", "patients"
   add_foreign_key "patients", "clinics"

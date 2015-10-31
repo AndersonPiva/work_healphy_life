@@ -27,7 +27,7 @@
                 <tr>
                   <td class="text-center"><%= clinic.name %></td>
                   <td class="text-center"><%= clinic.cpfCnpj %></td>
-                  <td class="text-center">-</td>
+            			<td class="text-center"><%= clinic.address.city %>/<%= clinic.address.state %></td>
                   <td class="text-center"><%= clinic.telephone1 %></td>
                   <td class="text-center"><%= link_to '', clinic, title: 'Details', class: 'btn btn-success btn-xs fa fa-ellipsis-h' %> <%= link_to '', edit_clinic_path(clinic), title: 'Editar', class: 'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', clinic, method: :delete, data: { confirm: 'Are you sure?' }, title:'Delete', class: 'btn btn-danger btn-xs fa fa-times' %></td>
                 </tr>

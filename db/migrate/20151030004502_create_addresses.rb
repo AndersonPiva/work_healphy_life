@@ -6,9 +6,10 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :district
       t.string :street
       t.string :cep
-      t.integer :number
+      t.string :number
       t.string :reference
-
+      t.references :clinic, index: true, foreign_key: true
+      t.references :patient, index:true, foreign_key: true
       t.timestamps null: false
     end
   end

@@ -9,4 +9,6 @@ class Patient < ActiveRecord::Base
   has_many :realizations, :dependent => :delete_all
   has_many :ratings, :dependent => :delete_all
   has_many :diets, :dependent => :delete_all
+  has_one :address, :dependent => :delete
+  accepts_nested_attributes_for :address, :reject_if => :all_blank, :allow_destroy => true
 end

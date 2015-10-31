@@ -42,7 +42,7 @@
 
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
-<%= pie_chart({"Football" => 10, "Basketball" => 19}) %>
+<%= column_chart({"Football" => 10, "Basketball" => 19}) %>
 
 <%= link_to 'Edit', edit_rating_path(@rating) %> |
 <%= link_to 'Back', ratings_path %>

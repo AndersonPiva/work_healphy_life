@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: [:show, :edit, :update, :destroy
-  before_action :authenticate_user!
+  before_action :set_address, only: [:show, :edit, :update, :destroy]
+
   # GET /addresses
   # GET /addresses.json
   def index
@@ -69,6 +69,6 @@ class AddressesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def address_params
-      params.require(:address).permit(:city, :state, :district, :street, :cep, :number, :reference)
+      params.require(:address).permit(:city, :state, :district, :street, :cep, :number, :reference, :user_id, :clinic_id)
     end
 end

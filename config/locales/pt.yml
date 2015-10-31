@@ -119,6 +119,7 @@ pt:
   confirmation_training_achievemnts: "Confirmação da Realizações de Treinos"
   confirmation_training_achievemnts_answer: "Junto a notificação do lembrete do horário do treino, você poderá confirmar para o personal/nutricionista se realmente irá realizar ou não atividade marcada, e justificar a sua resposta se necessário."
   dont_lose_time: "Não perca tempo"
+  disciplined_training_about: "Disciplined Training Sobre"
   devise:
     confirmations:
       confirmed: "Seu endereço de e-mail foi confirmado com sucesso."
