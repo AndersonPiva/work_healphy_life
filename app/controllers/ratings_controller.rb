@@ -14,7 +14,8 @@ class RatingsController < ApplicationController
       format.html
 
       format.pdf { render pdf: "avaliacao-fisica",
-        footer: { center: "[page] of [topage]" }
+        footer: { center: "[page] of [topage]" },
+        javascript_delay: 5000
       }
     end
   end

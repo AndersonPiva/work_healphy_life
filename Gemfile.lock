@@ -185,7 +185,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
     wicked_pdf (0.9.10)
       rails
-    wkhtmltopdf-binary (0.9.9.1)
+    wkhtmltopdf-binary-11 (0.1.0)
 
 PLATFORMS
   ruby
@@ -213,7 +213,7 @@ DEPENDENCIES
   watu_table_builder
   web-console (~> 2.0)
   wicked_pdf
-  wkhtmltopdf-binary
+  wkhtmltopdf-binary-11
 
 BUNDLED WITH
    1.10.6
