@@ -18,7 +18,7 @@ class RatingsControllerTest < ActionController::TestCase
 
   test "should create rating" do
     assert_difference('Rating.count') do
-      post :create, rating: { bodyFat: @rating.bodyFat, boneWeight: @rating.boneWeight, date: @rating.date, excessWeigth: @rating.excessWeigth, imc: @rating.imc, muscleWeight: @rating.muscleWeight, patient_id: @rating.patient_id, residualWeigth: @rating.residualWeigth }
+      post :create, rating: { belly: @rating.belly, chest: @rating.chest, date: @rating.date, handleDiameter: @rating.handleDiameter, kneeDiameter: @rating.kneeDiameter, leg: @rating.leg, patient_id: @rating.patient_id }
     end
 
     assert_redirected_to rating_path(assigns(:rating))
@@ -35,7 +35,7 @@ class RatingsControllerTest < ActionController::TestCase
   end
 
   test "should update rating" do
-    patch :update, id: @rating, rating: { bodyFat: @rating.bodyFat, boneWeight: @rating.boneWeight, date: @rating.date, excessWeigth: @rating.excessWeigth, imc: @rating.imc, muscleWeight: @rating.muscleWeight, patient_id: @rating.patient_id, residualWeigth: @rating.residualWeigth }
+    patch :update, id: @rating, rating: { belly: @rating.belly, chest: @rating.chest, date: @rating.date, handleDiameter: @rating.handleDiameter, kneeDiameter: @rating.kneeDiameter, leg: @rating.leg, patient_id: @rating.patient_id }
     assert_redirected_to rating_path(assigns(:rating))
   end
 

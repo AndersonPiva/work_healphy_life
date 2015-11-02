@@ -17,5 +17,4 @@
 //= require_tree
 //= require cocoon
 //= require app.min
-//= require jsapi
 //= require chartkick

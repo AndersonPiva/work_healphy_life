@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  # GET /resource/sign_up
+
   def new
     build_resource({})
     respond_with self.resource
@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def show
   end
-  # POST /resource
+
   def create
     build_resource(sign_up_params)
     if resource.save

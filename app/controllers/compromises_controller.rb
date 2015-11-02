@@ -3,8 +3,6 @@ class CompromisesController < ApplicationController
   protect_from_forgery with: :exception
   before_action :authenticate_user!
 
-  # GET /compromises
-  # GET /compromises.json
   def index
     @compromises = []
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
@@ -16,22 +14,16 @@ class CompromisesController < ApplicationController
     end
   end
 
-  # GET /compromises/1
-  # GET /compromises/1.json
   def show
   end
 
-  # GET /compromises/new
   def new
     @compromise = Compromise.new
   end
 
-  # GET /compromises/1/edit
   def edit
   end
 
-  # POST /compromises
-  # POST /compromises.json
   def create
     @compromise = Compromise.new(compromise_params)
     @compromise.user_id = current_user.id
@@ -47,8 +39,6 @@ class CompromisesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /compromises/1
-  # PATCH/PUT /compromises/1.json
   def update
     respond_to do |format|
       if @compromise.update(compromise_params)
@@ -61,8 +51,6 @@ class CompromisesController < ApplicationController
     end
   end
 
-  # DELETE /compromises/1
-  # DELETE /compromises/1.json
   def destroy
     @compromise.destroy
     respond_to do |format|
@@ -72,12 +60,11 @@ class CompromisesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_compromise
       @compromise = Compromise.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def compromise_params
       params.require(:compromise).permit(:title, :date, :schedule, :description, :user_id)
     end

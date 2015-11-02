@@ -42,9 +42,9 @@
               <tr>
                 <td class="text-center"><%= patient.name  %></td>
  	              <td class="text-center"><%= patient.email %></td>
-  	            <td class="text-center">-</td>
+  	            <td class="text-center"><%= patient.address.city%>/<%= patient.address.state %></td>
                 <td class="text-center"><%= patient.telephone %></td>
-                <td class="text-center"><%= link_to '', patient,title:"Details",class:'btn btn-success btn-xs fa fa-ellipsis-h' %> <%= link_to '', edit_patient_path(patient),title:"Edit",class:'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', patient, method: :delete, data: { confirm: 'Are you sure?' }, title:'Delete',class:'btn btn-danger btn-xs fa fa-times' %></td>
+								<td class="text-center"><%= link_to '', patient,title:"Details",class:'btn btn-success btn-xs fa fa-ellipsis-h' %> <%= link_to '', edit_patient_path(patient),title:"Edit",class:'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', patient, method: :delete, data: { confirm: 'Are you sure?' }, title:'Delete',class:'btn btn-danger btn-xs fa fa-times' %></td>
               </tr>
                <% end %>
             </table>

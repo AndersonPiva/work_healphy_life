@@ -1,48 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Patient:</strong>
+  <%= @rating.patient %>
+</p>
+
+<p>
   <strong>Date:</strong>
   <%= @rating.date %>
 </p>
 
 <p>
-  <strong>Muscleweight:</strong>
-  <%= @rating.muscleWeight %>
+  <strong>Handlediameter:</strong>
+  <%= @rating.handleDiameter %>
 </p>
 
 <p>
-  <strong>Residualweigth:</strong>
-  <%= @rating.residualWeigth %>
+  <strong>Kneediameter:</strong>
+  <%= @rating.kneeDiameter %>
 </p>
 
 <p>
-  <strong>Boneweight:</strong>
-  <%= @rating.boneWeight %>
+  <strong>Leg:</strong>
+  <%= @rating.leg %>
 </p>
 
 <p>
-  <strong>Bodyfat:</strong>
-  <%= @rating.bodyFat %>
+  <strong>Belly:</strong>
+  <%= @rating.belly %>
 </p>
 
 <p>
-  <strong>Excessweigth:</strong>
-  <%= @rating.excessWeigth %>
+  <strong>Chest:</strong>
+  <%= @rating.chest %>
 </p>
-
-<p>
-  <strong>Imc:</strong>
-  <%= @rating.imc %>
-</p>
-
-<p>
-  <strong>Patient:</strong>
-  <%= @rating.patient %>
-</p>
-
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-
-<%= column_chart({"Football" => 10, "Basketball" => 19}) %>
 
 <%= link_to 'Edit', edit_rating_path(@rating) %> |
 <%= link_to 'Back', ratings_path %>

@@ -1,8 +1,6 @@
 class WeighingsController < ApplicationController
   before_action :set_weighing, only: [:show, :edit, :update, :destroy]
 
-  # GET /weighings
-  # GET /weighings.json
   def index
     @weighings_foruser = []
     weighings_all = Weighing.all
@@ -15,22 +13,16 @@ class WeighingsController < ApplicationController
     end
   end
 
-  # GET /weighings/1
-  # GET /weighings/1.json
   def show
   end
 
-  # GET /weighings/new
   def new
     @weighing = Weighing.new
   end
 
-  # GET /weighings/1/edit
   def edit
   end
 
-  # POST /weighings
-  # POST /weighings.json
   def create
     @weighing = Weighing.new(weighing_params)
 
@@ -45,8 +37,6 @@ class WeighingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /weighings/1
-  # PATCH/PUT /weighings/1.json
   def update
     respond_to do |format|
       if @weighing.update(weighing_params)
@@ -59,8 +49,6 @@ class WeighingsController < ApplicationController
     end
   end
 
-  # DELETE /weighings/1
-  # DELETE /weighings/1.json
   def destroy
     @weighing.destroy
     respond_to do |format|
@@ -70,12 +58,11 @@ class WeighingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_weighing
       @weighing = Weighing.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def weighing_params
       params.require(:weighing).permit(:dateWeighing, :weight, :patient_id)
     end

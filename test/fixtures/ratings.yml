@@ -1,21 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date: 2015-10-19
-  muscleWeight: 1.5
-  residualWeigth: 1.5
-  boneWeight: 1.5
-  bodyFat: 1.5
-  excessWeigth: 1.5
-  imc: 1.5
   patient_id: 
+  date: 2015-11-01
+  handleDiameter: 1.5
+  kneeDiameter: 1.5
+  leg: 1.5
+  belly: 1.5
+  chest: 1.5
 
 two:
-  date: 2015-10-19
-  muscleWeight: 1.5
-  residualWeigth: 1.5
-  boneWeight: 1.5
-  bodyFat: 1.5
-  excessWeigth: 1.5
-  imc: 1.5
   patient_id: 
+  date: 2015-11-01
+  handleDiameter: 1.5
+  kneeDiameter: 1.5
+  leg: 1.5
+  belly: 1.5
+  chest: 1.5

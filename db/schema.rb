@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030004502) do
+ActiveRecord::Schema.define(version: 20151102010839) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "city",       limit: 255
@@ -151,14 +151,13 @@ ActiveRecord::Schema.define(version: 20151030004502) do
   add_index "patients", ["user_id"], name: "index_patients_on_user_id", using: :btree
 
   create_table "ratings", force: :cascade do |t|
-    t.date     "date"
-    t.float    "muscleWeight",   limit: 24
-    t.float    "residualWeigth", limit: 24
-    t.float    "boneWeight",     limit: 24
-    t.float    "bodyFat",        limit: 24
-    t.float    "excessWeigth",   limit: 24
-    t.float    "imc",            limit: 24
     t.integer  "patient_id",     limit: 4
+    t.date     "date"
+    t.float    "handleDiameter", limit: 24
+    t.float    "kneeDiameter",   limit: 24
+    t.float    "leg",            limit: 24
+    t.float    "belly",          limit: 24
+    t.float    "chest",          limit: 24
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end

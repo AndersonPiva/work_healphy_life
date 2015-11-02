@@ -1,18 +1,51 @@
 <%= simple_form_for(@rating) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :date %>
-    <%= f.input :muscleWeight %>
-    <%= f.input :residualWeigth %>
-    <%= f.input :boneWeight %>
-    <%= f.input :bodyFat %>
-    <%= f.input :excessWeigth %>
-    <%= f.input :imc %>
-    <%= f.association :patient %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-horizontal">
+    <legend>
+      <i class="fa fa-tags"></i> Dados Gerais
+    </legend>
+    <div class="form-group">
+      <label for="patient" class="control-label col-sm-3">Paciente</label>
+      <div class="col-sm-9">
+          <%= f.collection_select(:patient_id, current_user.patients, :id, :name, prompt: 'Por favor selecione o paciente' , class: 'form-control') %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="handleDiameter" class="control-label col-sm-3">Diâmetro do Punho</label>
+      <div class="col-sm-9">
+        <%= f.text_field :handleDiameter, :placeholder => 'Digite o diâmetro do punho do paciente em metros', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="kneeDiameter" class="control-label col-sm-3">Diâmetro do Joelho</label>
+      <div class="col-sm-9">
+        <%= f.text_field :kneeDiameter, :placeholder => 'Digite o diâmetro do joelho do paciente em metros', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="leg" class="control-label col-sm-3">Dobra cutânea da Coxa</label>
+      <div class="col-sm-9">
+        <%= f.text_field :leg, :placeholder => 'Digite o valor da dobra cutânea da coxa do paciente em milímetros', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="belly" class="control-label col-sm-3">Dobra cutânea do abdomen</label>
+      <div class="col-sm-9">
+        <%= f.text_field :belly, :placeholder => 'Digite o valor da dobra cutânea do abdomen do paciente em milímetros', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="chest" class="control-label col-sm-3">Dobra cutânea do peitoral</label>
+      <div class="col-sm-9">
+        <%= f.text_field :chest, :placeholder => 'Digite o valor da dobra cutânea do peitoral do paciente em milímetros', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-4 col-sm-offset-5">
+        <button type="submit" class="btn btn-primary btn-lg">
+          <i class="fa fa-save"></i> Salvar
+        </button>
+      </div>
+    </div>
   </div>
 <% end %>

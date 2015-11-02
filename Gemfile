@@ -9,7 +9,7 @@ gem 'font-awesome-sass'
 gem 'ransack'
 gem 'simple_form'
 gem 'cocoon', :git => 'git://github.com/nathanvda/cocoon'
-gem 'wkhtmltopdf-binary-11' 
+gem 'wkhtmltopdf-binary-cf'
 gem 'wicked_pdf'
 gem 'chartkick'
 # Use mysql as the database for Active Record

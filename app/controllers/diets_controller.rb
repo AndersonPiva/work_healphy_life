@@ -3,8 +3,6 @@ class DietsController < ApplicationController
   protect_from_forgery with: :exception
   before_action :authenticate_user!
 
-  # GET /diets
-  # GET /diets.json
   def index
     @diets_for_user = []
 
@@ -15,22 +13,16 @@ class DietsController < ApplicationController
     end
   end
 
-  # GET /diets/1
-  # GET /diets/1.json
   def show
   end
 
-  # GET /diets/new
   def new
     @diet = Diet.new
   end
 
-  # GET /diets/1/edit
   def edit
   end
 
-  # POST /diets
-  # POST /diets.json
   def create
     @diet = Diet.new(diet_params)
     @diet.duration = @diet.dateEnd - @diet.dateStart
@@ -45,8 +37,6 @@ class DietsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /diets/1
-  # PATCH/PUT /diets/1.json
   def update
     respond_to do |format|
       if @diet.update(diet_params)
@@ -59,8 +49,6 @@ class DietsController < ApplicationController
     end
   end
 
-  # DELETE /diets/1
-  # DELETE /diets/1.json
   def destroy
     @diet.destroy
     respond_to do |format|
@@ -70,12 +58,11 @@ class DietsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_diet
       @diet = Diet.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def diet_params
       params.require(:diet).permit(:id, :dateStart, :dateEnd, :duration, :totalCalories, :kind, :patient_id, meals_attributes: [:id, :name, :time, :totalCalories, :description, :_destroy])
     end

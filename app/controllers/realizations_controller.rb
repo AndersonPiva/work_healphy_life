@@ -3,8 +3,6 @@ class RealizationsController < ApplicationController
   protect_from_forgery with: :exception
   before_action :authenticate_user!
 
-  # GET /realizations
-  # GET /realizations.json
   def index
     @realizations_for_user = []
 
@@ -15,18 +13,15 @@ class RealizationsController < ApplicationController
     end
   end
 
-  # GET /realizations/1
-  # GET /realizations/1.json
   def show
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_realization
       @realization = Realization.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def realization_params
       params.require(:realization).permit(:date, :status, :observation, :training_id, :patient_id)
     end

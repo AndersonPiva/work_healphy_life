@@ -1,1 +1,1 @@
-json.extract! @rating, :id, :date, :muscleWeight, :residualWeigth, :boneWeight, :bodyFat, :excessWeigth, :imc, :patient_id, :created_at, :updated_at
+json.extract! @rating, :id, :patient_id, :date, :handleDiameter, :kneeDiameter, :leg, :belly, :chest, :created_at, :updated_at
