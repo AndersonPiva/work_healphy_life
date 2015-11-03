@@ -120,6 +120,9 @@ pt:
   confirmation_training_achievemnts_answer: "Junto a notificação do lembrete do horário do treino, você poderá confirmar para o personal/nutricionista se realmente irá realizar ou não atividade marcada, e justificar a sua resposta se necessário."
   dont_lose_time: "Não perca tempo"
   disciplined_training_about: "Disciplined Training Sobre"
+  page_not_found: "Oops! Página Não Encontrada."
+  page_not_found_write: "A página que você buscou infelizmente não existe no Vida Saudável."
+  return_home_page: "Retornar para a página inicial."
   devise:
     confirmations:
       confirmed: "Seu endereço de e-mail foi confirmado com sucesso."
