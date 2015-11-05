@@ -9,19 +9,19 @@
 		<div class="content-wrapper">
       <div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1 min-height">
-          <h1 class="col-xs-offset-1"><i class="fa fa-arrows-v"></i> Medições</h1>
-          <h4 class="col-xs-offset-1">Tenha acesso a todas a todas as medições corporais de seus pacientes de todas as suas clínicas, adicione novas, atualize-as...</h4>
+          <h1 class="col-xs-offset-1"><i class="fa fa-arrows-v"></i> <%= t('measurements') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('measurements_one') %></h4>
           <div class="div-content">
-            <a href="/newmeasurement" class="btn btn-primary margin col-xs-offset-1"><i class="fa fa-plus-circle"></i> Cadastrar Nova Medição</a>
+						<%= link_to t('register_measurement1'), new_measurement_path, class: 'btn btn-primary col-xs-offset-1 fa fa-plus-circle margin' %>
           </div>
           <div class="table-responsive col-xs-12 div-content">
             <table class="table table-hover">
               <tr>
-								<td class="text-center"><strong>Data</strong></td>
-                <td class="text-center"><strong>Paciente</strong></td>
-                <td class="text-center"><strong>Medida</strong></td>
-                <td class="text-center"><strong>Tamanho</strong></td>
-								<td class="text-center"><strong>Opções</strong></td>
+								<td class="text-center"><strong><%= t('date_of') %></strong></td>
+                <td class="text-center"><strong><%= t('patient') %></strong></td>
+                <td class="text-center"><strong><%= t('name_measure') %></strong></td>
+                <td class="text-center"><strong><%= t('size') %></strong></td>
+								<td class="text-center"><strong><%= t('options') %></strong></td>
               </tr>
               <% @measurements_for_user.each do |measurement| %>
                 <tr>
@@ -29,7 +29,7 @@
                   <td class="text-center"><%= measurement.patient.name %></td>
                   <td class="text-center"><%= measurement.nameMeasure %></td>
                   <td class="text-center"><%= measurement.size %></td>
-                  <td class="text-center"><%= link_to '', measurement, title: 'Details', class: 'btn btn-success btn-xs fa fa-ellipsis-h' %> <%= link_to '', edit_measurement_path(measurement), title: 'Editar', class: 'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', measurement, method: :delete, data: { confirm: 'Are you sure?' }, title:'Delete', class: 'btn btn-danger btn-xs fa fa-times'  %></td>
+                  <td class="text-center"><%= link_to '', measurement, title: t('details'), class: 'btn btn-success btn-xs fa fa-ellipsis-h' %> <%= link_to '', edit_measurement_path(measurement), title: t('edit'), class: 'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', measurement, method: :delete, data: { confirm: t('sure') }, title:'Delete', class: 'btn btn-danger btn-xs fa fa-times'  %></td>
                 </tr>
               <% end %>
             </table>

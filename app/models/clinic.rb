@@ -2,7 +2,7 @@ class Clinic < ActiveRecord::Base
   belongs_to :user
   has_many :appointments, :dependent => :delete_all
   has_many :patients, :dependent => :delete_all
-  validates_presence_of :name, :message => "É obrigatório"
+  validates_presence_of :name, :telephone1
   has_one :address, :dependent => :delete
   accepts_nested_attributes_for :address, :reject_if => :all_blank, :allow_destroy => true
 

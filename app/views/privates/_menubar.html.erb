@@ -1,37 +1,37 @@
 <section class="sidebar">
   <ul class="sidebar-menu">
     <li>
-      <a href="/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+      <%= link_to ' Dashboard', dashboard_path, class: 'fa fa-dashboard' %>
     </li>
     <li>
-      <a href="/clinics"> <i class="fa fa-hospital-o"></i> <span>Clínicas</span></a>
+      <%= link_to t('clinics'), clinics_path, class: 'fa fa-hospital-o' %>
     </li>
     <li>
-      <a href="/patients"> <i class="fa fa-users"></i> <span>Pacientes</span></a>
+      <%= link_to t('patients'), patients_path, class: 'fa fa-users' %>
     </li>
     <li>
-      <a href="/appointments"><i class="fa fa-book"></i> <span>Consultas</span></a>
+      <%= link_to t('appointments'), appointments_path, class: 'fa fa-book' %>
     </li>
     <li>
-      <a href="/diets"><i class="fa fa-cutlery"></i> <span>Dietas</span></a>
+      <%= link_to t('diets'), diets_path, class: 'fa fa-cutlery' %>
     </li>
     <li>
-      <a href="/trainings"><i class="fa fa-bullseye"></i> <span>Treinos</span></a>
+      <%= link_to t('trainings'), trainings_path, class: 'fa fa-bullseye' %>
     </li>
     <li>
-      <a href="/ratings"><i class="fa fa-certificate"></i> <span>Avaliações</span></a>
+      <%= link_to t('ratings'), ratings_path, class: 'fa fa-certificate' %>
     </li>
     <li>
-      <a href="/weighings"><i class="fa fa-building"></i> <span>Pesagens</span></a>
+      <%= link_to t('weighings'), weighings_path, class: 'fa fa-building' %>
     </li>
     <li>
-      <a href="/measurements"><i class="fa fa-arrows-v"></i> <span>Medições</span></a>
+      <%= link_to t('measurements'), measurements_path, class: 'fa fa-arrows-v' %>
     </li>
     <li>
-      <a href="/realizations"><i class="fa fa-check-circle"></i> <span>Realizações</span></a>
+      <%= link_to t('realizations'), realizations_path, class: 'fa fa-check-circle' %>
     </li>
     <li>
-      <a href="/compromises"><i class="fa fa-calendar"></i> <span>Agenda</span></a>
+      <%= link_to t('schedule1'), compromises_path, class: 'fa fa-calendar' %>
     </li>
   </ul>
 </section>

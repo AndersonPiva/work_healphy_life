@@ -10,36 +10,36 @@
       <div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1">
           <h1 class="col-xs-offset-1">
-            <i class="fa fa-plus-circle"></i>
-            Detalhes do Compromisso</h1>
-          <h4 class="col-xs-offset-1">Veja todos os detalhes do compromisso para organizar-se com antecedência.</h4>
+            <i class="fa fa-calendar"></i>
+            <%= t('details_compromise') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('details_compromise_write') %></h4>
           <div class="div-content">
             <div class="panel panel-default col-xs-10 col-xs-offset-1">
               <div class="form-horizontal">
                 <legend>
                   <i class="fa fa-tags"></i>
-                  Dados Gerais
+                  <%= t('general_data') %>
                 </legend>
                 <div class="form-group field">
-                  <label class="col-sm-2 control-label" for="nome">Titulo</label>
+                  <label class="col-sm-2 control-label" for="nome"><%= t('title') %></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" value="<%= @compromise.title%>" disabled/>
                   </div>
                 </div>
                 <div class="form-group field">
-                  <label class="col-sm-2 control-label" for="telefone1">Data</label>
+                  <label class="col-sm-2 control-label" for="telefone1"><%= t('date_of') %></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" value="<%= @compromise.date%>" disabled/>
                   </div>
                 </div>
                 <div class="form-group field">
-                  <label class="col-sm-2 control-label" for="telefone1">Hora</label>
+                  <label class="col-sm-2 control-label" for="telefone1"><%= t('hour') %></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" value="<%= @compromise.schedule%>" disabled/>
                   </div>
                 </div>
                 <div class="form-group field">
-                  <label class="col-sm-2 control-label" for="telefone2">Descrição</label>
+                  <label class="col-sm-2 control-label" for="telefone2"><%= t('description') %></label>
                   <div class="col-sm-9">
                     <textarea class="form-control" disabled><%= @compromise.description%></textarea>
                   </div>

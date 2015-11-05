@@ -1,5 +1,24 @@
 en:
-  app_title: Management System Of Sports Clinics
+  register_measurement1: " Register new Measurement"
+  measurements_one: "Get access all body measurements of your patients of all your clinics, register news, updates."
+  register_measurement: "Register new measurement"
+  register_measurement_one: "Register a measurement to keep the body measures of your patient updated."
+  write_name_measure: "Write name of measure"
+  write_name_size: "Write size of measure"
+  please_patient: "Please select the patient"
+  edit_measurement: "Edit Measurement"
+  edit_measurement_one: "Edit a measurement to keep the body measures of your patient updated."
+  details_measurement: "Details of measurement"
+  details_measurement_one: "See details body measure of your patient to follow your clinical condition."
+  size: "Size"
+  name_measure: "Name of Measure"
+  realizations_trainings: "Realizations of Trainings"
+  realizations_trainings_one: "Get acess for all realizations of trainings of your patients and your clinics and follow clinical development of all then."
+  details: "Details"
+  training: "Training"
+  options: "Options"
+  app_title: "Management System Of Sports Clinics"
+  not_saved: "This operation cant'n be realized for any reasons. Please check your guest card: "
   totally_free: "Totally Free"
   have_better_controll: "Have better control experience of your sports clinic. Meet our Life Healthy system."
   simple_way: "A simple way, easy and with quality for you handle your clinic."
@@ -105,7 +124,7 @@ en:
   reiceipt_and_download_diets: "Receipt and Downloads diets"
   reiceipt_and_download_diets_answer: "When you use the App Disciplined Training you will receive all diet and trainings notifications in your mobile phone in the same time that your personal Trainer update the system and you can download in pdf format."
   update_measures: "Update Measures"
-  update_measures_answer: "Patient can update anytime your body measures for your personal trainer/nutritionist can follow your physical and clinical evolution."
+  update_measures_answer: "Patient can update anytime your body measures with your personal trainer/nutritionist can follow your physical and clinical evolution."
   shedule_consults: "Schedule consults"
   shedule_consults_answer: "Is possible to the patient schedule your futures consults direct for our application and don't need to call for the clinic."
   instant_system_notifications: "Instant System notifications"
@@ -117,3 +136,148 @@ en:
   page_not_found: "Oops! Page not found"
   page_not_found_write: "This page does not exists unfortunately in Healthy Life"
   return_home_page: "Return to home page"
+  dashboard_one: "You has access to a summary of the main activities of their clinics."
+  totalPatients: "Total of Patients"
+  appointments: "Appointments"
+  clinic: "Clinic"
+  female: "Female"
+  male: "Male"
+  schedule: "Schedule"
+  appointments_today: "Appointments for today"
+  personal_compromises: "Personal compromises for today"
+  compromises: "Compromises"
+  compromises_write: " Get all access for your schedule commitments."
+  register_compromisse: " Register new Compromise"
+  new_compromise: "Register a new compromise to keep your schedule updated."
+  general_data: "General Date"
+  write_compromise: "Write title of compromise"
+  save: "Save"
+  hour: "Hour"
+  description: "Description"
+  patient: "Patient"
+  price: "Price"
+  callcenter1: " Callcenter"
+  clinics: " Clinics"
+  patients: " Patients"
+  appointments: " Appointments"
+  trainings: " Trainings"
+  diets: " Diets"
+  ratings: " Ratings"
+  weighings: " Weighings"
+  schedule1: " Schedule"
+  measurements: " Measurements"
+  realizations: " Realizations"
+  date_of: "Date"
+  compromise_description: "Write the description to compromise"
+  details_compromise: "Details of compromise"
+  details_compromise_write: "See all details of compromise to organize with com antecedence."
+  edit: "Edit"
+  sure: "Are you Sure?"
+  sun: "SUN"
+  mon: "MON"
+  tues: "TUES"
+  wed: "WED"
+  thurs: "THURS"
+  fri: "FRI"
+  sat: "SAT"
+  hello: "Hello"
+  account_locked_one: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+  account_locked_two: "Click the link below to unlock your account:"
+  unlock_account: "Unlock my account"
+  reset_password_one: "Someone has requested a link to change your password. You can do this through the link below."
+  change_password: "Change my password"
+  reset_password_two: "If you didn't request this, please ignore this email."
+  reset_password_three: "Your password won't change until you access the link above and create a new one."
+  welcome: "Welcome"
+  confirmation_instructions_one: "You can confirm your account email through the link below:"
+  confirm_account: "Confirm my account"
+  not_saved_user: "Some problems prevendet your register. Verify your guest card:"
+  activerecord:
+    errors:
+      models:
+        weighing:
+          attributes:
+            weight:
+              blank: "is a required field"
+            patient_id:
+              blank: "need to be selected"
+        clinic:
+            attributes:
+              name:
+                blank: "is a required field"
+              telephone1:
+                blank: "is a required field"
+        appointment:
+              attributes:
+                dateAppointment:
+                  blank: "need to be selected"
+                schedule:
+                  blank: "need to be selected"
+                patient_id:
+                  blank: "need to be selected"
+                clinic_id:
+                  blank: "need to be selected"
+        rating:
+              attributes:
+                patient_id:
+                  blank: "need to be selected"
+                date:
+                  blank: "need to be selected"
+                handleDiameter:
+                  blank: "is a required field"
+                kneeDiameter:
+                  blank: "is a required field"
+                leg:
+                  blank: "is a required field"
+                belly:
+                  blank: "is a required field"
+                chest:
+                  blank: "is a required field"
+        measurement:
+              attributes:
+                date:
+                  blank: "need to be selected"
+                nameMeasure:
+                  blank: "is a required field"
+                size:
+                  blank: "is a required field"
+                patient_id:
+                  blank: "need to be selected"
+        compromise:
+              attributes:
+                title:
+                  blank: "is a required field"
+    attributes:
+      weighing:
+        dateWeighing: "Date of Weighing"
+        weight: "Weight"
+        patient_id: "Patient"
+      clinic:
+          name: "Name"
+          telephone1: "Telephone Main"
+      appointment:
+          dateAppointment: "Date of Appointment"
+          schedule: "Schedule of Appointment"
+          patient_id: "Patient"
+          clinic_id: "Clinic"
+      rating:
+        patient_id: "Patient"
+        date: "Date of Rating"
+        handleDiameter: "Handle Diameter"
+        kneeDiameter: "Knee Diameter"
+        leg: "Thigh Skinfold"
+        belly: "Belly Skinfold"
+        chest: "Chest Skinfold"
+      measurement:
+        date: "Date of Measurement"
+        nameMeasure: "Name of Measure"
+        size: "Size of Measure"
+        patient_id: "Patient"
+      compromise:
+        title: "Title of Compromise"
+        date: "Date of Compromise"
+        schedule: "Schedule of Compromise"
+      user:
+        name: "Name"
+        email: "E-mail"
+        password: "Password"

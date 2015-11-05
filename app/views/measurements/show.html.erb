@@ -11,35 +11,35 @@
         <div class="panel panel-default col-xs-10 col-xs-offset-1">
           <h1 class="col-xs-offset-1">
             <i class="fa fa-arrows-v"></i>
-            Detalhes da Medição</h1>
-          <h4 class="col-xs-offset-1">Veja os detalhes da medida corporal do seu paciente para acompanhar o seu quadro clínico.</h4>
+            <%= t('details_measurement') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('details_measurement_one') %></h4>
           <div class="div-content">
             <div class="panel panel-default col-xs-10 col-xs-offset-1">
               <div class="form-horizontal">
                 <legend>
                   <i class="fa fa-tags"></i>
-                  Dados Gerais
+                  <%= t('general_data') %>
                 </legend>
                 <div class="form-group">
-                  <label class="control-label col-sm-2" for="medida">Medida</label>
+                  <label class="control-label col-sm-3" for="medida"><%=t('name_measure') %></label>
                   <div class="col-sm-9">
                     <input class="form-control" disabled type="text" value="<%= @measurement.nameMeasure %>"/>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="paciente" class="control-label col-sm-2">Paciente</label>
+                  <label for="paciente" class="control-label col-sm-3"><%= t('patient') %></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" value="<%= @measurement.patient.name%>" disabled/>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="data" class="control-label col-sm-2">Data</label>
+                  <label for="data" class="control-label col-sm-3"><%= t('date_of') %></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" value="<%= @measurement.date %>" disabled/>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="tamanho" class="control-label col-sm-2">Tamanho</label>
+                  <label for="tamanho" class="control-label col-sm-3"><%= t('size') %></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" value="<%= @measurement.size %>" disabled/>
                   </div>

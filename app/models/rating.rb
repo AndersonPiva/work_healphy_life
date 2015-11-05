@@ -1,5 +1,6 @@
 class Rating < ActiveRecord::Base
   belongs_to :patient
+  validates_presence_of :patient_id, :date, :handleDiameter, :kneeDiameter, :leg, :belly, :chest
 
   def getOsseousWeight
     osseousWeight = 3.02 * (self.patient.heigth**2 * self.handleDiameter * self.kneeDiameter*400)**0.712
@@ -281,5 +282,38 @@ class Rating < ActiveRecord::Base
     leanMass = self.getMuscularWeight + self.getResidualWeight + self.getOsseousWeight
 
     leanMass.round(2)
+  end
+
+  def getIMC
+    imc = nil
+
+    imc = self.patient.weighings.last.weight/(self.patient.heigth ** 2)
+
+    imc.round(1)
+  end
+
+  def getImcClassification
+    classification = "Indefinida"
+
+    if self.getIMC < 18.5
+      classification = "Excesso de Magreza"
+    end
+    if self.getIMC >= 18.5 && self.getIMC < 25
+      classification = "Peso normal"
+    end
+    if self.getIMC >= 25 && self.getIMC < 30
+      classification = "Exesso de Peso"
+    end
+    if self.getIMC >= 30 && self.getIMC < 35
+      classification = "Obesidade (Grau I)"
+    end
+    if self.getIMC >= 35 && self.getIMC < 40
+      classification = "Obesidade (Grau II)"
+    end
+    if self.getIMC >= 40
+      classification = "Obesidade Mórbida (Grau III)"
+    end
+
+    classification
   end
 end

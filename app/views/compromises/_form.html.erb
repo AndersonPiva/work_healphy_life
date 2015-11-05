@@ -1,52 +1,41 @@
 <%= form_for(@compromise) do |f| %>
-<% if @compromise.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@compromise.errors.count, "error") %>
-    prohibited this compromise from being saved:</h2>
-
-  <ul>
-    <% @compromise.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+<%= error_messages(@compromise) %>
 <div class="form-horizontal">
   <legend>
     <i class="fa fa-tags"></i>
-    Dados Gerais
+    <%= t('general_data') %>
   </legend>
   <div class="form-group field">
-    <label class="col-sm-2 control-label" for="nome">Titulo</label>
+    <label class="col-sm-2 control-label" for="nome"><%= t('title') %></label>
     <div class="col-sm-9">
-      <%= f.text_field :title, :placeholder => 'Digite título do compromisso', class: 'form-control' %>
+      <%= f.text_field :title, :placeholder => t('write_compromise'), class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
-    <label class="col-sm-2 control-label" for="telefone1">Data</label>
+    <label class="col-sm-2 control-label" for="date"><%= t('date_of') %></label>
     <div class="col-sm-9">
       <%= f.date_select :date %>
     </div>
   </div>
   <div class="form-group field">
-    <label class="col-sm-2 control-label" for="telefone1">Hora</label>
+    <label class="col-sm-2 control-label" for="hora"><%= t('hour') %> </label>
     <div class="col-sm-9">
       <%= f.time_select :schedule %>
     </div>
   </div>
   <div class="form-group field">
-    <label class="col-sm-2 control-label" for="telefone2">Descrição</label>
+    <label class="col-sm-2 control-label" for="description"><%= t('description') %></label>
     <div class="col-sm-9">
-      <%= f.text_area :description, :placeholder => 'Digite a descrição para o compromisso', clasS: 'form-control' %>
+      <%= f.text_area :description, :placeholder => t('compromise_description') , class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-4 col-sm-offset-5">
       <button class="btn btn-primary btn-lg" type="submit">
         <i class="fa fa-save"></i>
-        Salvar
+        <%= t('save') %>
       </button>
     </div>
   </div>
 </div>
-<% end %> 
+<% end %>

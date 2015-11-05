@@ -237,5 +237,29 @@
 		<div style="padding-left: 190px;">
 				<%= pie_chart({"Massa Gorda" => @rating.getFatWeight, "Massa Óssea" => @rating.getOsseousWeight, "Massa Residual" => @rating.getResidualWeight, "Massa Muscular" => @rating.getMuscularWeight}) %>
 		</div>
+		<table border="1px">
+			<thead>
+				<tr>
+					<td style="text-align: center; background-color: #489CDF; width: 700px; ">
+							<strong>IMC</strong>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: center; width: 700px;">
+						<%= @rating.getIMC %> kg/m²
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: center; width: 700px; background-color: #FFFF00;">
+						<strong>Classificação</strong>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: center; width: 700px;  background-color: #FEFF99; ">
+						<%= @rating.getImcClassification %>
+					</td>
+				</tr>
+			</thead>
+		</table>
 	</body>
 </html>

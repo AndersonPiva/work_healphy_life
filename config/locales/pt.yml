@@ -1,11 +1,24 @@
 pt:
-  date:
-    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
-    order:
-      - :day
-      - :month
-      - :year
-  app_title: Sistema de gerenciamento de Clínicas Esportivas
+  register_measurement1: " Cadastrar nova Medição"
+  measurements_one: "Tenha acesso a todas as medições corporais de seus pacientes de todas as suas clínicas, adicione novas, atualize-as..."
+  register_measurement: "Cadastrar nova medição"
+  register_measurement_one: "Cadastre uma nova medição para manter as medidas corporais do seu paciente atualizadas."
+  edit_measurement: "Editar medição"
+  edit_measurement_one: "Edite uma medição para manter as medidas corporais do seu paciente atualizadas"
+  details_measurement: "Detalhes da medição"
+  details_measurement_one: "Veja os detalhes da medida corporal do seu paciente para acompanhar o seu quadro clínico."
+  write_name_measure: "Digite o nome da medida"
+  write_name_size: "Digite o tamanho da medida"
+  please_patient: "Por favor selecione o paciente"
+  size: "Tamanho"
+  name_measure: "Nome da Medida"
+  realizations_trainings: "Realizações de Treinos"
+  realizations_trainings_one: "Tenha acesso a todas as realizações de treinos de seus pacientes de todas as suas clínicas e acompanhe o desenvolvimento clínico de cada um deles"
+  details: "Detalhes"
+  training: "Treino"
+  options: "Opções"
+  app_title: "Sistema de gerenciamento de Clínicas Esportivas"
+  not_saved: "A operação não pode ser realizada por alguns motivos. Por favor verifique seu formulário: "
   totally_free: "Totalmente Grátis"
   have_better_controll: "Tenha uma melhor experiência com sua clínica. Conheça o nosso sistema Vida Saudável."
   simple_way: "Uma maneira simples, fácil e de qualidade para você lidar com sua clínica."
@@ -28,7 +41,7 @@ pt:
   terms_use: "Termos de Uso"
   privacy_policy: "Política de Privacidade"
   life_healthy: "Vida Saudável"
-  sing_in: "Cadastrar-me"
+  sign_in: "Cadastrar-me"
   new_account: "Nova Conta"
   sign_in_description_one: "Inscreva-se e desfrute de todas as"
   functions: " funcionalidades"
@@ -123,6 +136,368 @@ pt:
   page_not_found: "Oops! Página Não Encontrada."
   page_not_found_write: "A página que você buscou infelizmente não existe no Vida Saudável."
   return_home_page: "Retornar para a página inicial."
+  dashboard_one: "Tenha acesso a um resumo das principais atividades das suas clínicas."
+  totalPatients: "Total de Pacientes"
+  appointments: "Consultas"
+  clinic: "Clínica"
+  female: "Feminino"
+  male: "Masculino"
+  schedule: "Agenda"
+  schedule1: " Agenda"
+  appointments_today: "Atendimentos para Hoje"
+  personal_compromises: "Compromissos pessoais para Hoje"
+  hour: "Horário"
+  description: "Descrição"
+  patient: "Paciente"
+  price: "Valor"
+  callcenter1: " Suporte"
+  clinics: " Clínicas"
+  patients: " Pacientes"
+  appointments: " Consultas"
+  trainings: " Treinos"
+  diets: " Dietas"
+  ratings: " Avaliações"
+  weighings: " Pesagens"
+  schedule1: " Agenda"
+  measurements: " Medições"
+  realizations: " Realizações"
+  compromises: "Compromissos"
+  compromises_write: "Tenha acesso a toda a sua agenda de compromissos."
+  register_compromisse: " Cadastrar novo Compromisso"
+  new_compromise: "Cadastre um novo Compromisso para manter sua agenda atualizada."
+  general_data: "Dados Gerais"
+  write_compromise: "Digite título do compromisso"
+  save: "Salvar"
+  date_of: "Data"
+  compromise_description: "Digite a descrição para o compromisso"
+  details_compromise: "Detalhes do Compromisso"
+  details_compromise_write: "Veja todos os detalhes do compromisso para organizar-se com antecedência."
+  edit: "Editar"
+  sure: "Tem certeza?"
+  sun: "DOM"
+  mon: "SEG"
+  tues: "TER"
+  wed: "QUA"
+  thurs: "QUI"
+  fri: "SEX"
+  sat: "SAB"
+  hello: "Olá"
+  account_locked_one: "Sua conts foi bloqueada por um numero excessivo de acessos errados."
+  account_locked_two: "Acesse o link abaixo para desbloquear sua conta:"
+  unlock_account: "Desbloquear minha conta"
+  reset_password_one: "Alguém solicitou um link para mudança de senha. Você pode fazer isso através do link abaixo."
+  change_password: "Mudar minha senha"
+  reset_password_two: "Se você não solicitou isso, por favor, ignore esse email."
+  reset_password_three: "Sua senha não mudará até você acessar o link abaixo e criar uma nova."
+  welcome: "Seja bem-vindo"
+  confirmation_instructions_one: "Você pode confirmar sua conta de email pelo link abaixo:"
+  confirm_account: "Confirmar minha conta"
+  not_saved_user: "Alguns problemas impediram o seu cadastro. Verifique seu formulário:"
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda-feira
+    - Terça-feira
+    - Quarta-feira
+    - Quinta-feira
+    - Sexta-feira
+    - Sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %B"
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: "%{count} dias"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mês
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      present: deve ficar em branco
+      confirmation: não é igual a %{attribute}
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      record_invalid: 'A validação falhou: %{errors}'
+      restrict_dependent_destroy:
+        one: Não é possível excluir o registro pois existe um %{record} dependente
+        many: Não é possível excluir o registro pois existem %{record} dependentes
+      taken: já está em uso
+      too_long: 'é muito longo (máximo: %{count} caracteres)'
+      too_short: 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres)
+      other_than: deve ser diferente de %{count}
+    template:
+      body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: 'Não foi possível gravar %{model}: 1 erro'
+        other: 'Não foi possível gravar %{model}: %{count} erros.'
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u %n"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: "."
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: "."
+        format: "%n%"
+    precision:
+      format:
+        delimiter: "."
+  support:
+    array:
+      last_word_connector: " e "
+      two_words_connector: " e "
+      words_connector: ", "
+  time:
+    am: ''
+    formats:
+      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      long: "%d de %B de %Y, %H:%M"
+      short: "%d de %B, %H:%M"
+    pm: ''
+  activerecord:
+    errors:
+      models:
+        weighing:
+          attributes:
+            weight:
+              blank: "é um campo obrigatório"
+            patient_id:
+              blank: "deve ser selecionado"
+        clinic:
+            attributes:
+              name:
+                blank: "é um campo obrigatório"
+              telephone1:
+                blank: "é um campo obrigatório"
+        appointment:
+            attributes:
+              dateAppointment:
+                blank: "deve ser selecionada"
+              schedule:
+                blank: "deve ser selecionada"
+              patient_id:
+                blank: "deve ser selecionado"
+              clinic_id:
+                blank: "deve ser selecionada"
+        rating:
+            attributes:
+              patient_id:
+                blank: "deve ser selecionado"
+              date:
+                blank: "deve ser selecionada"
+              handleDiameter:
+                blank: "é um campo obrigatório"
+              kneeDiameter:
+                blank: "é um campo obrigatório"
+              leg:
+                blank: "é um campo obrigatório"
+              belly:
+                blank: "é um campo obrigatório"
+              chest:
+                blank: "é um campo obrigatório"
+        compromise:
+            attributes:
+              title:
+                blank: "é um campo obrigatório"
+        measurement:
+            attributes:
+              date:
+                blank: "deve ser selecionada"
+              nameMeasure:
+                blank: "é um campo obrigatório"
+              size:
+                blank: "é um campo obrigatório"
+              patient_id:
+                blank: "deve ser selecionado"
+        user:
+            attributes:
+              email:
+                taken: "cadastrado já existe"
+                blank: "é obrigatório"
+              password:
+                blank: "é obrigatória"
+                too_short: "é muito curta (minimo de 4 caracteres)"
+              password_confirmation:
+                confirmation: "não coincide com a senha"
+    attributes:
+      user:
+        name: "O nome"
+        email: "O e-mail"
+        password: "A senha"
+        password_confirmation: "A confirmação de senha"
+      weighing:
+        dateWeighing: "Data da Pesagem"
+        weight: "O Peso"
+        patient_id: "O Paciente"
+      clinic:
+        name: "O Nome"
+        telephone1: "O Telefone Principal"
+      appointment:
+        dateAppointment: "A Data da Consulta"
+        schedule: "O Horário da Consulta"
+        patient_id: "O Paciente"
+        clinic_id: "A Clínica"
+      rating:
+        patient_id: "O Paciente"
+        date: "A Data Da Avaliação"
+        handleDiameter: "O Diâmetro do Punho"
+        kneeDiameter: "O Diâmetro do Joelho"
+        leg: "A Dobra Cutânea da Coxa"
+        belly: "A Dobra Cutânea do Abdômen"
+        chest: "A Dobra Cutânea do Peitoral"
+      measurement:
+        date: "A Data da Medição"
+        nameMeasure: "O Nome da Medida"
+        size: "O Tamanho da Medida"
+        patient_id: "O Paciente"
+      compromise:
+        title: "O Titulo do Compromisso"
+        date: "A Data do Compromisso"
+        schedule: "O Horário do Compromisso"
   devise:
     confirmations:
       confirmed: "Seu endereço de e-mail foi confirmado com sucesso."

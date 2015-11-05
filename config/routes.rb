@@ -50,11 +50,12 @@ Rails.application.routes.draw do
   get 'newtraining' => 'trainings#new'
   get 'realizations' => 'realizations#index'
   get 'ratings' => 'ratings#index'
+  get 'newrating' => 'ratings#new'
   get 'functions' => 'publics#functions'
   get 'aboutapp' => 'publics#aboutapp'
   get 'diets' => 'diets#index'
   get 'newdiet' => 'diets#new'
-  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ] 
+  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
   devise_scope :user do
     get "login", to: "devise/sessions#new"
     get "resendconfirmationinstructions", to: "devise/confirmations#new"

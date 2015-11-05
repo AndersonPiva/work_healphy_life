@@ -1,16 +1,5 @@
 <%= form_for(@weighing) do |f| %>
-<% if @weighing.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@weighing.errors.count, "error") %>
-    prohibited this weighing from being saved:</h2>
-
-  <ul>
-    <% @weighing.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+<%= error_messages(@weighing) %>
 <div class="form-horizontal">
   <legend>
     <i class="fa fa-tags"></i>

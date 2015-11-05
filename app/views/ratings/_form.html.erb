@@ -1,5 +1,5 @@
 <%= simple_form_for(@rating) do |f| %>
-  <%= f.error_notification %>
+  <%= error_messages(@rating) %>
   <div class="form-horizontal">
     <legend>
       <i class="fa fa-tags"></i> Dados Gerais

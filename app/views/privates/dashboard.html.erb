@@ -10,16 +10,16 @@
 			<div class="perfil-content">
 				<div class="panel panel-default col-xs-10 col-xs-offset-1">
 					<h1 class="col-xs-offset-1"><i class="fa fa-dashboard"> Dashboard</i></h1>
-					<h4 class="col-xs-offset-1">Tenha acesso a um resumo das principais atividades das suas clínicas.</h4>
+					<h4 class="col-xs-offset-1"><%= t('dashboard_one') %></h4>
 					<div class="panel-icon">
 						<div class="panel panel-default col-sm-offset-1 col-sm-6 div-content">
-							<h3><i class="fa fa-users fa-2x"></i> Total de Pacientes</h3>
+							<h4 class="lead"><i class="fa fa-users fa-2x"></i> <%= t('totalPatients') %> </h4>
 							<div class="table-responsive">
 								<table class="table table-hover">
 									<tr>
-										<td class="text-center"><h4><strong>Clínica</strong></h4></td>
-										<td class="text-center"><h4><strong>Feminino</strong></h4></td>
-										<td class="text-center"><h4><strong>Masculino</strong></h4></td>
+										<td class="text-center"><h4><strong><%= t('clinic') %></strong></h4></td>
+										<td class="text-center"><h4><strong><%= t('female') %></strong></h4></td>
+										<td class="text-center"><h4><strong><%= t('male') %></strong></h4></td>
 										<td class="text-center"><h4><strong>Total</strong></h4></td>
 									</tr>
 									<% current_user.clinics.each do |clinic|%>
@@ -34,11 +34,11 @@
 							</div>
 						</div>
 						<div class="panel panel-default col-sm-3 col-sm-offset-1 div-content">
-							<h3><i class="fa fa-book fa-2x"></i> Consultas</h3>
+							<h4 class="lead"><i class="fa fa-book fa-2x"></i> <%= t('appointments') %> </h4>
 							<div class="table-responsive">
 								<table class="table table-hover">
 									<tr>
-										<td class="text-center"><h3><strong>Clinica</strong></h3></td>
+										<td class="text-center"><h3><strong><%= t('clinic') %></strong></h3></td>
 										<td class="text-center"><h3><strong>Total</strong></h3></td>
 									</tr>
 									<% current_user.clinics.each do |clinic| %>
@@ -52,15 +52,15 @@
 						</div>
 						<div class="panel-icon">
 							<div class="panel panel-default col-sm-offset-1 col-sm-10 div-content">
-								<h1 class="pn-title text-center"><i class="fa fa-calendar fa-2x"></i> Agenda</h1>
+								<h1 class="pn-title text-center"><i class="fa fa-calendar fa-2x"></i> <%= t('schedule') %></h1>
 								<div class="table-responsive">
 									<table class="table table-hover">
-										<h2 class="text-center"><strong>Atendimentos para Hoje</strong></h2>
+										<h2 class="text-center"><strong><%= t('appointments_today') %></strong></h2>
 										<tr>
-											<td class="text-center"><strong>Horário</strong></td>
-											<td class="text-center"><strong>Paciente</strong></td>
-											<td class="text-center"><strong>Valor</strong></td>
-											<td class="text-center"><strong>Descrição</strong></td>
+											<td class="text-center"><strong><%= t('hour') %></strong></td>
+											<td class="text-center"><strong><%= t('patient') %></strong></td>
+											<td class="text-center"><strong><%= t('price') %></strong></td>
+											<td class="text-center"><strong><%= t('description') %></strong></td>
 										</tr>
 										<% @appointens_today.each do |appointment|%>
 										<tr>
@@ -74,10 +74,10 @@
 								</div>
 								<div class="table-responsive">
 									<table class="table table-hover">
-										<h2 class="text-center"><strong>Compromissos Pessoais para Hoje</strong></h2>
+										<h2 class="text-center"><strong><%= t('personal_compromises') %></strong></h2>
 										<tr>
-											<td class="text-center"><strong>Horário</strong></td>
-											<td class="text-center"><strong>Descrição</strong></td>
+											<td class="text-center"><strong><%= t('hour') %></strong></td>
+											<td class="text-center"><strong><%= t('description') %></strong></td>
 										</tr>
 										<% @compromises_today.each do |compromise| %>
 										<tr>
