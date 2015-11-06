@@ -4,49 +4,49 @@
 <div class="form-horizontal">
   <legend>
     <i class="fa fa-tags"></i>
-    Dados Gerais
+    <%= t('general_data') %>
   </legend>
   <div class="form-group field">
-    <label for="paciente" class="control-label col-sm-2">Paciente</label>
+    <label for="paciente" class="control-label col-sm-2"><%= t('patient') %></label>
     <div class="col-sm-9">
-      <%= f.collection_select(:patient_id, current_user.patients, :id, :name, prompt: 'Por favor selecione o paciente' , class: 'form-control') %>
+      <%= f.collection_select(:patient_id, current_user.patients, :id, :name, prompt: t('please_patient') , class: 'form-control') %>
     </div>
   </div>
   <div class="form-group field">
-    <label class="col-sm-2 control-label" for="data">Dia da Semana</label>
+    <label class="col-sm-2 control-label" for="data"><%= t('day_week') %></label>
     <div class="col-sm-9">
       <%= f.text_field :weekDay, :placeholder => 'Digite o dia da semana em que será realizado o treino', class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
-    <label class="col-sm-2 control-label" for="horario">Grupos Musculares</label>
+    <label class="col-sm-2 control-label" for="horario"><%= t('muscular_groups') %></label>
     <div class="col-sm-9">
       <%= f.text_field :muscularGroups, :placeholder => 'Digite os grupos musculares que serão treinados', class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
-    <label class="col-sm-2 control-label" for="preco">Descrição</label>
+    <label class="col-sm-2 control-label" for="preco"><%= t('description') %></label>
     <div class="col-sm-9">
       <%= f.text_area :description, :placeholder => 'Digite a descrição geral do treino', class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
-    <label class="control-label col-sm-2" for="dateStart">Data de Início</label>
+    <label class="control-label col-sm-2" for="dateStart"><%= t('dateStart') %></label>
     <%= f.date_select :dateStart %>
   </div>
   <div class="form-group field">
-    <label class="control-label col-sm-2" for="dateStart">Data de fim</label>
+    <label class="control-label col-sm-2" for="dateStart"><%= t('dateEnd') %></label>
     <%= f.date_select :dateEnd %>
   </div>
   <div class="form-group field">
-    <label class="control-label col-sm-2" for="dateStart">Duração</label>
+    <label class="control-label col-sm-2" for="dateStart"><%= t('duration') %></label>
     <%= f.time_select :duration %>
   </div>
   <legend class="div-content">
     <i class="fa fa-star"></i>
-    Exercícios</legend>
+    <%= t('exercises') %></legend>
   <h5 class="text-danger">
-    Adicione novos exercícios ao treino.
+    <%= t('add_exercises') %>
   </h5>
   <div>
     <%= f.simple_fields_for :exercises do |exercise| %>
@@ -54,13 +54,13 @@
     <% end %>
   </div>
   <div class="div-content">
-    <%= link_to_add_association 'Adicionar Exercício', f, :exercises, :class => "btn btn-primary" %>
+    <%= link_to_add_association t('add_exercises_button'), f, :exercises, :class => "btn btn-primary" %>
   </div>
   <div class="form-group">
     <div class="col-sm-4 col-sm-offset-5">
       <button class="btn btn-primary btn-lg" type="submit">
         <i class="fa fa-save"></i>
-        Salvar
+        <%= t('save') %>
       </button>
     </div>
   </div>

@@ -2,46 +2,46 @@
 <%= f.error_notification %>
   <div class="form-horizontal">
     <legend>
-      <i class="fa fa-tags"></i> Dados Gerais
+      <i class="fa fa-tags"></i> <%= t('general_data') %>
     </legend>
     <div class="form-group field">
-      <label for="patient" class="col-sm-3 control-label">Paciente</label>
+      <label for="patient" class="col-sm-3 control-label"><%= t('patient') %></label>
       <div class="col-sm-9">
-        <%= f.collection_select(:patient_id, current_user.patients, :id, :name, prompt: 'Por favor selecione o paciente' , class: 'form-control') %>
+        <%= f.collection_select(:patient_id, current_user.patients, :id, :name, prompt: t('please_patient') , class: 'form-control') %>
       </div>
     </div>
     <div class="form-group field">
-      <label for="dataStart" class="col-sm-3 control-label">Data de Início</label>
+      <label for="dataStart" class="col-sm-3 control-label"><%= t('date_start') %></label>
       <div class="col-sm-9">
         <%= f.date_select :dateStart, class: 'form-control' %>
       </div>
     </div>
     <div class="form-group field">
-      <label for="dateEnd" class="col-sm-3 control-label">Date de Término</label>
+      <label for="dateEnd" class="col-sm-3 control-label"><%= t('date_end') %></label>
       <div class="col-sm-9">
         <%= f.date_select :dateEnd, class: 'form-control' %>
       </div>
     </div>
     <div class="form-group field">
-      <label for="kind" class="control-label col-sm-3">Tipo de Dieta</label>
+      <label for="kind" class="control-label col-sm-3"><%= t('type_of_diet') %></label>
       <div class="col-sm-9">
-          <%= f.select("kind", %w(Hipertrofia Emagrecimento), {include_blank: "Selecione o tipo da dieta"},class:'form-control') %>
+          <%= f.select("kind", %w(Hipertrofia Emagrecimento), {include_blank: t('select_type_diet')},class:'form-control') %>
       </div>
     </div>
     <div class="div-content">
-        <legend><i class="fa fa-star"></i> Refeições</legend>
+        <legend><i class="fa fa-star"></i> <%= t('meals') %></legend>
         <h5 class="text-danger">
-          Clique para adicionar novas refeições à dieta.
+          <%= t('click_add_meal') %>
         </h5>
         <div>
           <%= f.simple_fields_for :meals do |meal| %>
           <%= render "meal_fields", :f => meal %>
           <% end %>
         </div>
-        <%= link_to_add_association 'Adicionar Refeição', f, :meals, class:'btn btn-primary'%>
+        <%= link_to_add_association t('add_meal'), f, :meals, class:'btn btn-primary'%>
         <div class="form-group">
           <div class="col-sm-5 col-sm-offset-4">
-            <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-save"></i> Salvar</button>
+            <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-save"></i> <%= t('save') %></button>
           </div>
         </div>
     </div>

@@ -36,8 +36,7 @@ class RatingsController < ApplicationController
     @rating.date = Date.today
     respond_to do |format|
       if @rating.save
-        format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
-        format.json { render :show, status: :created, location: @rating }
+        format.html { redirect_to ratings_path, notice: 'Rating was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @rating.errors, status: :unprocessable_entity }

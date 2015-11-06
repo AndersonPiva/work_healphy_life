@@ -2,79 +2,79 @@
   <%= error_messages(@clinic) %>
   <div class="form-horizontal">
   <legend>
-    <i class="fa fa-tags"></i> Dados Gerais
+    <i class="fa fa-tags"></i> <%= t('general_data') %>
   </legend>
   <div class="form-group field">
-    <label for="nome" class="col-sm-2 control-label">Nome</label>
+    <label for="nome" class="col-sm-3 control-label"><%= t('name') %></label>
     <div class="col-sm-9">
-       <%= f.text_field :name,:placeholder => 'Digite o nome da sua clinica', class: 'form-control' %>
+       <%= f.text_field :name,:placeholder => t('write_name'), class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
-    <label for="telefone1" class="col-sm-2 control-label">Telefone 1</label>
+    <label for="telefone1" class="col-sm-3 control-label"><%= t('telephone1') %></label>
     <div class="col-sm-9">
-      <%= f.text_field :telephone1,:placeholder => 'Digite o telefone principal de sua clinica' ,class: 'form-control' %>
+      <%= f.text_field :telephone1,:placeholder => t('write_telephone1') ,class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
-    <label for="telefone2" class="col-sm-2 control-label">Telefone 2</label>
+    <label for="telefone2" class="col-sm-3 control-label"><%= t('telephone2') %></label>
     <div class="col-sm-9">
-      <%= f.text_field :telephone2, :placeholder => 'Digite o telefone alternativo de sua clinica', class: 'form-control' %>
+      <%= f.text_field :telephone2, :placeholder => t('write_telephone2'), class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
-    <label for="cpf" class="control-label col-sm-2">CPF/CNPJ</label>
+    <label for="cpf" class="control-label col-sm-3">CPF/CNPJ</label>
     <div class="col-sm-9">
-      <%= f.text_field :cpfCnpj, :placeholder => 'Digite o número de CPF/CNPJ da sua clinica', class: 'form-control' %>
+      <%= f.text_field :cpfCnpj, :placeholder => t('write_cpfCnpf'), class: 'form-control' %>
     </div>
   </div>
   <legend>
-    <i class="fa fa-map-marker"></i> Dados de Endereço
+    <i class="fa fa-map-marker"></i> <%= t('data_of_address') %>
   </legend>
   <%= f.fields_for :address do |ff| %>
   <div class="form-group">
-    <label for="bairro" class="control-label col-sm-2">Bairro</label>
+    <label for="bairro" class="control-label col-sm-3"><%= t('district') %></label>
     <div class="col-sm-9">
-      <%= ff.text_field :district, :placeholder => 'Digite o nome do bairro de sua clínica', class: 'form-control' %>
+      <%= ff.text_field :district, :placeholder => t('write_district'), class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">
-    <label for="rua" class="control-label col-sm-2">Rua</label>
+    <label for="rua" class="control-label col-sm-3"><%= t('street') %></label>
     <div class="col-sm-5">
-      <%= ff.text_field :street, :placeholder => 'Digite o nome da rua da sua clínica', class: 'form-control' %>
+      <%= ff.text_field :street, :placeholder => t('write_street'), class: 'form-control' %>
     </div>
-    <label for="numero" class="control-label col-sm-2">Número</label>
+    <label for="numero" class="control-label col-sm-2"><%= t('number_of') %></label>
     <div class="col-sm-2">
-        <%= ff.text_field :number, :placeholder => 'Digite o número da sua clínica', class: 'form-control' %>
+        <%= ff.text_field :number, :placeholder => t('write_number'), class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">
-    <label for="cep" class="control-label col-sm-2">CEP</label>
+    <label for="cep" class="control-label col-sm-3"><%= t('cep') %></label>
     <div class="col-sm-5">
-      <%= ff.text_field :cep, :placeholder => 'Digite o CEP da sua clínica', class: 'form-control' %>
+      <%= ff.text_field :cep, :placeholder => t('write_cep'), class: 'form-control' %>
     </div>
-    <label for="referencia" class="control-label col-sm-2">Referência</label>
+    <label for="referencia" class="control-label col-sm-2"><%= t('reference') %></label>
     <div class="col-sm-2">
-      <%= ff.text_field :reference, :placeholder => 'Digite a referência da sua clínica', class: 'form-control' %>
+      <%= ff.text_field :reference, :placeholder => t('write_reference'), class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">
-    <label for="cidade" class="control-label col-sm-2">Cidade</label>
+    <label for="cidade" class="control-label col-sm-3"><%= t('city') %></label>
     <div class="col-sm-9">
-      <%= ff.text_field :city, :placeholder => 'Digite a cidade da sua clinica', class: 'form-control' %>
+      <%= ff.text_field :city, :placeholder => t('write_city'), class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">
-    <label for="estado" class="control-label col-sm-2">Estado</label>
+    <label for="estado" class="control-label col-sm-3"><%= t('state') %></label>
     <div class="col-sm-9">
-      <%= ff.text_field :state, :placeholder => 'Digite o estado da sua clinica', class: 'form-control' %>
+      <%= ff.text_field :state, :placeholder => t('write_state'), class: 'form-control' %>
     </div>
   </div>
   <% end %>
   <div class="form-group">
     <div class="col-sm-4 col-sm-offset-5">
       <button type="submit" class="btn btn-primary btn-lg">
-        <i class="fa fa-save"></i> Salvar
+        <i class="fa fa-save"></i> <%= t('save') %>
       </button>
     </div>
   </div>

@@ -9,19 +9,19 @@
 		<div class="content-wrapper">
       <div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1 min-height">
-          <h1 class="col-xs-offset-1"><i class="fa fa-hospital-o"></i> Clínicas</h1>
-          <h4 class="col-xs-offset-1">Tenha acesso a todas as suas Clínicas, adicione novas, modifique-as, gerencie-as...</h4>
+          <h1 class="col-xs-offset-1"><i class="fa fa-hospital-o"></i> <%= t('clinics') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('clinic_one') %></h4>
           <div class="div-content">
-            <a href="/newclinic" class="btn btn-primary margin col-xs-offset-1"><i class="fa fa-plus-circle"></i> Cadastrar Nova Clínica</a>
+						<%= link_to t('register_new_clinic'), new_clinic_path, class: 'col-xs-offset-1 margin btn btn-primary fa fa-plus-circle' %>
           </div>
         <div class="table-responsive col-xs-12 div-content">
             <table class="table table-hover">
               <tr>
-                <td class="text-center"><strong>Nome</strong></td>
+                <td class="text-center"><strong><%= t('name') %></strong></td>
                 <td class="text-center"><strong>E-mail</strong></td>
-                <td class="text-center"><strong>Endereço</strong></td>
-                <td class="text-center"><strong>Telefone</strong></td>
-                <td class="text-center"><strong>Opções</strong></td>
+                <td class="text-center"><strong><%= t('address') %></strong></td>
+                <td class="text-center"><strong><%= t('telephone1') %></strong></td>
+                <td class="text-center"><strong><%= t('options') %></strong></td>
               </tr>
               <% current_user.clinics.each do |clinic| %>
                 <tr>
@@ -29,7 +29,7 @@
                   <td class="text-center"><%= clinic.cpfCnpj %></td>
             			<td class="text-center"><%= clinic.address.city %>/<%= clinic.address.state %></td>
                   <td class="text-center"><%= clinic.telephone1 %></td>
-                  <td class="text-center"><%= link_to '', clinic, title: 'Details', class: 'btn btn-success btn-xs fa fa-ellipsis-h' %> <%= link_to '', edit_clinic_path(clinic), title: 'Editar', class: 'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', clinic, method: :delete, data: { confirm: 'Are you sure?' }, title:'Delete', class: 'btn btn-danger btn-xs fa fa-times' %></td>
+                  <td class="text-center"><%= link_to '', clinic, title: t('details'), class: 'btn btn-success btn-xs fa fa-ellipsis-h' %> <%= link_to '', edit_clinic_path(clinic), title: t('edit'), class: 'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', clinic, method: :delete, data: { confirm: t('sure') }, title:'Delete', class: 'btn btn-danger btn-xs fa fa-times' %></td>
                 </tr>
               <% end %>
             </table>

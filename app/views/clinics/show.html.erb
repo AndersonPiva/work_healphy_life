@@ -1,96 +1,98 @@
 <div class="skin-blue sidebar-mini">
-	<div class="wrapper">
-		<header class="main-header">
-			<%= render "privates/navbarprivate" %>
-		</header>
-		<aside class="main-sidebar">
-			<%= render "privates/menubar" %>
-		</aside>
-		<div class="content-wrapper">
+  <div class="wrapper">
+    <header class="main-header">
+      <%= render "privates/navbarprivate" %>
+    </header>
+    <aside class="main-sidebar">
+      <%= render "privates/menubar" %>
+    </aside>
+    <div class="content-wrapper">
       <div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1">
-          <h1 class="col-xs-offset-1"><i class="fa fa-plus-circle"></i> Detalhes da Clínica</h1>
-          <h4 class="col-xs-offset-1">Visualize o perfil detalhado da sua clínica.</h4>
+          <h1 class="col-xs-offset-1">
+            <i class="fa fa-plus-circle"></i>
+            <%= t('details_of_clinic') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('see_details_clinic') %></h4>
           <div class="div-content">
             <div class="panel panel-default col-xs-10 col-xs-offset-1">
               <div class="form-horizontal">
-              <legend>
-                <i class="fa fa-tags"></i> Dados Gerais
-              </legend>
-              <div class="form-group field">
-                <label for="nome" class="col-sm-2 control-label">Nome</label>
-                <div class="col-sm-9">
-                   <input type="text" class="form-control" value="<%=@clinic.name%>" disabled />
+                <legend>
+                  <i class="fa fa-tags"></i>
+                  <%= t('general_data') %>
+                </legend>
+                <div class="form-group field">
+                  <label class="col-sm-3 control-label" for="nome"><%= t('name') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%=@clinic.name%>"/>
+                  </div>
+                </div>
+                <div class="form-group field">
+                  <label class="col-sm-3 control-label" for="telefone1"><%= t('telephone1') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%=@clinic.telephone1%>"/>
+                  </div>
+                </div>
+                <div class="form-group field">
+                  <label class="col-sm-3 control-label" for="telefone2"><%= t('telephone2') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%=@clinic.telephone2%>"/>
+                  </div>
+                </div>
+                <div class="form-group field">
+                  <label class="control-label col-sm-3" for="cpf">CPF/CNPJ</label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @clinic.cpfCnpj%>"/>
+                  </div>
+                </div>
+                <legend>
+                  <i class="fa fa-map-marker"></i>
+                  <%= t('data_of_address') %>
+                </legend>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="bairro"><%= t('district') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @clinic.address.district %>"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="rua"><%= t('street') %></label>
+                  <div class="col-sm-5">
+                    <input class="form-control" disabled type="text" value="<%= @clinic.address.street %>"/>
+                  </div>
+                  <label class="control-label col-sm-2" for="numero"><%= t('number_of') %></label>
+                  <div class="col-sm-2">
+                    <input class="form-control" disabled type="text" value="<%= @clinic.address.number %>"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="cep">CEP</label>
+                  <div class="col-sm-5">
+                    <input class="form-control" disabled type="text" value="<%= @clinic.address.cep %>"/>
+                  </div>
+                  <label class="control-label col-sm-2" for="referencia"><%= t('reference') %></label>
+                  <div class="col-sm-2">
+                    <input class="form-control" disabled type="text" value="<%= @clinic.address.reference %>"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="cidade"><%= t('city') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @clinic.address.city %>"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="estado"><%= t('state') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @clinic.address.state %>"/>
+                  </div>
                 </div>
               </div>
-              <div class="form-group field">
-                <label for="telefone1" class="col-sm-2 control-label">Telefone 1</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" value="<%=@clinic.telephone1%>" disabled />
-                </div>
-              </div>
-              <div class="form-group field">
-                <label for="telefone2" class="col-sm-2 control-label">Telefone 2</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" value="<%=@clinic.telephone2%>" disabled />
-                </div>
-              </div>
-              <div class="form-group field">
-                <label for="cpf" class="control-label col-sm-2">CPF/CNPJ</label>
-                <div class="col-sm-9">
-                     <input type="text" class="form-control" value="<%= @clinic.cpfCnpj%>" disabled />
-                </div>
-              </div>
-              <legend>
-                <i class="fa fa-map-marker"></i> Dados de Endereço
-              </legend>
-
-              <div class="form-group">
-                <label for="bairro" class="control-label col-sm-2">Bairro</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" value="<%= @clinic.address.district %>" disabled />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="rua" class="control-label col-sm-2">Rua</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" value="<%= @clinic.address.street %>" disabled />
-                </div>
-                <label for="numero" class="control-label col-sm-2">Número</label>
-                <div class="col-sm-2">
-                  <input type="text" class="form-control" value="<%= @clinic.address.number %>" disabled />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="cep" class="control-label col-sm-2">CEP</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" value="<%= @clinic.address.cep %>" disabled />
-                </div>
-                <label for="referencia" class="control-label col-sm-2">Referência</label>
-                <div class="col-sm-2">
-                  <input type="text" class="form-control" value="<%= @clinic.address.reference %>" disabled />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="cidade" class="control-label col-sm-2">Cidade</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" value="<%= @clinic.address.city %>" disabled/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="estado" class="control-label col-sm-2">Estado</label>
-                <div class="col-sm-9">
-                	<input type="text" class="form-control" value="<%= @clinic.address.state %>" disabled/>
-                </div>
-              </div>
-            </div>
-            </div>
-            </div>
             </div>
           </div>
         </div>
       </div>
-		</div>
-	</div>
-	<%= render "privates/footerprivate" %>
+    </div>
+  </div>
+</div>
+<%= render "privates/footerprivate" %>
 </div>

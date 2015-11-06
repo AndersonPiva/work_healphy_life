@@ -9,28 +9,28 @@
 		<div class="content-wrapper">
       <div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1">
-          <h1 class="col-xs-offset-1"><i class="fa fa-building"></i> Detalhes da pesagem</h1>
-          <h4 class="col-xs-offset-1">Tenha acesso aos detalhes da pesagem</h4>
+          <h1 class="col-xs-offset-1"><i class="fa fa-building"></i> <%= t('details_weighing') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('details_weighing_one') %></h4>
           <div class="div-content">
             <div class="panel panel-default col-xs-10 col-xs-offset-1">
               <div class="form-horizontal">
               <legend>
-                <i class="fa fa-tags"></i> Dados Gerais
+                <i class="fa fa-tags"></i> <%= t('general_data') %>
               </legend>
               <div class="form-group field">
-                <label for="data" class="col-sm-2 control-label">Data</label>
+                <label for="data" class="col-sm-2 control-label"><%= t('date_of') %></label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control" value="<%= @weighing.dateWeighing%>" disabled/>
                 </div>
               </div>
               <div class="form-group field">
-                <label for="horario" class="col-sm-2 control-label">Paciente</label>
+                <label for="horario" class="col-sm-2 control-label"><%= t('patient') %></label>
                 <div class="col-sm-9">
                       <input type="text" class="form-control" value="<%= @weighing.patient.name%>" disabled/>
                 </div>
               </div>
               <div class="form-group field">
-                <label for="preco" class="col-sm-2 control-label">Peso</label>
+                <label for="preco" class="col-sm-2 control-label"><%= t('weight') %></label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" value="<%= @weighing.weight%>" disabled/>
                 </div>

@@ -28,8 +28,7 @@ class WeighingsController < ApplicationController
 
     respond_to do |format|
       if @weighing.save
-        format.html { redirect_to @weighing, notice: 'Weighing was successfully created.' }
-        format.json { render :show, status: :created, location: @weighing }
+        format.html { redirect_to weighings_path, notice: 'Weighing was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @weighing.errors, status: :unprocessable_entity }

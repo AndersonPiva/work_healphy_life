@@ -9,8 +9,8 @@
 		<div class="content-wrapper">
       <div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1">
-          <h1 class="col-xs-offset-1"><i class="fa fa-cutlery"></i> Detalhes da Dieta</h1>
-          <h4 class="col-xs-offset-1">Veja os detalhes da dieta para acompanhar a evolução clínica de seu paciente.</h4>
+          <h1 class="col-xs-offset-1"><i class="fa fa-cutlery"></i> <%= t('details_of_diet') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('details_of_diet_one') %></h4>
           <div class="div-content">
             <div class="panel panel-default col-xs-10 col-xs-offset-1">
               <div class="form-horizontal">
@@ -18,46 +18,46 @@
                   Dados Gerais
                 </legend>
                 <div class="form-group">
-                  <label for="patient" class="control-label col-sm-3">Paciente</label>
+                  <label for="patient" class="control-label col-sm-3"><%= t('patient') %></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" value="<%= @diet.patient.name %>" disabled/>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="dateStart" class="control-label col-sm-3"> Data de Inínicio </label>
+                  <label for="dateStart" class="control-label col-sm-3"> <%= t('date_start') %> </label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" value="<%= @diet.dateStart %>" disabled/>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="label" class="control-label col-sm-3">Data de Término</label>
+                  <label for="label" class="control-label col-sm-3"><%= t('date_end') %></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" value="<%= @diet.dateEnd %>" disabled/>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="kind" class="control-label col-sm-3">Tipo</label>
+                  <label for="kind" class="control-label col-sm-3"><%= t('type') %></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" value="<%= @diet.kind %>" disabled/>
                   </div>
                 </div>
                 <legend>
-                  <i class="fa fa-star"></i> Refeições
+                  <i class="fa fa-star"></i> <%= t('meals') %>
                 </legend>
                 <div class="table-responsive">
                   <table class="table table-hover">
                     <tr>
                       <td class="text-center">
-                        <strong>Nome</strong>
+                        <strong><%= t('name') %></strong>
                       </td>
                       <td class="text-center">
-                        <strong>Horário</strong>
+                        <strong><%= t('hour') %></strong>
                       </td>
                       <td class="text-center">
-                        <strong>Alimentos</strong>
+                        <strong><%= t('foods') %></strong>
                       </td>
                       <td class="text-center">
-                        <strong>Total de Calorias</strong>
+                        <strong><%= t('total_calories') %></strong>
                       </td>
                     </tr>
                     <% @diet.meals.each do |meal| %>

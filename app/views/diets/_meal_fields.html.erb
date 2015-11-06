@@ -1,38 +1,38 @@
 <div class="nested-fields">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Refeição</h3>
+      <h3 class="panel-title"><%= t('meal') %></h3>
     </div>
     <div class="panel-body">
       <div class="form-horizontal">
         <div class="form-group">
-          <label for="name" class="control-label col-sm-3">Nome</label>
+          <label for="name" class="control-label col-sm-3"><%= t('name') %></label>
           <div class="col-sm-9">
-            <%= f.text_field :name, :placeholder => 'Digite o nome da refeição', class: 'form-control' %>
+            <%= f.text_field :name, :placeholder => t('write_name_meal'), class: 'form-control' %>
           </div>
         </div>
         <div class="form-group field">
-          <label for="time" class="control-label col-sm-3">Horário</label>
+          <label for="time" class="control-label col-sm-3"><%= t('hour') %></label>
           <div class="col-sm-9">
             <%= f.time_select :time%>
           </div>
         </div>
         <div class="form-group field">
-          <label for="desciption" class="control-label col-sm-3">Alimentos</label>
+          <label for="desciption" class="control-label col-sm-3"><%= t('foods') %></label>
           <div class="col-sm-9">
-            <%= f.text_area :description, :placeholder => 'Digite a descrição da refeição, seus alimentos e suas quantidades', class: 'form-control' %>
+            <%= f.text_area :description, :placeholder => t('write_foods'), class: 'form-control' %>
           </div>
         </div>
         <div class="form-group field">
-          <label for="totalCalories" class="control-label col-sm-3">Total de Calorias</label>
+          <label for="totalCalories" class="control-label col-sm-3"><%= t('total_calories') %></label>
           <div class="col-sm-9">
-            <%= f.text_field :totalCalories, :placeholder => 'Digite o total de calorias da refeição', class: 'form-control' %>
+            <%= f.text_field :totalCalories, :placeholder => t('write_calories'), class: 'form-control' %>
           </div>
         </div>
       </div>
     </div>
     <div class="panel-footer">
-        <%= link_to_remove_association "Remover Refeição", f, :class => "btn btn-danger" %>
+        <%= link_to_remove_association t('remove_meal'), f, :class => "btn btn-danger" %>
     </div>
   </div>
 </div>
