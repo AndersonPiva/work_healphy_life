@@ -2,6 +2,10 @@ html, body {
 	height: 100%;
 }
 
+#root_panel{
+	padding-top: 100px;
+}
+
 #notice{
 	margin-top: 30px;
 	background-color: #FCF8E3;

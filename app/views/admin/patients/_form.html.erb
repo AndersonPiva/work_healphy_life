@@ -1,16 +1,6 @@
-<%= form_for(@patient) do |f| %>
+<%= form_for([:admin, @patient]) do |f| %>
 <div class="form-horizontal">
-  <% if @patient.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@patient.errors.count, "error") %>
-      prohibited this patient from being saved:</h2>
-    <ul>
-      <% @patient.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
+  <%= error_messages(@patient) %>
   <legend>
     <i class="fa fa-tags"></i>
     Dados Pessoais

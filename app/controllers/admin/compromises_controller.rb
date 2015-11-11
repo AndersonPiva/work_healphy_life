@@ -1,7 +1,6 @@
-class CompromisesController < ApplicationController
+class Admin::CompromisesController < Admin::AdminController
   before_action :set_compromise, only: [:show, :edit, :update, :destroy]
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
 
   def index
     @compromises = []
@@ -30,8 +29,7 @@ class CompromisesController < ApplicationController
 
     respond_to do |format|
       if @compromise.save
-        format.html { redirect_to @compromise, notice: 'Compromise was successfully created.' }
-        format.json { render :show, status: :created, location: @compromise }
+        format.html { redirect_to admin_compromises_path, notice: 'Compromise was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @compromise.errors, status: :unprocessable_entity }
@@ -42,7 +40,7 @@ class CompromisesController < ApplicationController
   def update
     respond_to do |format|
       if @compromise.update(compromise_params)
-        format.html { redirect_to @compromise, notice: 'Compromise was successfully updated.' }
+        format.html { redirect_to admin_compromises_path, notice: 'Compromise was successfully updated.' }
         format.json { render :show, status: :ok, location: @compromise }
       else
         format.html { render :edit }
@@ -54,7 +52,7 @@ class CompromisesController < ApplicationController
   def destroy
     @compromise.destroy
     respond_to do |format|
-      format.html { redirect_to compromises_url, notice: 'Compromise was successfully destroyed.' }
+      format.html { redirect_to admin_compromises_url, notice: 'Compromise was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

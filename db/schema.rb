@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102010839) do
+ActiveRecord::Schema.define(version: 20151227041728) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "city",       limit: 255
@@ -151,13 +151,13 @@ ActiveRecord::Schema.define(version: 20151102010839) do
   add_index "patients", ["user_id"], name: "index_patients_on_user_id", using: :btree
 
   create_table "ratings", force: :cascade do |t|
-    t.integer  "patient_id",     limit: 4
     t.date     "date"
     t.float    "handleDiameter", limit: 24
     t.float    "kneeDiameter",   limit: 24
     t.float    "leg",            limit: 24
     t.float    "belly",          limit: 24
     t.float    "chest",          limit: 24
+    t.integer  "patient_id",     limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -192,16 +192,16 @@ ActiveRecord::Schema.define(version: 20151102010839) do
   add_index "trainings", ["patient_id"], name: "index_trainings_on_patient_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                   limit: 255
+    t.string   "name",                   limit: 255, default: "",   null: false
     t.string   "telephone1",             limit: 255
     t.string   "telephone2",             limit: 255
     t.string   "cpf",                    limit: 255
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "email",                  limit: 255, default: "",   null: false
+    t.string   "encrypted_password",     limit: 255, default: "",   null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
@@ -210,12 +210,13 @@ ActiveRecord::Schema.define(version: 20151102010839) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email",      limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.string   "cover_file_name",        limit: 255
     t.string   "cover_content_type",     limit: 255
     t.integer  "cover_file_size",        limit: 4
     t.datetime "cover_updated_at"
+    t.boolean  "admin",                              default: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

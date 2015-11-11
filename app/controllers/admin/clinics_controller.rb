@@ -1,7 +1,6 @@
-class ClinicsController < ApplicationController
+class Admin::ClinicsController < Admin::AdminController
   before_action :set_clinic, only: [:show, :edit, :update, :destroy]
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
 
   def index
     @clinics = Clinic.all
@@ -23,8 +22,7 @@ class ClinicsController < ApplicationController
     @clinic.user_id = current_user.id
     respond_to do |format|
       if @clinic.save
-        format.html { redirect_to @clinic, notice: 'Clinic was successfully created.' }
-        format.json { render :show, status: :created, location: @clinic }
+        format.html { redirect_to admin_clinics_path, notice: 'Clinic was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @clinic.errors, status: :unprocessable_entity }
@@ -35,8 +33,7 @@ class ClinicsController < ApplicationController
   def update
     respond_to do |format|
       if @clinic.update(clinic_params)
-        format.html { redirect_to @clinic, notice: 'Clinic was successfully updated.' }
-        format.json { render :show, status: :ok, location: @clinic }
+        format.html { redirect_to admin_clinics_path, notice: 'Clinic was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @clinic.errors, status: :unprocessable_entity }
@@ -47,7 +44,7 @@ class ClinicsController < ApplicationController
   def destroy
     @clinic.destroy
     respond_to do |format|
-      format.html { redirect_to clinics_url, notice: 'Clinic was successfully destroyed.' }
+      format.html { redirect_to admin_clinics_url, notice: 'Clinic was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
