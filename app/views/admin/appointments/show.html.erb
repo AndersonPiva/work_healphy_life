@@ -1,0 +1,68 @@
+<div class="skin-blue sidebar-mini slim-heigth">
+  <div class="wrapper">
+    <header class="main-header">
+      <%= render "privates/navbarprivate" %>
+    </header>
+    <aside class="main-sidebar">
+      <%= render "privates/menubar" %>
+    </aside>
+    <div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1">
+          <h1 class="col-xs-offset-1">
+            <i class="fa fa-book"></i>
+            <%= t('details_of_appointment') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('details_of_appointment_one') %></h4>
+          <div class="div-content">
+            <div class="panel panel-default col-xs-10 col-xs-offset-1">
+              <div class="form-horizontal">
+                <legend>
+                  <i class="fa fa-tags"></i>
+                  <%= t('general_data') %>
+                </legend>
+                <div class="form-group field">
+                  <label class="col-sm-2 control-label" for="data"><%= t('date_of') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @appointment.dateAppointment%>"/>
+                  </div>
+                </div>
+                <div class="form-group field">
+                  <label class="col-sm-2 control-label" for="horario"><%= t('hour') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @appointment.schedule%>"/>
+                  </div>
+                </div>
+                <div class="form-group field">
+                  <label class="col-sm-2 control-label" for="preco"><%= t('price') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @appointment.price%>"/>
+                  </div>
+                </div>
+                <div class="form-group field">
+                  <label class="control-label col-sm-2" for="description"><%= t('description') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @appointment.description%>"/>
+                  </div>
+                </div>
+                <div class="form-group field">
+                  <label class="control-label col-sm-2" for="description"><%= t('patient') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @appointment.patient.name%>"/>
+                  </div>
+                </div>
+                <div class="form-group field">
+                  <label class="control-label col-sm-2" for="description"><%= t('clinic') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @appointment.clinic.name%>"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "privates/footerprivate" %>
+</div>

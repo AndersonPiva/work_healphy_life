@@ -1,104 +1,106 @@
 class Patient < ActiveRecord::Base
-  belongs_to :clinic
-  belongs_to :user
+  # Include default devise modules. Others available are:
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :appointments, :dependent => :delete_all
-  has_many :weighings, :dependent => :delete_all
-  has_many :measurements, :dependent => :delete_all
-  has_many :trainings, :dependent => :delete_all
-  has_many :realizations, :dependent => :delete_all
-  has_many :ratings, :dependent => :delete_all
-  has_many :diets, :dependent => :delete_all
-  has_one :address, :dependent => :delete
-  accepts_nested_attributes_for :address, :reject_if => :all_blank, :allow_destroy => true
-  validates_presence_of :name, :birthdate, :genre, :weigth, :heigth, :email, :clinic_id
+ belongs_to :clinic
+ belongs_to :user
 
-  def getAge
-    Date.today.year - self.birthdate.year
-  end
+ has_many :appointments, :dependent => :delete_all
+ has_many :weighings, :dependent => :delete_all
+ has_many :measurements, :dependent => :delete_all
+ has_many :trainings, :dependent => :delete_all
+ has_many :realizations, :dependent => :delete_all
+ has_many :ratings, :dependent => :delete_all
+ has_many :diets, :dependent => :delete_all
 
-  def getBicepsLeftSize
-    bicepsLeft = nil
+ def getAge
+   Date.today.year - self.birthdate.year
+ end
 
-    self.measurements.each do |measurement|
-      if measurement.nameMeasure == "Biceps Esquerdo"
-        bicepsLeft = measurement.size
-      end
-    end
+ def getBicepsLeftSize
+   bicepsLeft = nil
 
-    bicepsLeft
-  end
+   self.measurements.each do |measurement|
+     if measurement.nameMeasure == "Biceps Esquerdo"
+       bicepsLeft = measurement.size
+     end
+   end
 
-  def getBicepsRigthSize
-    bicepsRigth = nil
+   bicepsLeft
+ end
 
-    self.measurements.each do |measurement|
-      if measurement.nameMeasure == "Biceps Direito"
-        bicepsRigth = measurement.size
-      end
-    end
+ def getBicepsRigthSize
+   bicepsRigth = nil
 
-    bicepsRigth
-  end
+   self.measurements.each do |measurement|
+     if measurement.nameMeasure == "Biceps Direito"
+       bicepsRigth = measurement.size
+     end
+   end
+
+   bicepsRigth
+ end
 
 
-  def getHipsSize
-    hipsSize = nil
+ def getHipsSize
+   hipsSize = nil
 
-    self.measurements.each do |measurement|
-      if measurement.nameMeasure == "Quadril"
-        hipsSize = measurement.size
-      end
-    end
+   self.measurements.each do |measurement|
+     if measurement.nameMeasure == "Quadril"
+       hipsSize = measurement.size
+     end
+   end
 
-    hipsSize
-  end
+   hipsSize
+ end
 
-  def getBellySize
-    bellySize = nil
+ def getBellySize
+   bellySize = nil
 
-    self.measurements.each do |measurement|
-      if measurement.nameMeasure == "Abdomen"
-        bellySize = measurement.size
-      end
-    end
+   self.measurements.each do |measurement|
+     if measurement.nameMeasure == "Abdomen"
+       bellySize = measurement.size
+     end
+   end
 
-    bellySize
-  end
+   bellySize
+ end
 
-  def getWaistSize
-    waistSize = nil
+ def getWaistSize
+   waistSize = nil
 
-    self.measurements.each do |measurement|
-      if measurement.nameMeasure == "Cintura"
-        waistSize = measurement.size
-      end
-    end
+   self.measurements.each do |measurement|
+     if measurement.nameMeasure == "Cintura"
+       waistSize = measurement.size
+     end
+   end
 
-    waistSize
-  end
+   waistSize
+ end
 
-  def getLegRigthSize
-    legRigthSize = nil
+ def getLegRigthSize
+   legRigthSize = nil
 
-    self.measurements.each do |measurement|
-      if measurement.nameMeasure == "Coxa Direita"
-        legRigthSize = measurement.size
-      end
-    end
+   self.measurements.each do |measurement|
+     if measurement.nameMeasure == "Coxa Direita"
+       legRigthSize = measurement.size
+     end
+   end
 
-    legRigthSize
-  end
+   legRigthSize
+ end
 
-  def getLegLeftSize
-    legLeftSize = nil
+ def getLegLeftSize
+   legLeftSize = nil
 
-    self.measurements.each do |measurement|
-      if measurement.nameMeasure == "Coxa Esquerda"
-        legLeftSize = measurement.size
-      end
-    end
+   self.measurements.each do |measurement|
+     if measurement.nameMeasure == "Coxa Esquerda"
+       legLeftSize = measurement.size
+     end
+   end
 
-    legLeftSize
-  end
+   legLeftSize
+ end
 end

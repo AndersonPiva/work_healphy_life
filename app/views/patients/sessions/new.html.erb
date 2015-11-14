@@ -1,0 +1,44 @@
+<%= render 'publics/navbarpublic' %>
+<div class="page-content" id="patient_height">
+  <div class="panel panel-margin panel-default col-xs-6 col-xs-offset-3 col-sm-5 col-lg-4 col-lg-offset-4">
+    <div class="pn-heading">
+      <h4>Você é um paciente? <small>Logue agora mesmo</small></h4>
+    </div>
+    <div class="panel-body">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-horizontal">
+        <div class="form-group input-group">
+          <label class="input-group-addon" for="email">
+            <i class="fa fa-envelope"></i>
+          </label>
+          <%= f.text_field :email, required: false, autofocus: true, :placeholder => 'Digite seu e-mail', class: 'form-control' %>
+        </div>
+        <div class="form-group input-group">
+            <label for="senha" class="input-group-addon"><i class="fa fa-lock fa-fw"></i></label>
+            <%= f.password_field :password, required: false, :placeholder => 'Digite sua senha',class: 'form-control' %>
+        </div>
+        <div class="field">
+          <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <label><%= t('remember_me') %></label>
+          </div>
+          <% end -%>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+        </div>
+        <div class="help-block text-center">
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to t('forgot_password'), new_password_path(resource_name) %><br />
+          <% end -%>
+        </div>
+        <div class="help-block text-center">
+          <%= link_to 'Sou Personal Trainer', new_user_session_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<%= render 'publics/footerpublic' %>

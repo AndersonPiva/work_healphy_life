@@ -1,0 +1,53 @@
+<%= form_for([:admin, @appointment]) do |f| %>
+<%= error_messages(@appointment) %>
+<div class="form-horizontal">
+  <legend>
+    <i class="fa fa-tags"></i>
+    <%= t('general_data') %>
+  </legend>
+  <div class="form-group field">
+    <label class="col-sm-2 control-label" for="data"><%= t('date_of') %></label>
+    <div class="col-sm-9">
+      <%= f.date_select :dateAppointment %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label class="col-sm-2 control-label" for="horario"><%= t('hour') %></label>
+    <div class="col-sm-9">
+      <%= f.time_select :schedule %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label class="col-sm-2 control-label" for="preco"><%= t('price') %></label>
+    <div class="col-sm-9">
+      <%= f.text_field :price, :placeholder => t('write_price_appointment'), class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label class="control-label col-sm-2" for="description"><%= t('description') %></label>
+    <div class="col-sm-9">
+      <%= f.text_area :description, :placeholder => t('write_description_appointment'), class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label class="control-label col-sm-2" for="description"><%= t('patient') %></label>
+    <div class="col-sm-9">
+      <%= f.collection_select(:patient_id, current_user.patients, :id, :name, prompt: t('please_patient') , class: 'form-control') %>
+    </div>
+  </div>
+  <div class="form-group field">
+    <label class="control-label col-sm-2" for="description"><%= t('clinic') %></label>
+    <div class="col-sm-9">
+      <%= f.collection_select(:clinic_id, current_user.clinics, :id, :name, prompt: t('please_clinic'), class: 'form-control') %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4 col-sm-offset-5">
+      <button class="btn btn-primary btn-lg" type="submit">
+        <i class="fa fa-save"></i>
+        Salvar
+      </button>
+    </div>
+  </div>
+</div>
+<% end %>

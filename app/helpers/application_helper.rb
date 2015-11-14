@@ -4,7 +4,7 @@ module ApplicationHelper
     return "" if obj.errors.empty?
 
     messages = obj.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
-    sentence = "any errors prohibited this patient from being saved:"
+    sentence = I18n.t('not_saved')
 
     html = <<-HTML
     <div class="alert alert-warning alert-dismissible" role="alert">

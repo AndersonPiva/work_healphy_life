@@ -1,7 +1,7 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
+  before_action :verify_user
 
   def index
     @ratings_for_user = []
@@ -72,5 +72,11 @@ class RatingsController < ApplicationController
 
     def rating_params
       params.require(:rating).permit(:patient_id, :date, :handleDiameter, :kneeDiameter, :leg, :belly, :chest)
+    end
+
+    def verify_user
+      if !current_patient.present?
+        redirect_to new_patient_session_path, notice: 'Logue para continuar'
+      end
     end
 end

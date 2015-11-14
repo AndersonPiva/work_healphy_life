@@ -1,7 +1,7 @@
 <section class="sidebar">
   <ul class="sidebar-menu">
     <li>
-      <%= link_to ' Dashboard', dashboard_path, class: 'fa fa-dashboard' %>
+      <%= link_to ' Dashboard', admin_dashboard_path, class: 'fa fa-dashboard' %>
     </li>
     <li>
       <%= link_to t('clinics'), admin_clinics_path, class: 'fa fa-hospital-o' %>
@@ -9,24 +9,59 @@
     <li>
       <%= link_to t('patients'), admin_patients_path, class: 'fa fa-users' %>
     </li>
+    <% if current_user.present? %>
+    <li>
+      <%= link_to t('appointments'), admin_appointments_path, class: 'fa fa-book' %>
+    </li>
+    <% end %>
+    <% if current_patient.present? %>
     <li>
       <%= link_to t('appointments'), appointments_path, class: 'fa fa-book' %>
     </li>
+    <% end %>
+    <% if current_user.present? %>
+    <li>
+      <%= link_to t('diets'), admin_diets_path, class: 'fa fa-cutlery' %>
+    </li>
+    <% end %>
+    <% if current_patient.present? %>
     <li>
       <%= link_to t('diets'), diets_path, class: 'fa fa-cutlery' %>
     </li>
+    <% end %>
+    <% if current_user.present? %>
+    <li>
+      <%= link_to t('trainings'), admin_trainings_path, class: 'fa fa-bullseye' %>
+    </li>
+    <% end %>
+    <% if current_patient.present? %>
     <li>
       <%= link_to t('trainings'), trainings_path, class: 'fa fa-bullseye' %>
     </li>
+    <% end %>
     <li>
       <%= link_to t('ratings'), ratings_path, class: 'fa fa-certificate' %>
     </li>
+    <% if current_user.present? %>
+      <li>
+        <%= link_to t('weighings'), admin_weighings_path, class: 'fa fa-building' %>
+      </li>
+    <% end %>
+    <% if current_patient.present? %>
+      <li>
+        <%= link_to t('weighings'), weighings_path, class: 'fa fa-building' %>
+      </li>
+    <% end %>
+    <% if current_user.present? %>
     <li>
-      <%= link_to t('weighings'), weighings_path, class: 'fa fa-building' %>
+      <%= link_to t('measurements'), admin_measurements_path, class: 'fa fa-arrows-v' %>
     </li>
+    <% end %>
+    <% if current_patient.present? %>
     <li>
       <%= link_to t('measurements'), measurements_path, class: 'fa fa-arrows-v' %>
     </li>
+    <% end %>
     <li>
       <%= link_to t('realizations'), realizations_path, class: 'fa fa-check-circle' %>
     </li>

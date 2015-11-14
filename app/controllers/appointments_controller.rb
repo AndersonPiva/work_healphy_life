@@ -1,7 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
-  protect_from_forgery with: :exception
-  before_action :authenticate_user!
+  before_action :verify_user
 
   def index
     @appointments = Appointment.all
@@ -19,7 +18,9 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
-
+    @appointment.patient_id = current_patient.id
+    @appointment.user_id = current_patient.user_id
+    @appointment.clinic_id = current_patient.clinic_id
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
@@ -59,5 +60,11 @@ class AppointmentsController < ApplicationController
 
     def appointment_params
       params.require(:appointment).permit(:dateAppointment, :schedule, :price, :description, :user_id, :clinic_id, :patient_id)
+    end
+
+    def verify_user
+      if !current_patient.present?
+        redirect_to new_patient_session_path, notice: 'Logue para continuar'
+      end
     end
 end

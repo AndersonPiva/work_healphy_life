@@ -23,7 +23,7 @@
                 <td class="text-center"><strong><%= t('size') %></strong></td>
 								<td class="text-center"><strong><%= t('options') %></strong></td>
               </tr>
-              <% @measurements_for_user.each do |measurement| %>
+              <% current_patient.measurements.each do |measurement| %>
                 <tr>
                   <td class="text-center"><%= measurement.date %></td>
                   <td class="text-center"><%= measurement.patient.name %></td>

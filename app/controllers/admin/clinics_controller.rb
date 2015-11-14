@@ -1,6 +1,5 @@
 class Admin::ClinicsController < Admin::AdminController
   before_action :set_clinic, only: [:show, :edit, :update, :destroy]
-  protect_from_forgery with: :exception
 
   def index
     @clinics = Clinic.all

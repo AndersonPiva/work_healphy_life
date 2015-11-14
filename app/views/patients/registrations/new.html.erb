@@ -1,0 +1,137 @@
+<div class="skin-blue sidebar-mini">
+  <div class="wrapper">
+    <header class="main-header">
+      <%= render "privates/navbarprivate" %>
+    </header>
+    <aside class="main-sidebar">
+      <%= render "privates/menubar" %>
+    </aside>
+    <div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1">
+          <h1 class="col-xs-offset-1">
+            <i class="fa fa-plus-circle"></i>
+            Cadastrar novo Paciente</h1>
+          <h4 class="col-xs-offset-1">Cadastre um novo Paciente para avaliá-lo e acompanhar sua evolução clínica.</h4>
+          <div class="div-content">
+            <div class="panel panel-default col-xs-10 col-xs-offset-1">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= devise_error_messages! %>
+              <div class="form-horizontal">
+                <legend>
+                  <i class="fa fa-tags"></i>
+                  Dados Pessoais
+                </legend>
+                <div class="form-group field">
+                  <label class="col-sm-3 control-label" for="nome">Nome</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :name,:placeholder => 'Digite o nome do seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="dataNasc">Data de Nasc.</label>
+                  <div class="col-sm-9">
+                    <%= f.date_select :birthdate, class: 'form-control', :start_year => 1900 %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="clinica">Clínica</label>
+                  <div class="col-sm-9">
+                    <%= f.collection_select(:clinic_id, current_user.clinics, :id, :name, prompt: 'Por favor selecione a clínica', class: 'form-control') %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="sexo">Sexo</label>
+                  <div class="col-sm-9">
+                    <%= f.select("genre", %w(Masculino Feminino), {include_blank: "Selecione seu sexo"},class:'form-control') %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="cpf">CPF</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :cpf, :placeholder => 'Digite o número de CPF do seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="telefone">Telefone</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :telephone, :placeholder => 'Digite o telefone de contato do paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <legend>
+                  <i class="fa fa-user"></i>
+                  Dados de perfil
+                </legend>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="peso">Peso</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :weigth, :placeholder => 'Digite o peso do seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="altura">Altura(m)</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :heigth, :placeholder => 'Digite a altura do seu paciente em metros', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="bf">BF</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :bf, :placeholder => 'Digite o percentual de gordura do seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="objetivo">Objetivo</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :objective, :placeholder => 'Digite o objetivo do seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="observacoes">Observações</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :observations, :placeholder => 'Digite alguma observações sobre o paciente caso necessario', class: 'form-control' %>
+                  </div>
+                </div>
+                <legend>
+                  <i class="fa fa-lock"></i>
+                  Dados de Acesso
+                </legend>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="email">Email</label>
+                  <div class="col-sm-9">
+                    <%= f.email_field :email, :placeholder => 'Digite o e-mail do seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="senha">Senha</label>
+                  <div class="col-sm-9">
+                    <%= f.password_field :password, autocomplete: "off", :placeholder => 'Digite a senha de acesso para o seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="password_confirmation">Confirmação de Senha</label>
+                  <div class="col-sm-9">
+                    <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Confirme a Senha', class:'form-control' %>
+                  </div>
+                </div>
+                <div class="field">
+                  <%= f.text_field :user_id,value:current_user.id ,class: "hidden-xs hidden-sm hidden-md hidden-lg hidden-xl" %>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-4 col-sm-offset-5">
+                    <button class="btn btn-primary btn-lg" type="submit">
+                      <i class="fa fa-save"></i>
+                      Salvar
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "privates/footerprivate" %>
+</div>

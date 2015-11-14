@@ -1,6 +1,5 @@
 class Admin::CompromisesController < Admin::AdminController
   before_action :set_compromise, only: [:show, :edit, :update, :destroy]
-  protect_from_forgery with: :exception
 
   def index
     @compromises = []
@@ -41,7 +40,6 @@ class Admin::CompromisesController < Admin::AdminController
     respond_to do |format|
       if @compromise.update(compromise_params)
         format.html { redirect_to admin_compromises_path, notice: 'Compromise was successfully updated.' }
-        format.json { render :show, status: :ok, location: @compromise }
       else
         format.html { render :edit }
         format.json { render json: @compromise.errors, status: :unprocessable_entity }

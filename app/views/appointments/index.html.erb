@@ -25,7 +25,7 @@
                 <td class="text-center"><strong><%= t('description') %></strong></td>
                 <td class="text-center"><strong><%= t('options') %></strong></td>
               </tr>
-              <% current_user.appointments.each do |appointment| %>
+              <% current_patient.appointments.each do |appointment| %>
                 <tr>
                   <td class="text-center"><%= appointment.dateAppointment %></td>
                   <td class="text-center"><%= appointment.patient.name %></td>

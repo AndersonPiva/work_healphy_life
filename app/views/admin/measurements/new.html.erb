@@ -1,4 +1,4 @@
-<div class="skin-blue sidebar-mini">
+<div class="skin-blue sidebar-mini new-height">
 	<div class="wrapper">
 		<header class="main-header">
 			<%= render "privates/navbarprivate" %>
@@ -9,8 +9,8 @@
 		<div class="content-wrapper">
       <div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1">
-          <h1 class="col-xs-offset-1"><i class="fa fa-plus-circle"></i> Editar Paciente</h1>
-          <h4 class="col-xs-offset-1">Edite o perfil do paciente para manter suas informações atualizadas</h4>
+          <h1 class="col-xs-offset-1"><i class="fa fa-plus-circle"></i> <%= t('register_measurement') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('register_measurement_one') %></h4>
           <div class="div-content">
             <div class="panel panel-default col-xs-10 col-xs-offset-1">
                   <%= render 'form' %>

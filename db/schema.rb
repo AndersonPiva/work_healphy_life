@@ -128,26 +128,39 @@ ActiveRecord::Schema.define(version: 20151227041728) do
   add_index "measurements", ["patient_id"], name: "index_measurements_on_patient_id", using: :btree
 
   create_table "patients", force: :cascade do |t|
-    t.string   "name",         limit: 255
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "confirmation_token",     limit: 255
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email",      limit: 255
+    t.string   "name",                   limit: 255
     t.date     "birthdate"
-    t.string   "genre",        limit: 255
-    t.string   "cpf",          limit: 255
-    t.float    "weigth",       limit: 24
-    t.float    "heigth",       limit: 24
-    t.float    "bf",           limit: 24
-    t.string   "objective",    limit: 255
-    t.string   "observations", limit: 255
-    t.string   "telephone",    limit: 255
-    t.string   "email",        limit: 255
-    t.string   "login",        limit: 255
-    t.string   "password",     limit: 255
-    t.integer  "clinic_id",    limit: 4
-    t.integer  "user_id",      limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "genre",                  limit: 255
+    t.string   "cpf",                    limit: 255
+    t.float    "weigth",                 limit: 24
+    t.float    "heigth",                 limit: 24
+    t.float    "bf",                     limit: 24
+    t.string   "objective",              limit: 255
+    t.string   "observations",           limit: 255
+    t.string   "telephone",              limit: 255
+    t.integer  "clinic_id",              limit: 4
+    t.integer  "user_id",                limit: 4
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   add_index "patients", ["clinic_id"], name: "index_patients_on_clinic_id", using: :btree
+  add_index "patients", ["email"], name: "index_patients_on_email", unique: true, using: :btree
+  add_index "patients", ["reset_password_token"], name: "index_patients_on_reset_password_token", unique: true, using: :btree
   add_index "patients", ["user_id"], name: "index_patients_on_user_id", using: :btree
 
   create_table "ratings", force: :cascade do |t|

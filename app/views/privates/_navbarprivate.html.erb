@@ -1,27 +1,78 @@
 <nav class="navbar navbar-static-top" role="navigation">
-    <a href="/dashboard" class="logo"> <img alt="Logo" src="/assets/logo.png" /> </a>
-  <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> </a>
+  <a class="logo" href="/dashboard">
+    <img alt="Logo" src="/assets/logo.png"/>
+  </a>
+  <a class="sidebar-toggle" data-toggle="offcanvas" href="#" role="button">
+    <span class="sr-only">Toggle navigation</span>
+  </a>
   <div class="container">
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
+        <% if current_patient.present? %>
         <li>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag current_user.cover.url(:thumb),class:'tamanho'%><span class="hidden-xs"> <%= current_user.name %><span class="caret"></span></span> </a>
-          <ul id="drop-menu" class="dropdown-menu list-unstyled">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <span>
+              <%= current_patient.name %>
+              <span class="caret"></span>
+            </span>
+          </a>
+          <ul class="dropdown-menu list-unstyled" id="drop-menu">
             <li>
-            <span><i class="fa fa-user"></i> <%= link_to "Meu Perfil", edit_user_registration_path %></span>
+              <a href="/about" target="_blank">
+                <i class="fa fa-info-circle"></i>
+                Sobre</a>
             </li>
-            <li class="divider"></li>
             <li>
-              <a href="/about" target="_blank"><i class="fa fa-info-circle"></i> Sobre</a>
+              <a href="/help" target="_blank">
+                <i class="fa fa-support"></i>
+                Suporte</a>
             </li>
             <li>
-              <a href="/help" target="_blank"><i class="fa fa-support"></i> Suporte</a>
-            </li>
-            <li>
-              <span><i class="fa fa-sign-out"> </i> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </span>
+              <span>
+                <i class="fa fa-sign-out"></i>
+                <%= link_to('Logout', destroy_patient_session_path, :method => :delete) %>
+              </span>
             </li>
           </ul>
         </li>
+        <% end %>
+          <% if current_user.present? %>
+        <li>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+
+              <%= image_tag current_user.cover.url(:thumb),class:'tamanho'%>
+            <span class="hidden-xs">
+              <%= current_user.name %>
+              <span class="caret"></span>
+            </span>
+
+          </a>
+          <ul class="dropdown-menu list-unstyled" id="drop-menu">
+            <li>
+              <span>
+                <i class="fa fa-user"></i>
+                <%= link_to "Meu Perfil", edit_user_registration_path %></span>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="/about" target="_blank">
+                <i class="fa fa-info-circle"></i>
+                Sobre</a>
+            </li>
+            <li>
+              <a href="/help" target="_blank">
+                <i class="fa fa-support"></i>
+                Suporte</a>
+            </li>
+            <li>
+              <span>
+                <i class="fa fa-sign-out"></i>
+                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+              </span>
+            </li>
+          </ul>
+        </li>
+        <% end %>
       </ul>
     </div>
   </div>

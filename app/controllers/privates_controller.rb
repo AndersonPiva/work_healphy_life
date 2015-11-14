@@ -1,21 +1,11 @@
 class PrivatesController < ApplicationController
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
+  before_action :verify_user
 
-
-  def dashboard
-    @appointens_today = []
-    current_user.appointments.each do |appointment|
-      if appointment.dateAppointment == Date.today
-        @appointens_today << appointment
+  private
+    	def verify_user
+      	if !current_user.present? && !current_patient.present?
+        		redirect_to new_user_session_path , :notice => 'Logue para continuar'
+      	end
       end
-    end
-
-    @compromises_today = []
-    current_user.compromises.each do |compromise|
-      if compromise.date == Date.today
-        @compromises_today << compromise 
-      end
-    end
-  end
 end

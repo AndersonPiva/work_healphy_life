@@ -29,21 +29,6 @@
       <%= f.text_area :description, :placeholder => t('write_description_appointment'), class: 'form-control' %>
     </div>
   </div>
-  <div class="form-group field">
-    <label class="control-label col-sm-2" for="description"><%= t('patient') %></label>
-    <div class="col-sm-9">
-      <%= f.collection_select(:patient_id, current_user.patients, :id, :name, prompt: t('please_patient') , class: 'form-control') %>
-    </div>
-  </div>
-  <div class="form-group field">
-    <label class="control-label col-sm-2" for="description"><%= t('clinic') %></label>
-    <div class="col-sm-9">
-      <%= f.collection_select(:clinic_id, current_user.clinics, :id, :name, prompt: t('please_clinic'), class: 'form-control') %>
-    </div>
-  </div>
-  <div class="field">
-    <%= f.text_field :user_id,value:current_user.id ,class: "hidden-xs hidden-sm hidden-md hidden-lg hidden-xl" %>
-  </div>
   <div class="form-group">
     <div class="col-sm-4 col-sm-offset-5">
       <button class="btn btn-primary btn-lg" type="submit">

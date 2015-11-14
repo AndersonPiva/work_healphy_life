@@ -1,0 +1,38 @@
+<div class="skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header class="main-header">
+			<%= render "privates/navbarprivate" %>
+		</header>
+		<aside class="main-sidebar">
+			<%= render "privates/menubar" %>
+		</aside>
+		<div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1 min-height">
+          <h1 class="col-xs-offset-1"><i class="fa fa-users"></i>Pacientes</h1>
+          <h4 class="col-xs-offset-1">Tenha acesso a todas a todos os seus pacientes de todas as suas clínicas, adicione novos, atualize-os...</h4>
+          <div class="div-content">
+            <%= link_to ' Cadastrar novo Paciente', new_patient_registration_path, class: 'col-xs-offset-1 btn btn-primary fa fa-plus-circle' %>
+          </div>
+          <div class="table-responsive col-xs-12 div-content">
+            <table class="table table-hover">
+              <tr>
+                <td class="text-center"><strong>Nome</strong></td>
+                <td class="text-center"><strong>E-mail</strong></td>
+                <td class="text-center"><strong>Tel.</strong></td>
+              </tr>
+              <% current_user.patients.each do |patient| %>
+              <tr>
+                <td class="text-center"><%= patient.name  %></td>
+ 	              <td class="text-center"><%= patient.email %></td>
+                <td class="text-center"><%= patient.telephone %></td>
+              </tr>
+               <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+	<%= render "privates/footerprivate" %>
+</div>

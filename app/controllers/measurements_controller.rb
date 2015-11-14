@@ -1,16 +1,9 @@
 class MeasurementsController < ApplicationController
   before_action :set_measurement, only: [:show, :edit, :update, :destroy]
-  protect_from_forgery with: :exception
-  before_action :authenticate_user!
+  before_action :verify_user
 
   def index
-    @measurements_for_user = []
 
-    Measurement.all.each do |measurement|
-      if measurement.patient.user.id == current_user.id
-        @measurements_for_user << measurement
-      end
-    end
   end
 
   def show
@@ -25,7 +18,7 @@ class MeasurementsController < ApplicationController
 
   def create
     @measurement = Measurement.new(measurement_params)
-
+    @measurement.patient_id = current_patient.id
     respond_to do |format|
       if @measurement.save
         format.html { redirect_to @measurement, notice: 'Measurement was successfully created.' }
@@ -65,5 +58,11 @@ class MeasurementsController < ApplicationController
 
     def measurement_params
       params.require(:measurement).permit(:date, :nameMeasure, :size, :patient_id)
+    end
+
+    def verify_user
+      if !current_patient.present?
+        redirect_to new_patient_session_path, notice: 'Logue para continuar'
+      end
     end
 end

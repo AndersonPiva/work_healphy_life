@@ -21,7 +21,11 @@
 				<p>
 			</div>
 			<div id="panel" class="panel panel-default col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0">
+				<div class="pn-heading">
+					<h4>Você é um Personal Trainer? <small>Logue agora mesmo!</small></h4>
+				</div>
 				<div class="panel-body">
+					<%= notice %>
 					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 						<div class="field form-group input-group">
 							<label for="e-mail" class="input-group-addon"><i class="fa fa-envelope"></i> </label>
@@ -49,7 +53,7 @@
             <% end -%>
 					</div>
 					<div class="help-block text-center">
-						<a href="/resendconfirmationinstructions"><%= t('resend_confirmation') %></a>
+							<%= link_to 'Sou Paciente', new_patient_session_path %>
 					</div>
 				</div>
 			</div>

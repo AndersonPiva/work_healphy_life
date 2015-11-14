@@ -1,16 +1,9 @@
 class WeighingsController < ApplicationController
   before_action :set_weighing, only: [:show, :edit, :update, :destroy]
+  before_action :verify_user
 
   def index
-    @weighings_foruser = []
-    weighings_all = Weighing.all
-    weighings_all.each do |weighing|
-      if weighing.patient.user.id == current_user.id
-        @weighings_foruser << weighing
-      end
 
-    @weighings_foruser
-    end
   end
 
   def show
@@ -25,7 +18,7 @@ class WeighingsController < ApplicationController
 
   def create
     @weighing = Weighing.new(weighing_params)
-
+    @weighing.patient_id = current_patient.id
     respond_to do |format|
       if @weighing.save
         format.html { redirect_to weighings_path, notice: 'Weighing was successfully created.' }
@@ -64,5 +57,11 @@ class WeighingsController < ApplicationController
 
     def weighing_params
       params.require(:weighing).permit(:dateWeighing, :weight, :patient_id)
+    end
+
+    def verify_user
+      if !current_patient.present?
+        redirect_to new_patient_session_path, notice: 'Logue para continuar'
+      end
     end
 end

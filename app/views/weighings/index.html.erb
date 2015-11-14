@@ -25,7 +25,7 @@
                 <td class="text-center"><strong><%= t('weight') %></strong></td>
                 <td class="text-center"><strong><%= t('options') %></strong></td>
               </tr>
-              <% @weighings_foruser.each do |weighing| %>
+              <% current_patient.weighings.each do |weighing| %>
                 <tr>
                   <td class="text-center"><%= weighing.dateWeighing %></td>
                   <td class="text-center"><%= weighing.patient.name %></td>
