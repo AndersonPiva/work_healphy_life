@@ -39,9 +39,16 @@
       <%= link_to t('trainings'), trainings_path, class: 'fa fa-bullseye' %>
     </li>
     <% end %>
+    <% if current_user.present? %>
+    <li>
+      <%= link_to t('ratings'), admin_ratings_path, class: 'fa fa-certificate' %>
+    </li>
+    <% end %>
+    <% if current_patient.present? %>
     <li>
       <%= link_to t('ratings'), ratings_path, class: 'fa fa-certificate' %>
     </li>
+    <% end %>
     <% if current_user.present? %>
       <li>
         <%= link_to t('weighings'), admin_weighings_path, class: 'fa fa-building' %>
@@ -62,9 +69,11 @@
       <%= link_to t('measurements'), measurements_path, class: 'fa fa-arrows-v' %>
     </li>
     <% end %>
+    <% if current_user.present? %>
     <li>
-      <%= link_to t('realizations'), realizations_path, class: 'fa fa-check-circle' %>
+      <%= link_to t('realizations'), admin_realizations_path, class: 'fa fa-check-circle' %>
     </li>
+    <% end %>
     <li>
       <%= link_to t('schedule1'), admin_compromises_path, class: 'fa fa-calendar' %>
     </li>

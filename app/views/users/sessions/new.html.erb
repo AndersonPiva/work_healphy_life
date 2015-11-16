@@ -27,6 +27,11 @@
 				<div class="panel-body">
 					<%= notice %>
 					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+					<% if alert %>
+						<p class="alert alert-danger">
+							<%= alert %>
+						</p>
+						<% end %>
 						<div class="field form-group input-group">
 							<label for="e-mail" class="input-group-addon"><i class="fa fa-envelope"></i> </label>
 							<%= f.email_field :email, autofocus: true, :placeholder => "E-mail", class:'form-control'%>

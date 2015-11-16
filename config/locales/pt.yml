@@ -606,7 +606,7 @@ pt:
     failure:
       already_authenticated: "Você já está logado."
       inactive: "Sua conta ainda não está ativada."
-      invalid: " %{authentication_keys} ou senha inválidos."
+      invalid: " Combinação %{authentication_keys}/senha inválida."
       locked: "Sua conta está bloqueada."
       last_attempt: "Você ainda tem mais uma tentativa de login antes que sua conta seja bloquada."
       not_found_in_database: "%{authentication_keys} ou senha inválidos."

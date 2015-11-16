@@ -15,8 +15,7 @@ Rails.application.routes.draw do
   resources :appointments
   resources :addresses
   devise_for :users, :controllers => {:registrations => "registrations"}
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+
 
     namespace :admin do
       resources :compromises
@@ -26,12 +25,12 @@ Rails.application.routes.draw do
       resources :measurements
       resources :diets
       resources :trainings
+      resources :realizations
+      resources :ratings
       get '/dashboard' => 'admin#dashboard'
       get '/patients' => 'admin#patients'
     end
 
-
-  # You can have the root of your site routed with "root"
     scope "(:locale)", :locale => /pt|en/ do
     root :to => 'privates#afterlogin'
 
@@ -43,9 +42,5 @@ Rails.application.routes.draw do
     get 'frequentlyaskedquestions' =>'publics#frequentlyaskedquestions'
     get 'about' => 'publics#about'
     match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
-    devise_scope :user do
-      get "login", to: "devise/sessions#new"
-      get "resendconfirmationinstructions", to: "devise/confirmations#new"
-    end
   end
 end

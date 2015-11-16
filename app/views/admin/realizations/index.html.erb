@@ -22,13 +22,13 @@
                   <strong><%= t('options') %></strong>
                 </td>
               </tr>
-              <% current_patient.realizations.each do |realization| %>
+              <% @realizations_for_user.each do |realization| %>
                 <tr>
                   <td class="text-center"><%= realization.date %></td>
                   <td class="text-center"><%= realization.patient.name %></td>
                   <td class="text-center"><%= realization.training.muscularGroups %></td>
                   <td class="text-center"><%= realization.status %></td>
-                  <td class="text-center"><%= link_to '', realization, title: t('details'), class:'btn btn-success btn-xs fa fa-ellipsis-h' %></td>
+                  <td class="text-center"><%= link_to '', admin_realization_path(realization), title: t('details'), class:'btn btn-success btn-xs fa fa-ellipsis-h' %></td>
                 </tr>
               <% end %>
             </table>
