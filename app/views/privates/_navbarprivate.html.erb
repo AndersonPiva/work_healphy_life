@@ -23,15 +23,10 @@
                 Sobre</a>
             </li>
             <li>
-              <a href="/help" target="_blank">
-                <i class="fa fa-support"></i>
-                Suporte</a>
+              <%= link_to 'Suporte', help_path, class:'fa fa-support', target: 'blank' %>
             </li>
             <li>
-              <span>
-                <i class="fa fa-sign-out"></i>
-                <%= link_to('Logout', destroy_patient_session_path, :method => :delete) %>
-              </span>
+                <%= link_to 'Logout', destroy_patient_session_path, :method => :delete, class: 'fa fa-sign-out' %>
             </li>
           </ul>
         </li>
@@ -49,26 +44,17 @@
           </a>
           <ul class="dropdown-menu list-unstyled" id="drop-menu">
             <li>
-              <span>
-                <i class="fa fa-user"></i>
-                <%= link_to "Meu Perfil", edit_user_registration_path %></span>
+                <%= link_to ' Meu Perfil', edit_user_registration_path, class: 'fa fa-user' %>
             </li>
             <li class="divider"></li>
             <li>
-              <a href="/about" target="_blank">
-                <i class="fa fa-info-circle"></i>
-                Sobre</a>
+              <%= link_to ' Sobre', about_path, class: 'fa fa-info-circle', target: 'blank' %>
             </li>
             <li>
-              <a href="/help" target="_blank">
-                <i class="fa fa-support"></i>
-                Suporte</a>
+              <%= link_to ' Suporte', help_path, class:'fa fa-support', target: 'blank' %>
             </li>
             <li>
-              <span>
-                <i class="fa fa-sign-out"></i>
-                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-              </span>
+                <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'fa fa-sign-out' %>
             </li>
           </ul>
         </li>

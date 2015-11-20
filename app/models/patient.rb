@@ -7,13 +7,14 @@ class Patient < ActiveRecord::Base
  belongs_to :clinic
  belongs_to :user
 
- has_many :appointments, :dependent => :delete_all
- has_many :weighings, :dependent => :delete_all
- has_many :measurements, :dependent => :delete_all
- has_many :trainings, :dependent => :delete_all
- has_many :realizations, :dependent => :delete_all
- has_many :ratings, :dependent => :delete_all
- has_many :diets, :dependent => :delete_all
+ has_many :appointments, :dependent => :destroy
+ has_many :weighings, :dependent => :destroy
+ has_many :measurements, :dependent => :destroy
+ has_many :trainings, :dependent => :destroy
+ has_many :realizations, :dependent => :destroy
+ has_many :ratings, :dependent => :destroy
+ has_many :diets, :dependent => :destroy
+ has_many :recent_activities, :dependent => :destroy
 
  def getAge
    Date.today.year - self.birthdate.year

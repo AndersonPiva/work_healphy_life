@@ -18,7 +18,6 @@ class Admin::AdminController < ApplicationController
 		end
   end
 
-
 private
   	def verify_user
     	if !current_user.present?

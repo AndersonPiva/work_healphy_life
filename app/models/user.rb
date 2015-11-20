@@ -4,10 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_attached_file :cover, styles: { medium: "300x300>", thumb: "50x50" }, default_url: "/images/:style/atendente.png"
-  has_many :clinics, :dependent => :delete_all
-  has_many :patients, :dependent => :delete_all
-  has_many :appointments, :dependent => :delete_all
-  has_many :compromises, :dependent => :delete_all
+  has_attached_file :cover, styles: { :medium => "300x300>", :thumb => "50x50", :small => "168x168", :thumb => "40x40", :tiny => "32x32" }, default_url: "/img/missing.png"
+  has_many :clinics, :dependent => :destroy
+  has_many :patients, :dependent => :destroy
+  has_many :appointments, :dependent => :destroy
+  has_many :compromises, :dependent => :destroy
+  has_many :recent_activities, :dependent => :destroy
 
+  
 end

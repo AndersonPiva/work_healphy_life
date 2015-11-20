@@ -1555,3 +1555,11 @@ table.text-center, table.text-center td, table.text-center th {
 	font-size: 11px;
 	text-align: center;
 }
+
+.panel-content{
+	margin-top:20px;
+}
+
+.margin-bottom{
+	margin-bottom: 10px;
+}

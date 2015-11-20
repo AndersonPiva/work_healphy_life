@@ -1,9 +1,9 @@
 class Clinic < ActiveRecord::Base
   belongs_to :user
-  has_many :appointments, :dependent => :delete_all
+  has_many :appointments, :dependent => :destroy
   has_many :patients, :dependent => :destroy
   validates_presence_of :name, :telephone1
-  has_one :address, :dependent => :delete
+  has_one :address, :dependent => :destroy
   accepts_nested_attributes_for :address, :reject_if => :all_blank, :allow_destroy => true
 
   def totalAppointments

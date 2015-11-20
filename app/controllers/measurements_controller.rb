@@ -19,31 +19,37 @@ class MeasurementsController < ApplicationController
   def create
     @measurement = Measurement.new(measurement_params)
     @measurement.patient_id = current_patient.id
+    @recent_activity = RecentActivity.new date: Date.today, shedule: Time.now, patient_id: current_patient.id, user_id: current_patient.user_id, description: "Cadastrou uma nova medida"
+    @recent_activity.measurement = @measurement
+    @recent_activity.save
     respond_to do |format|
       if @measurement.save
-        format.html { redirect_to @measurement, notice: 'Measurement was successfully created.' }
-        format.json { render :show, status: :created, location: @measurement }
+        format.html { redirect_to measurements_path, notice: 'Measurement was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @measurement.errors, status: :unprocessable_entity }
+        @recent_activity.destroy
       end
     end
   end
 
   def update
+    @recent_activity = RecentActivity.new date: Date.today, shedule: Time.now, patient_id: current_patient.id, user_id: current_patient.user_id, description: "Editou uma medida"
+    @recent_activity.measurement = @measurement
+    @recent_activity.save
     respond_to do |format|
       if @measurement.update(measurement_params)
-        format.html { redirect_to @measurement, notice: 'Measurement was successfully updated.' }
-        format.json { render :show, status: :ok, location: @measurement }
+        format.html { redirect_to measurements_path, notice: 'Measurement was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @measurement.errors, status: :unprocessable_entity }
+        @recent_activity.destroy
       end
     end
   end
 
   def destroy
     @measurement.destroy
+    @recent_activity = RecentActivity.new date: Date.today, shedule: Time.now, patient_id: current_patient.id, user_id: current_patient.user_id, description: "Excluiu uma medida"
+    @recent_activity.save
     respond_to do |format|
       format.html { redirect_to measurements_url, notice: 'Measurement was successfully destroyed.' }
       format.json { head :no_content }

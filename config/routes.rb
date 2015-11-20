@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => {:registrations => "registrations"}
+  resources :recent_activities
   devise_for :patients, :controllers => {:registrations => "registrations"}
   resources :ratings
   resources :addresses
@@ -14,8 +16,6 @@ Rails.application.routes.draw do
   resources :weighings
   resources :appointments
   resources :addresses
-  devise_for :users, :controllers => {:registrations => "registrations"}
-
 
     namespace :admin do
       resources :compromises
@@ -27,13 +27,14 @@ Rails.application.routes.draw do
       resources :trainings
       resources :realizations
       resources :ratings
+      resources :recent_activities
       get '/dashboard' => 'admin#dashboard'
       get '/patients' => 'admin#patients'
+      get '/activities' => 'recent_activities#activities'
     end
 
     scope "(:locale)", :locale => /pt|en/ do
     root :to => 'privates#afterlogin'
-
     get 'functions' => 'publics#functions'
     get 'welcome' => 'privates#afterlogin'
     get 'dashboard' => 'privates#dashboard'

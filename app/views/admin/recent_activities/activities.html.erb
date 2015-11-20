@@ -1,0 +1,60 @@
+<div class="skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header class="main-header">
+			<%= render "privates/navbarprivate" %>
+		</header>
+		<aside class="main-sidebar">
+			<%= render "privates/menubar" %>
+		</aside>
+		<div class="content-wrapper new-height">
+			<div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1 min-height">
+          <h1 class="col-xs-offset-1">Atividades</h1>
+          <h4 class="line-height col-xs-offset-1">Veja um resumo de todas as atividades de seus pacientes</h4>
+					<div class="table-responsive div-content">
+            <table class="table table-hover">
+              <tr>
+                <td class="text-center">
+                  <strong>Data</strong>
+                </td>
+                <td class="text-center">
+                  <strong>Hora</strong>
+                </td>
+                <td class="text-center">
+                  <strong>Paciente</strong>
+                </td>
+                <td class="text-center">
+                  <strong>Descrição</strong>
+                </td>
+              </tr>
+              <% current_user.recent_activities.each do |recent_activity| %>
+                <tr>
+                  <td class="text-center">
+                    <%= recent_activity.date %>
+                  </td>
+                  <td class="text-center">
+                    <%= recent_activity.shedule %>
+                  </td>
+                  <td class="text-center">
+                    <%= recent_activity.patient.name %>
+                  </td>
+									<% if recent_activity.weighing != nil || recent_activity.measurement != nil || recent_activity.realization != nil %>
+                  <td class="text-center">
+                    <%= link_to recent_activity.description, admin_recent_activity_path(recent_activity), title: 'Clique para visualizar' %>
+                  </td>
+									<% end %>
+									<% if recent_activity.weighing == nil && recent_activity.measurement == nil && recent_activity.realization == nil %>
+									<td class="text-center">
+										<i title="Esta atividade foi modificada ou excluída"><%= recent_activity.description %></i>
+									</td>
+									<% end %>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+			</div>
+		</div>
+	</div>
+	<%= render "privates/footerprivate" %>
+</div>

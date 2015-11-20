@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151227041728) do
+ActiveRecord::Schema.define(version: 20151228041729) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "city",       limit: 255
@@ -22,13 +22,11 @@ ActiveRecord::Schema.define(version: 20151227041728) do
     t.string   "number",     limit: 255
     t.string   "reference",  limit: 255
     t.integer  "clinic_id",  limit: 4
-    t.integer  "patient_id", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   add_index "addresses", ["clinic_id"], name: "index_addresses_on_clinic_id", using: :btree
-  add_index "addresses", ["patient_id"], name: "index_addresses_on_patient_id", using: :btree
 
   create_table "appointments", force: :cascade do |t|
     t.date     "dateAppointment"
@@ -118,11 +116,12 @@ ActiveRecord::Schema.define(version: 20151227041728) do
 
   create_table "measurements", force: :cascade do |t|
     t.date     "date"
-    t.string   "nameMeasure", limit: 255
-    t.float    "size",        limit: 24
-    t.integer  "patient_id",  limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "nameMeasure",        limit: 255
+    t.float    "size",               limit: 24
+    t.integer  "patient_id",         limit: 4
+    t.integer  "recent_activity_id", limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "measurements", ["patient_id"], name: "index_measurements_on_patient_id", using: :btree
@@ -179,16 +178,30 @@ ActiveRecord::Schema.define(version: 20151227041728) do
 
   create_table "realizations", force: :cascade do |t|
     t.date     "date"
-    t.string   "status",      limit: 255
-    t.string   "observation", limit: 255
-    t.integer  "training_id", limit: 4
-    t.integer  "patient_id",  limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "status",             limit: 255
+    t.string   "observation",        limit: 255
+    t.integer  "training_id",        limit: 4
+    t.integer  "patient_id",         limit: 4
+    t.integer  "recent_activity_id", limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "realizations", ["patient_id"], name: "index_realizations_on_patient_id", using: :btree
   add_index "realizations", ["training_id"], name: "index_realizations_on_training_id", using: :btree
+
+  create_table "recent_activities", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "patient_id",  limit: 4
+    t.integer  "user_id",     limit: 4
+    t.string   "description", limit: 255
+    t.time     "shedule"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "recent_activities", ["patient_id"], name: "index_recent_activities_on_patient_id", using: :btree
+  add_index "recent_activities", ["user_id"], name: "index_recent_activities_on_user_id", using: :btree
 
   create_table "trainings", force: :cascade do |t|
     t.string   "weekDay",        limit: 255
@@ -237,16 +250,16 @@ ActiveRecord::Schema.define(version: 20151227041728) do
 
   create_table "weighings", force: :cascade do |t|
     t.date     "dateWeighing"
-    t.float    "weight",       limit: 24
-    t.integer  "patient_id",   limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.float    "weight",             limit: 24
+    t.integer  "patient_id",         limit: 4
+    t.integer  "recent_activity_id", limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "weighings", ["patient_id"], name: "index_weighings_on_patient_id", using: :btree
 
   add_foreign_key "addresses", "clinics"
-  add_foreign_key "addresses", "patients"
   add_foreign_key "appointments", "clinics"
   add_foreign_key "appointments", "patients"
   add_foreign_key "appointments", "users"
@@ -261,6 +274,8 @@ ActiveRecord::Schema.define(version: 20151227041728) do
   add_foreign_key "ratings", "patients"
   add_foreign_key "realizations", "patients"
   add_foreign_key "realizations", "trainings"
+  add_foreign_key "recent_activities", "patients"
+  add_foreign_key "recent_activities", "users"
   add_foreign_key "trainings", "patients"
   add_foreign_key "weighings", "patients"
 end

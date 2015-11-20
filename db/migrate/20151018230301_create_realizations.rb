@@ -6,6 +6,7 @@ class CreateRealizations < ActiveRecord::Migration
       t.string :observation
       t.references :training, index: true, foreign_key: true
       t.references :patient, index: true, foreign_key: true
+      t.references :recent_activity
 
       t.timestamps null: false
     end

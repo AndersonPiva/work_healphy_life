@@ -5,6 +5,7 @@ class CreateMeasurements < ActiveRecord::Migration
       t.string :nameMeasure
       t.float :size
       t.references :patient, index: true, foreign_key: true
+      t.references :recent_activity
 
       t.timestamps null: false
     end

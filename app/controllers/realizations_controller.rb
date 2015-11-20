@@ -3,11 +3,34 @@ class RealizationsController < ApplicationController
   before_action :verify_user
 
   def index
-  
+
   end
 
   def show
   end
+
+  def new
+  @realization = Realization.new
+  end
+
+
+# POST /realizations
+# POST /realizations.json
+def create
+  @realization = Realization.new(realization_params)
+  @realization.patient_id = current_patient.id
+  @recent_activity = RecentActivity.new date: Date.today, shedule: Time.now, patient_id: current_patient.id, user_id: current_patient.user_id, description: "Cadastrou uma nova realizacao"
+  @recent_activity.realization = @realization
+  @recent_activity.save
+  respond_to do |format|
+    if @realization.save
+      format.html { redirect_to realizations_path notice: 'Realization was successfully created.' }
+    else
+      format.html { render :new }
+      @recent_activity.destroy
+    end
+  end
+end
 
   private
 

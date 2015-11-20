@@ -1,5 +1,13 @@
 <p>Welcome <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>
+  Você foi cadastrada pelo seu personal trainer e já pode logar no sistema.
+</p>
+<p>Para isso confirme sua conta clicando no link abaixo:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>
+  Sua senha de acesso é: <%= @resource.password %> <br/>
+  Você pode altera-la mais tarde.
+</p>

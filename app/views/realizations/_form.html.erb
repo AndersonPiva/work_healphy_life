@@ -1,0 +1,37 @@
+<%= form_for(@realization) do |f| %>
+    <%= error_messages(@realization) %>
+  <div class="form-horizontal">
+    <legend>
+      Dados Gerais
+    </legend>
+    <div class="form-group">
+        <label for="date" class="control-label col-sm-2">Data</label>
+        <div class="col-sm-9">
+          <%= f.date_select :date %>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="status" class="control-label col-sm-2">Status</label>
+      <div class="col-sm-9">
+          <%= f.text_field :status, :placeholder => 'Digite o status do treino', class:'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="observation" class="control-label col-sm-2">Observação</label>
+      <div class="col-sm-9">
+        <%= f.text_area :observation, :placeholder => 'Digite uma observação para o treino', class:'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="training" class="control-label col-sm-2">Treino</label>
+      <div class="col-sm-9">
+          <%= f.collection_select(:training_id, current_patient.trainings, :id, :muscularGroups, prompt: 'Por favor selecione o treino' , class: 'form-control') %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-4 col-sm-offset-5">
+        <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-save"></i>Salvar</button>
+      </div>
+    </div>
+  </div>
+<% end %>

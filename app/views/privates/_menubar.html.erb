@@ -1,14 +1,20 @@
 <section class="sidebar">
   <ul class="sidebar-menu">
+    <% if current_user.present? %>
     <li>
       <%= link_to ' Dashboard', admin_dashboard_path, class: 'fa fa-dashboard' %>
     </li>
+    <% end %>
+    <% if current_user.present? %>
     <li>
       <%= link_to t('clinics'), admin_clinics_path, class: 'fa fa-hospital-o' %>
     </li>
+    <% end %>
+    <% if current_user.present? %>
     <li>
       <%= link_to t('patients'), admin_patients_path, class: 'fa fa-users' %>
     </li>
+    <% end %>
     <% if current_user.present? %>
     <li>
       <%= link_to t('appointments'), admin_appointments_path, class: 'fa fa-book' %>
@@ -75,7 +81,19 @@
     </li>
     <% end %>
     <li>
+    <% if current_patient.present? %>
+        <%= link_to t('realizations'), realizations_path, class: 'fa fa-check-circle' %>
+    <% end %>
+    </li>
+    <% if current_user.present? %>
+    <li>
       <%= link_to t('schedule1'), admin_compromises_path, class: 'fa fa-calendar' %>
     </li>
+    <% end %>
+    <% if current_user.present? %>
+    <li>
+      <%= link_to ' Atividades Recentes' ,admin_recent_activities_path, class:'fa fa-history'%>
+    </li>
+    <% end %>
   </ul>
 </section>

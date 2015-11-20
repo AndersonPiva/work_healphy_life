@@ -1,0 +1,134 @@
+<div class="skin-blue sidebar-mini slim-heigth">
+  <div class="wrapper">
+    <header class="main-header">
+      <%= render "privates/navbarprivate" %>
+    </header>
+    <aside class="main-sidebar">
+      <%= render "privates/menubar" %>
+    </aside>
+    <div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1">
+          <% if @recent_activity.weighing != nil %>
+          <h1 class="col-xs-offset-1">
+            <i class="fa fa-building"></i>
+            <%= t('details_weighing') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('details_weighing_one') %></h4>
+          <div class="div-content">
+            <div class="panel panel-default col-xs-10 col-xs-offset-1">
+              <div class="form-horizontal">
+                <legend>
+                  <i class="fa fa-tags"></i>
+                  <%= t('general_data') %>
+                </legend>
+                <div class="form-group field">
+                  <label class="col-sm-2 control-label" for="data"><%= t('date_of') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @recent_activity.weighing.dateWeighing %>"/>
+                  </div>
+                </div>
+                <div class="form-group field">
+                  <label class="col-sm-2 control-label" for="horario"><%= t('patient') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @recent_activity.weighing.patient.name%>"/>
+                  </div>
+                </div>
+                <div class="form-group field">
+                  <label class="col-sm-2 control-label" for="preco"><%= t('weight') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @recent_activity.weighing.weight %>"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% if @recent_activity.measurement != nil %>
+          <h1 class="col-xs-offset-1">
+            <i class="fa fa-arrows-v"></i>
+            <%= t('details_measurement') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('details_measurement_one') %></h4>
+          <div class="div-content">
+            <div class="panel panel-default col-xs-10 col-xs-offset-1">
+              <div class="form-horizontal">
+                <legend>
+                  <i class="fa fa-tags"></i>
+                  <%= t('general_data') %>
+                </legend>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="medida"><%=t('name_measure') %></label>
+                  <div class="col-sm-9">
+                    <input class="form-control" disabled type="text" value="<%= @recent_activity.measurement.nameMeasure %>"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="paciente" class="control-label col-sm-3"><%= t('patient') %></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @recent_activity.measurement.patient.name%>" disabled/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="data" class="control-label col-sm-3"><%= t('date_of') %></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @recent_activity.measurement.date %>" disabled/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tamanho" class="control-label col-sm-3"><%= t('size') %></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @recent_activity.measurement.size %>" disabled/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% if @recent_activity.realization != nil %>
+          <h1 class="col-xs-offset-1"><i class="fa fa fa-check-circle"></i> Detalhes da Realização do Treino</h1>
+          <h4 class="col-xs-offset-1">Veja todos os detalhes sobre a realização de treinos de seus pacientes.</h4>
+          <div class="div-content">
+            <div class="panel panel-default col-xs-10 col-xs-offset-1">
+              <div class="form-horizontal">
+                <legend>
+                  <i class="fa fa-tags"> Informações Gerais</i>
+                </legend>
+                <div class="form-group">
+                  <label for="date" class="control-label col-sm-2">Data</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @recent_activity.realization.date %>" disabled/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="patient" class="control-label col-sm-2">Paciente</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @recent_activity.realization.patient.name %>" disabled/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="muscularGroups" class="control-label col-sm-2">Treino</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @recent_activity.realization.training.muscularGroups %>" disabled/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="status" class="control-label col-sm-2">Status</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= @recent_activity.realization.status %>" disabled/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="observation" class="control-label col-sm-2">Observação</label>
+                  <div class="col-sm-9">
+                    <textarea class="form-control" disabled><%= @recent_activity.realization.observation %></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "privates/footerprivate" %>
+</div>
