@@ -18,15 +18,16 @@
           </a>
           <ul class="dropdown-menu list-unstyled" id="drop-menu">
             <li>
-              <a href="/about" target="_blank">
-                <i class="fa fa-info-circle"></i>
-                Sobre</a>
+                <%= link_to ' Meu Perfil', edit_patient_registration_path, class: 'fa fa-user' %>
             </li>
             <li>
-              <%= link_to 'Suporte', help_path, class:'fa fa-support', target: 'blank' %>
+              <%= link_to ' Sobre', about_path, class: 'fa fa-info-circle', target: 'blank' %>
             </li>
             <li>
-                <%= link_to 'Logout', destroy_patient_session_path, :method => :delete, class: 'fa fa-sign-out' %>
+              <%= link_to ' Suporte', help_path, class:'fa fa-support', target: 'blank' %>
+            </li>
+            <li>
+                <%= link_to ' Logout', destroy_patient_session_path, :method => :delete, class: 'fa fa-sign-out' %>
             </li>
           </ul>
         </li>

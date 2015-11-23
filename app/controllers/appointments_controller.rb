@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
   before_action :verify_user
 
   def index
-    @appointments = Appointment.all
+
   end
 
   def show
@@ -21,12 +21,30 @@ class AppointmentsController < ApplicationController
     @appointment.patient_id = current_patient.id
     @appointment.user_id = current_patient.user_id
     @appointment.clinic_id = current_patient.clinic_id
+
+    @aux=0
+
+    @appointments_for_user = []
+    Appointment.all.each do |appointment|
+      if appointment.patient.user_id == current_patient.user_id
+        @appointments_for_user << appointment
+      end
+    end
+
+    @appointments_for_user.each do |appointment|
+      if appointment.dateAppointment == @appointment.dateAppointment
+        @aux = 1
+      end
+    end
+
     respond_to do |format|
-      if @appointment.save
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
+      if @aux == 0
+        @appointment.save
+        format.html { redirect_to @appointment }
         format.json { render :show, status: :created, location: @appointment }
       else
-        format.html { render :new }
+        flash[:notice] = "Data/Horário indisponíveis, Tente novamente"
+        format.html { render :new}
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
       end
     end

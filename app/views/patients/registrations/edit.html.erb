@@ -1,27 +1,143 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+<div class="skin-blue sidebar-mini">
+  <div class="wrapper">
+    <header class="main-header">
+      <%= render "privates/navbarprivate" %>
+    </header>
+    <aside class="main-sidebar">
+      <%= render "privates/menubar" %>
+    </aside>
+    <div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1">
+          <h1 class="col-xs-offset-1">
+            <i class="fa fa-user"></i>
+            Meu Perfil <%= link_to "Cancelar Minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'option' %></h1>
+          <h4 class="col-xs-offset-1">Edite seu perfil para mantê-lo atualizado.</h4>
+          <div class="div-content">
+            <div class="panel panel-default col-xs-10 col-xs-offset-1">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+              <div class="form-horizontal">
+                <legend>
+                  <i class="fa fa-tags"></i>
+                  Dados Pessoais
+                </legend>
+                <div class="form-group field">
+                  <label class="col-sm-3 control-label" for="nome">Nome</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :name,:placeholder => 'Digite o seu nome', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="dataNasc">Data de Nasc.</label>
+                  <div class="col-sm-9">
+                    <%= f.date_select :birthdate, class: 'form-control', :start_year => 1900 %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="clinica">Clínica</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= current_patient.clinic.name %>" disabled/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="sexo">Sexo</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" value="<%= current_patient.genre %>" disabled/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="cpf">CPF</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :cpf, :placeholder => 'Digite o número de CPF do seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="telefone">Telefone</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :telephone, :placeholder => 'Digite o telefone de contato do paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <legend>
+                  <i class="fa fa-user"></i>
+                  Dados de perfil
+                </legend>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="peso">Peso</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :weigth, :placeholder => 'Digite o peso do seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="altura">Altura(m)</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :heigth, :placeholder => 'Digite a altura do seu paciente em metros', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="bf">BF</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :bf, :placeholder => 'Digite o percentual de gordura do seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="objetivo">Objetivo</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :objective, :placeholder => 'Digite o objetivo do seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="observacoes">Observações</label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :observations, :placeholder => 'Digite alguma observações sobre o paciente caso necessario', class: 'form-control' %>
+                  </div>
+                </div>
+                <legend>
+                  <i class="fa fa-lock"></i>
+                  Dados de Acesso
+                </legend>
+                <p class="text-danger">
+                  Caso você não queira alterar a senha, deixe os campos relacionados a uma nova senha em branco. No entanto é necessário colocar a senha atual para confirmar as demais alterações.
+                </p>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="email">Email</label>
+                  <div class="col-sm-9">
+                    <%= f.email_field :email, :placeholder => 'Digite o e-mail do seu paciente', class: 'form-control', :disabled => 'true' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="senha">Nova Senha</label>
+                  <div class="col-sm-9">
+                    <%= f.password_field :password, autocomplete: "off", :placeholder => 'Digite a senha de acesso para o seu paciente', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="password_confirmation">Confirmação de Senha</label>
+                  <div class="col-sm-9">
+                    <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Confirme a Senha', class:'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="current_password" class="control-label col-sm-3">Senha Atual</label>
+                  <div class="col-xs-9">
+                    <%= f.password_field :current_password, :placeholder => 'Digite sua senha atual', class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-4 col-sm-offset-5">
+                    <button class="btn btn-primary btn-lg" type="submit">
+                      <i class="fa fa-save"></i>
+                      Salvar
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <%= render "privates/footerprivate" %>
+</div>

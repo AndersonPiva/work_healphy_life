@@ -12,7 +12,7 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= devise_error_messages! %>
           <div class="form-horizontal">
-					<h1 class="col-xs-12 col-xs-offset-1"><i class="fa fa-user"></i> Meu Perfil   <%= link_to "Cancelar Minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'option' %></small></h1>
+					<h1 class="col-xs-12 col-xs-offset-1"><i class="fa fa-user"></i> Meu Perfil   <%= link_to "Cancelar Minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'option' %></h1>
 					<h4 class="col-xs-12 col-xs-offset-1">Tenha acesso as informações de seu perfil e atualize-as quando necessário.</h4>
 					<div class="panel panel-default col-xs-4 col-xs-offset-4 col-sm-5 col-md-3 col-md-offset-5 div-content padding">
 						<div class="field">
