@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Dieta</title>
+	</head>
+	<body>
+    <h1 style="text-align: center;">Dieta</h1>
+    <table border="1px">
+      <thead>
+        <tr>
+          <td colspan="6" style="text-align: center; background-color: #489CDF;">
+            <strong>Dados Gerais</strong>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="width: 100px; text-align: center;">
+            <strong>Paciente</strong>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <%= @diet.patient.name %>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <strong>Sexo:</strong>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <%= @diet.patient.genre %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <strong>Clínica:</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            <%= @diet.patient.clinic.name %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <strong>Data de Início:</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            <%= @diet.dateStart %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <strong>Data de Término:</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            <%= @diet.dateEnd %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <strong>Duração (dias)</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            <%= @diet.duration %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <strong>Tipo</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            <%= @diet.kind %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table border="1px" style="margin-top: 30px;">
+      <tr>
+        <td colspan="5" style="text-align: center; background-color: #489CDF;">
+          <strong>Refeições</strong>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center; width: 170px;">
+          <strong>Nome</strong>
+        </td>
+        <td style="text-align: center; width: 170px;">
+          <strong>Horário</strong>
+        </td>
+        <td style="text-align: center; width: 170px;">
+          <strong>Alimentos</strong>
+        </td>
+        <td style="text-align: center; width: 170px;">
+          <strong>Total de Calorias</strong>
+        </td>
+      </tr>
+      <% @diet.meals.each do |meal| %>
+      <tr>
+        <td style="text-align: center; width: 170px;">
+          <%= meal.name %>
+        </td>
+        <td style="text-align: center; width: 170px;">
+          <%= meal.time %>
+        </td>
+        <td style="text-align: center; width: 170px;">
+          <%= meal.description %>
+        </td>
+        <td style="text-align: center; width: 170px;">
+          <%= meal.totalCalories %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" style=" background-color: #489CDF; text-align: center">
+          Total de Calorias: <%= @diet.getTotalCalories %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+	</body>
+</html>

@@ -47,7 +47,7 @@
 										<%= training.duration%>
 									</td>
 									<td class="text-center">
-										<%= link_to '', training, title: 'Details', class: 'btn btn-success btn-xs fa fa-ellipsis-h' %>
+										<%= link_to '', training_path(training, format: :pdf), title: 'Clique para abrir em pdf', class: 'btn btn-default btn-sm fa fa-file-pdf-o', target:'_blank' %>
 									</td>
 								</tr>
 							<% end %>

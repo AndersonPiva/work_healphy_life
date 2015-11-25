@@ -38,7 +38,7 @@
 									<td class="text-center">
 										<%= diet.kind %>
 									</td>
-                  <td class="text-center"><%= link_to '', diet, title: t('details'), class: 'btn btn-success btn-xs fa fa-ellipsis-h' %></td>
+                  <td class="text-center"><%= link_to '', diet_path(diet, format: :pdf), title: 'Clique para abrir em pdf', class: 'btn btn-default btn-sm fa fa-file-pdf-o', target: '_blank' %></td>
                 </tr>
               <% end %>
             </table>

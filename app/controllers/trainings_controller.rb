@@ -7,6 +7,13 @@ class TrainingsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+
+      format.pdf { render pdf: "treino",
+        footer: { center: "[page] of [topage]" }
+      }
+    end
   end
 
   private

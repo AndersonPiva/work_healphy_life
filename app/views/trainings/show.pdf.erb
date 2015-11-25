@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Dieta</title>
+	</head>
+	<body>
+    <h1 style="text-align: center;">Dieta</h1>
+    <table border="1px">
+      <thead>
+        <tr>
+          <td colspan="6" style="text-align: center; background-color: #489CDF;">
+            <strong>Dados Gerais</strong>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="width: 100px; text-align: center;">
+            <strong>Paciente</strong>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <%= @training.patient.name %>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <strong>Sexo:</strong>
+          </td>
+          <td style="width: 200px; text-align: center;">
+            <%= @training.patient.genre %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <strong>Clínica:</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            <%= @training.patient.clinic.name %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <strong>Data de Início:</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            <%= @training.dateStart %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <strong>Data de Término:</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            <%= @training.dateEnd %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <strong>Duração (dias):</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            <%= @training.duration %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <strong>Dia da Semana:</strong>
+          </td>
+          <td colspan="2" style="text-align: center;">
+            <%= @training.weekDay %>
+          </td>
+        </tr>
+				<tr>
+					<td colspan="2" style="text-align: center;">
+						<strong>Grupos Musculares:</strong>
+					</td>
+					<td colspan="2" style="text-align: center;">
+						<%= @training.muscularGroups %>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align: center;">
+						<strong>Descrição:</strong>
+					</td>
+					<td colspan="2" style="text-align: center;">
+						<%= @training.description %>
+					</td>
+				</tr>
+      </tbody>
+    </table>
+    <table border="1px" style="margin-top: 30px;">
+      <tr>
+        <td colspan="5" style="text-align: center; background-color: #489CDF;">
+          <strong>Exercícios</strong>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center; width: 170px;">
+          <strong>Nome</strong>
+        </td>
+        <td style="text-align: center; width: 170px;">
+          <strong>Descrição</strong>
+        </td>
+        <td style="text-align: center; width: 170px;">
+          <strong>Séries</strong>
+        </td>
+        <td style="text-align: center; width: 170px;">
+          <strong>Repetições</strong>
+        </td>
+				<td style="text-align: center; width: 170px;">
+					<strong>Duração</strong>
+				</td>
+      </tr>
+      <% @training.exercises.each do |exercise| %>
+      <tr>
+        <td style="text-align: center; width: 170px;">
+          <%= exercise.name %>
+        </td>
+        <td style="text-align: center; width: 170px;">
+          <%= exercise.description %>
+        </td>
+				<td style="text-align: center; width: 170px;">
+					<%= exercise.series %>
+				</td>
+        <td style="text-align: center; width: 170px;">
+          <%= exercise.repeats %>
+        </td>
+        <td style="text-align: center; width: 170px;">
+          <%= exercise.duration %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+	</body>
+</html>

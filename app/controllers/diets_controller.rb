@@ -7,6 +7,13 @@ class DietsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+     format.html
+
+     format.pdf { render pdf: "dieta",
+       footer: { center: "[page] of [topage]" }
+     }
+    end
   end
 
   private
