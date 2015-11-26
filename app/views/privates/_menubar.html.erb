@@ -92,7 +92,7 @@
     <% end %>
     <% if current_user.present? %>
     <li>
-      <%= link_to ' Atividades Recentes' ,admin_recent_activities_path, class:'fa fa-history'%>
+      <%= link_to t('recent_activities') ,admin_recent_activities_path, class:'fa fa-history'%>
     </li>
     <% end %>
   </ul>

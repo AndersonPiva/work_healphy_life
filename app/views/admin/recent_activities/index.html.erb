@@ -9,9 +9,9 @@
 		<div class="content-wrapper new-height">
 			<div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1 min-height">
-          <h1 class="col-xs-offset-1"><i class="fa fa-history"></i> Atividades Recentes</h1>
-          <h4 class="line-height col-xs-offset-1">Veja um resumo das atividades recentes de seus pacientes na clínica</h4>
-					<h4 class='line-heigth col-xs-offset-1 text-danger'>Você está visualizando as atividades recentes a partir do seu último login, para ver todas clique <%= link_to 'aqui' ,admin_activities_path %></h4>
+          <h1 class="col-xs-offset-1"><i class="fa fa-history"></i> <%= t('recent_activities') %></h1>
+          <h4 class="line-height col-xs-offset-1"><%= t('recent_activities_one') %></h4>
+					<h4 class='line-heigth col-xs-offset-1 text-danger'><%= t('recent_activities_two') %> <%= link_to t('here') ,admin_activities_path %></h4>
 					<div class="table-responsive div-content">
             <table class="table table-hover">
               <tr>

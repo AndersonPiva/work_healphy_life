@@ -19,7 +19,7 @@
       <div class="form-group field">
         <label for="series" class="control-label col-sm-2"><%= t('series') %></label>
         <div class="col-sm-9">
-            <%= f.text_field :series, class:'form-control', :placeholder => 'Digite o número de séries para o exercício' %>
+            <%= f.number_field :series, min: '1', class:'form-control', :placeholder => 'Digite o número de séries para o exercício' %>
         </div>
       </div>
       <div class="form-group field">

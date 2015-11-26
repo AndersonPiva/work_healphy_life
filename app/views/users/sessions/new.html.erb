@@ -22,7 +22,7 @@
 			</div>
 			<div id="panel" class="panel panel-default col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0">
 				<div class="pn-heading">
-					<h4>Você é um Personal Trainer? <small>Logue agora mesmo!</small></h4>
+					<h4><%= t('youarepersonaltrainer') %> <small><%= t('loguenow') %></small></h4>
 				</div>
 				<div class="panel-body">
 					<%= notice %>
@@ -58,7 +58,7 @@
             <% end -%>
 					</div>
 					<div class="help-block text-center">
-							<%= link_to 'Sou Paciente', new_patient_session_path %>
+							<%= link_to t('iampatient'), new_patient_session_path %>
 					</div>
 				</div>
 			</div>
