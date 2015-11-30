@@ -14,12 +14,15 @@
               <%= notice %>
             </p>
           </div>
-          <h1 class="col-xs-offset-1 div-content">Seja Muito Bem-Vindo(a) <% if current_user.present? %> <%= current_user.name %> <% elsif current_patient.present? %> <%=current_patient.name%> <% end %></h1>
-          <h4 class="col-xs-offset-1 div-content">Você já está logado no nosso sistema. Faça bom proveito de todas as suas funcionalidades.</h4>
-          <h4 class="col-xs-offset-1">No lado esquerdo você tem um menu de acesso rápido para executar todas as suas ações.</h4>
-          <h4 class="col-xs-offset-1">Em caso de qualquer dúvida você pode visitar a sessão de suporte, presente no rodapé.</h4>
-          <h4 class="col-xs-offset-1">Agradecemos pela preferência. Obrigado e volte sempre.</h4>
-          <h4 class="col-xs-offset-1">Atenciosamente, equipe Vida Saudável</h4>
+          <h1 class="col-xs-offset-1 div-content"><%= t('welcome') %> <% if current_user.present? %> <%= current_user.name %> <% elsif current_patient.present? %> <%=current_patient.name%> <% end %>:</h1>
+          <h4 class="col-xs-offset-1 div-content"><%= t('after_login_one') %></h4>
+          <h4 class="col-xs-offset-1"><%= t('after_login_two') %></h4>
+          <h4 class="col-xs-offset-1"><%= t('after_login_three') %></h4>
+					<% if current_user.present? %>
+						<h4 class="col-xs-offset-1 text-danger line-height"><%= t('after_login_six') %></h4>
+					<% end %>
+          <h4 class="col-xs-offset-1"><%= t('after_login_four') %></h4>
+          <h4 class="col-xs-offset-1"><%= t('after_login_five') %></h4>
         </div>
       </div>
 		</div>

@@ -38,19 +38,19 @@
 							<div class="form-group">
 								<label for="telefone" class="col-sm-2 control-label">Telefone</label>
 								<div class="col-sm-9">
-									<%= f.text_field :telephone1, :placeholder => 'Digite seu telefone para contato', class: 'form-control' %>
+									<%= f.text_field :telephone1, :placeholder => 'Digite seu telefone para contato', class: 'form-control', id: 'phone' %>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="telefonealternativo" class="col-sm-2 control-label">Telefone 2</label>
 								<div class="col-sm-9">
-									<%= f.text_field :telephone2, :placeholder => 'Digite seu telefone alternativo para contato', class: 'form-control' %>
+									<%= f.text_field :telephone2, :placeholder => 'Digite seu telefone alternativo para contato', class: 'form-control', id: 'phone1' %>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="cpf" class="col-sm-2 control-label">CPF</label>
 								<div class="col-sm-9">
-									<%= f.text_field :cpf, :placeholder => 'Digite seu número de cpf', class: 'form-control' %>
+									<%= f.text_field :cpf, :placeholder => 'Digite seu número de cpf', class: 'form-control', id: 'cpf' %>
 								</div>
 							</div>
 							<legend>

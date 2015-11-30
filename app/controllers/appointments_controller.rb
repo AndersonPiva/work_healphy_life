@@ -50,18 +50,6 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  def update
-    respond_to do |format|
-      if @appointment.update(appointment_params)
-        format.html { redirect_to appointments_path, notice: I18n.t('register_updated') }
-        format.json { render :show, status: :ok, location: @appointment }
-      else
-        format.html { render :edit }
-        format.json { render json: @appointment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   def destroy
     @appointment.destroy
     respond_to do |format|
