@@ -1,7 +1,5 @@
 <nav class="navbar navbar-static-top" role="navigation">
-  <a class="logo" href="/dashboard">
-    <img alt="Logo" src="/assets/logo.png"/>
-  </a>
+  <%= link_to image_tag("logo.png"), root_path, title: 'Home', class: 'logo' %>
   <a class="sidebar-toggle" data-toggle="offcanvas" href="#" role="button">
     <span class="sr-only">Toggle navigation</span>
   </a>
