@@ -24,7 +24,7 @@ class MeasurementsController < ApplicationController
     @recent_activity.save
     respond_to do |format|
       if @measurement.save
-        format.html { redirect_to measurements_path, notice: 'Measurement was successfully created.' }
+        format.html { redirect_to measurements_path, notice: I18n.t('register_created') }
       else
         format.html { render :new }
         @recent_activity.destroy
@@ -38,7 +38,7 @@ class MeasurementsController < ApplicationController
     @recent_activity.save
     respond_to do |format|
       if @measurement.update(measurement_params)
-        format.html { redirect_to measurements_path, notice: 'Measurement was successfully updated.' }
+        format.html { redirect_to measurements_path, notice: I18n.t('register_updated') }
       else
         format.html { render :edit }
         @recent_activity.destroy
@@ -51,7 +51,7 @@ class MeasurementsController < ApplicationController
     @recent_activity = RecentActivity.new date: Date.today, shedule: Time.now, patient_id: current_patient.id, user_id: current_patient.user_id, description: "Excluiu uma medida"
     @recent_activity.save
     respond_to do |format|
-      format.html { redirect_to measurements_url, notice: 'Measurement was successfully destroyed.' }
+      format.html { redirect_to measurements_url, notice: I18n.t('register_destroyed') }
       format.json { head :no_content }
     end
   end
@@ -68,7 +68,7 @@ class MeasurementsController < ApplicationController
 
     def verify_user
       if !current_patient.present?
-        redirect_to new_patient_session_path, notice: 'Logue para continuar'
+        redirect_to new_patient_session_path, notice: I18n.t('sign_in_to_continue')
       end
     end
 end

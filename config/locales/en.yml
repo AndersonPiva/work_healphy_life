@@ -1,4 +1,9 @@
 en:
+  sign_in_to_continue: "Sign in to continue."
+  restrict_area: "Restrict Area."
+  register_created: "Register was successfully created."
+  register_updated: "Register was successfully updated."
+  register_destroyed: "Register was successfully destroyed."
   register_nt: " Register new Training"
   youarepersonaltrainer: "Are you personal trainer?"
   activities: "Activities"

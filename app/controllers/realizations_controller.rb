@@ -13,9 +13,6 @@ class RealizationsController < ApplicationController
   @realization = Realization.new
   end
 
-
-# POST /realizations
-# POST /realizations.json
 def create
   @realization = Realization.new(realization_params)
   @realization.patient_id = current_patient.id
@@ -24,7 +21,7 @@ def create
   @recent_activity.save
   respond_to do |format|
     if @realization.save
-      format.html { redirect_to realizations_path notice: 'Realization was successfully created.' }
+      format.html { redirect_to realizations_path notice: I18n.t('register_created') }
     else
       format.html { render :new }
       @recent_activity.destroy
@@ -44,7 +41,7 @@ end
 
     def verify_user
       if !current_patient.present?
-        redirect_to new_patient_session_path, notice: 'Logue para continuar'
+        redirect_to new_patient_session_path, notice: I18n.t('sign_in_to_continue')
       end
     end
 end

@@ -26,7 +26,7 @@ class Admin::TrainingsController < Admin::AdminController
 
     respond_to do |format|
       if @training.save
-        format.html { redirect_to admin_trainings_path, notice: 'Training was successfully created.' }
+        format.html { redirect_to admin_trainings_path, notice: t('register_created') }
       else
         format.html { render :new }
         format.json { render json: @training.errors, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class Admin::TrainingsController < Admin::AdminController
   def update
     respond_to do |format|
       if @training.update(training_params)
-        format.html { redirect_to admin_trainings_path, notice: 'Training was successfully updated.' }
+        format.html { redirect_to admin_trainings_path, notice: I18n.t('register_updated') }
       else
         format.html { render :edit }
         format.json { render json: @training.errors, status: :unprocessable_entity }
@@ -48,7 +48,7 @@ class Admin::TrainingsController < Admin::AdminController
   def destroy
     @training.destroy
     respond_to do |format|
-      format.html { redirect_to admin_trainings_url, notice: 'Training was successfully destroyed.' }
+      format.html { redirect_to admin_trainings_url, notice: I18.t('register_destroyed') }
       format.json { head :no_content }
     end
   end

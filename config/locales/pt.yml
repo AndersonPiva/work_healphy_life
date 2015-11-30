@@ -1,4 +1,9 @@
 pt:
+  sign_in_to_continue: "Logue para continuar."
+  restrict_area: "Área Restrita."
+  register_updated: "O registro foi atualizado com sucesso."
+  register_created: "O registro foi criado com sucesso."
+  register_destroyed: "O registro foi deletado com sucesso."
   iampatient: "Sou Paciente"
   recent_activities_two: "Você está visualizando as atividades recentes a partir do seu último login, para ver todas clique "
   here: "aqui"

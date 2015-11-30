@@ -21,7 +21,7 @@ class Admin::AdminController < ApplicationController
 private
   	def verify_user
     	if !current_user.present?
-      		redirect_to root_path , :notice => 'Área Restrita.'
+      		redirect_to root_path , :notice => I18n.t('restrict_area')
     	end
 	  end
 end

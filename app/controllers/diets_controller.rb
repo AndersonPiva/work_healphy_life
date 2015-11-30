@@ -28,7 +28,7 @@ class DietsController < ApplicationController
 
     def verify_user
       if !current_patient.present?
-        redirect_to new_patient_session_path, notice: 'Logue para continuar'
+        redirect_to new_patient_session_path, notice: I18n.t('sign_in_to_continue')
       end
     end
 end

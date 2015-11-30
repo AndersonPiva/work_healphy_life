@@ -28,7 +28,7 @@ class Admin::WeighingsController < Admin::AdminController
 
     respond_to do |format|
       if @weighing.save
-        format.html { redirect_to admin_weighings_path, notice: 'Weighing was successfully created.' }
+        format.html { redirect_to admin_weighings_path, notice: I18n.t('register_created') }
       else
         format.html { render :new }
         format.json { render json: @weighing.errors, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class Admin::WeighingsController < Admin::AdminController
   def update
     respond_to do |format|
       if @weighing.update(weighing_params)
-        format.html { redirect_to admin_weighings_path, notice: 'Weighing was successfully updated.' }
+        format.html { redirect_to admin_weighings_path, notice: I18n.t('register_updated') }
       else
         format.html { render :edit }
         format.json { render json: @weighing.errors, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class Admin::WeighingsController < Admin::AdminController
   def destroy
     @weighing.destroy
     respond_to do |format|
-      format.html { redirect_to admin_weighings_url, notice: 'Weighing was successfully destroyed.' }
+      format.html { redirect_to admin_weighings_url, notice: I18n.t('register_destroyed') }
       format.json { head :no_content }
     end
   end

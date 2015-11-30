@@ -21,7 +21,7 @@ class Admin::ClinicsController < Admin::AdminController
     @clinic.user_id = current_user.id
     respond_to do |format|
       if @clinic.save
-        format.html { redirect_to admin_clinics_path, notice: 'Clinic was successfully created.' }
+        format.html { redirect_to admin_clinics_path, notice: I18n.t('register_created') }
       else
         format.html { render :new }
         format.json { render json: @clinic.errors, status: :unprocessable_entity }
@@ -32,7 +32,7 @@ class Admin::ClinicsController < Admin::AdminController
   def update
     respond_to do |format|
       if @clinic.update(clinic_params)
-        format.html { redirect_to admin_clinics_path, notice: 'Clinic was successfully updated.' }
+        format.html { redirect_to admin_clinics_path, notice: I18n.t('register_updated') }
       else
         format.html { render :edit }
         format.json { render json: @clinic.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class Admin::ClinicsController < Admin::AdminController
   def destroy
     @clinic.destroy
     respond_to do |format|
-      format.html { redirect_to admin_clinics_url, notice: 'Clinic was successfully destroyed.' }
+      format.html { redirect_to admin_clinics_url, notice: I18n.t('register_destroyed') }
       format.json { head :no_content }
     end
   end

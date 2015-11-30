@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
+  before_action :verify_user
 
   def index
 
@@ -24,6 +25,12 @@ class RatingsController < ApplicationController
 
     def rating_params
       params.require(:rating).permit(:patient_id, :date, :handleDiameter, :kneeDiameter, :leg, :belly, :chest)
+    end
+
+    def verify_user
+      if !current_patient.present?
+        redirect_to new_patient_session_path, notice: I18n.t('sign_in_to_continue')
+      end
     end
 
 end

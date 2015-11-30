@@ -26,7 +26,7 @@ class Admin::DietsController < Admin::AdminController
     @diet.duration = @diet.dateEnd - @diet.dateStart
     respond_to do |format|
       if @diet.save
-        format.html { redirect_to admin_diets_path, notice: 'Diet was successfully created.' }
+        format.html { redirect_to admin_diets_path, notice: I18n.t('register_created') }
       else
         format.html { render :new }
         format.json { render json: @diet.errors, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class Admin::DietsController < Admin::AdminController
   def update
     respond_to do |format|
       if @diet.update(diet_params)
-        format.html { redirect_to admin_diets_path, notice: 'Diet was successfully updated.' }
+        format.html { redirect_to admin_diets_path, notice: I18n.t('register_updated') }
       else
         format.html { render :edit }
         format.json { render json: @diet.errors, status: :unprocessable_entity }
@@ -48,7 +48,7 @@ class Admin::DietsController < Admin::AdminController
   def destroy
     @diet.destroy
     respond_to do |format|
-      format.html { redirect_to admin_diets_url, notice: 'Diet was successfully destroyed.' }
+      format.html { redirect_to admin_diets_url, notice: I18n.t('register_destroyed') }
       format.json { head :no_content }
     end
   end
