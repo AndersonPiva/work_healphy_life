@@ -7,39 +7,39 @@
     <%= t('general_data') %>
   </legend>
   <div class="form-group field">
-    <label for="paciente" class="control-label col-sm-2"><%= t('patient') %></label>
+    <label for="paciente" class="control-label col-sm-3"><%= t('patient') %></label>
     <div class="col-sm-9">
       <%= f.collection_select(:patient_id, current_user.patients, :id, :name, prompt: t('please_patient') , class: 'form-control') %>
     </div>
   </div>
   <div class="form-group field">
-    <label class="col-sm-2 control-label" for="data"><%= t('day_week') %></label>
+    <label class="col-sm-3 control-label" for="data"><%= t('day_week') %></label>
     <div class="col-sm-9">
       <%= f.text_field :weekDay, :placeholder => 'Digite o dia da semana em que será realizado o treino', class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
-    <label class="col-sm-2 control-label" for="horario"><%= t('muscular_groups') %></label>
+    <label class="col-sm-3 control-label" for="horario"><%= t('muscular_groups') %></label>
     <div class="col-sm-9">
       <%= f.text_field :muscularGroups, :placeholder => 'Digite os grupos musculares que serão treinados', class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
-    <label class="col-sm-2 control-label" for="preco"><%= t('description') %></label>
+    <label class="col-sm-3 control-label" for="preco"><%= t('description') %></label>
     <div class="col-sm-9">
       <%= f.text_area :description, :placeholder => 'Digite a descrição geral do treino', class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
-    <label class="control-label col-sm-2" for="dateStart"><%= t('dateStart') %></label>
+    <label class="control-label col-sm-3" for="dateStart"><%= t('date_start') %></label>
     <%= f.date_select :dateStart %>
   </div>
   <div class="form-group field">
-    <label class="control-label col-sm-2" for="dateStart"><%= t('dateEnd') %></label>
+    <label class="control-label col-sm-3" for="dateStart"><%= t('date_end') %></label>
     <%= f.date_select :dateEnd %>
   </div>
   <div class="form-group field">
-    <label class="control-label col-sm-2" for="dateStart"><%= t('duration') %></label>
+    <label class="control-label col-sm-3" for="dateStart"><%= t('duration') %></label>
     <%= f.time_select :duration %>
   </div>
   <legend class="div-content">
