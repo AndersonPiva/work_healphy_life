@@ -155,6 +155,10 @@ ActiveRecord::Schema.define(version: 20151228041729) do
     t.integer  "user_id",                limit: 4
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "cover_file_name",        limit: 255
+    t.string   "cover_content_type",     limit: 255
+    t.integer  "cover_file_size",        limit: 4
+    t.datetime "cover_updated_at"
   end
 
   add_index "patients", ["clinic_id"], name: "index_patients_on_clinic_id", using: :btree

@@ -13,412 +13,423 @@
 </head>
 
 <body>
+  <%= yield %>
+    <script>
+      $(function() {
+        $('.btn_enviar').on('change', function(event) {
+          var files = event.target.files;
+          var image = files[0]
+          var reader = new FileReader();
+          reader.onload = function(file) {
+            var img = new Image();
+            console.log(file);
+            img.src = file.target.result;
+            $('.target').html(img);
+          }
+          reader.readAsDataURL(image);
+          console.log(files);
+        });
+      });
 
+      $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+      });
 
-      <%= yield %>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+      });
 
-        <script>
-          $(function() {
-            $('.btn_enviar').on('change', function(event) {
-              var files = event.target.files;
-              var image = files[0]
-              var reader = new FileReader();
-              reader.onload = function(file) {
-                var img = new Image();
-                console.log(file);
-                img.src = file.target.result;
-                $('.target').html(img);
-              }
-              reader.readAsDataURL(image);
-              console.log(files);
-            });
+      (function(c, q) {
+        var m = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+        c.fn.imagesLoaded = function(f) {
+          function n() {
+            var b = c(j),
+              a = c(h);
+            d && (h.length ? d.reject(e, b, a) : d.resolve(e));
+            c.isFunction(f) && f.call(g, e, b, a)
+          }
+
+          function p(b) {
+            k(b.target, "error" === b.type)
+          }
+
+          function k(b, a) {
+            b.src === m || -1 !== c.inArray(b, l) || (l.push(b), a ? h.push(b) : j.push(b), c.data(b, "imagesLoaded", {
+              isBroken: a,
+              src: b.src
+            }), r && d.notifyWith(c(b), [a, e, c(j), c(h)]), e.length === l.length && (setTimeout(n), e.unbind(".imagesLoaded", p)))
+          }
+
+          var g = this,
+            d = c.isFunction(c.Deferred) ? c.Deferred() : 0,
+            r = c.isFunction(d.notify),
+            e = g.find("img").add(g.filter("img")),
+            l = [],
+            j = [],
+            h = [];
+          c.isPlainObject(f) && c.each(f, function(b, a) {
+            if ("callback" === b)
+              f = a;
+            else if (d)
+              d[b](a)
+          });
+          e.length ? e.bind("load.imagesLoaded error.imagesLoaded", p).each(function(b, a) {
+            var d = a.src,
+              e = c.data(a, "imagesLoaded");
+            if (e && e.src === d)
+              k(a, e.isBroken);
+            else if (a.complete && a.naturalWidth !== q)
+              k(a, 0 === a.naturalWidth || 0 === a.naturalHeight);
+            else if (a.readyState || a.complete)
+              a.src = m, a.src =
+              d
+          }) : n();
+          return d ? d.promise(g) : g
+        }
+      })(jQuery);
+
+      var cbpBGSlideshow = (function() {
+        var $slideshow = $('#cbp-bislideshow'),
+          $items = $slideshow.children('li'),
+          itemsCount = $items.length,
+          $controls = $('#cbp-bicontrols'),
+          navigation = {
+            $navPrev: $controls.find('span.cbp-biprev'),
+            $navNext: $controls.find('span.cbp-binext'),
+            $navPlayPause: $controls.find('span.cbp-bipause')
+          },
+          current = 0,
+          slideshowtime,
+          isSlideshowActive = true,
+          interval = 12000;
+
+        function init(config) {
+          $slideshow.imagesLoaded(function() {
+
+            if (Modernizr.backgroundsize) {
+              $items.each(function() {
+                var $item = $(this);
+                $item.css('background-image', 'url(' + $item.find('img').attr('src') + ')');
+              });
+            } else {
+              $slideshow.find('img').show();
+
+            }
+
+            $items.eq(current).css('opacity', 1);
+            initEvents();
+            startSlideshow();
+
           });
 
-          $("#menu-close").click(function(e) {
-            e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
+        }
+
+        function initEvents() {
+          navigation.$navPlayPause.on('click', function() {
+
+            var $control = $(this);
+            if ($control.hasClass('cbp-biplay')) {
+              $control.removeClass('cbp-biplay').addClass('cbp-bipause');
+              startSlideshow();
+            } else {
+              $control.removeClass('cbp-bipause').addClass('cbp-biplay');
+              stopSlideshow();
+            }
+
           });
 
-          $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
+          navigation.$navPrev.on('click', function() {
+            navigate('prev');
+            if (isSlideshowActive) {
+              startSlideshow();
+            }
+          });
+          navigation.$navNext.on('click', function() {
+            navigate('next');
+            if (isSlideshowActive) {
+              startSlideshow();
+            }
           });
 
-          (function(c, q) {
-            var m = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
-            c.fn.imagesLoaded = function(f) {
-              function n() {
-                var b = c(j),
-                  a = c(h);
-                d && (h.length ? d.reject(e, b, a) : d.resolve(e));
-                c.isFunction(f) && f.call(g, e, b, a)
-              }
+        }
 
-              function p(b) {
-                k(b.target, "error" === b.type)
-              }
+        function navigate(direction) {
+          var $oldItem = $items.eq(current);
 
-              function k(b, a) {
-                b.src === m || -1 !== c.inArray(b, l) || (l.push(b), a ? h.push(b) : j.push(b), c.data(b, "imagesLoaded", {
-                  isBroken: a,
-                  src: b.src
-                }), r && d.notifyWith(c(b), [a, e, c(j), c(h)]), e.length === l.length && (setTimeout(n), e.unbind(".imagesLoaded", p)))
-              }
+          if (direction === 'next') {
+            current = current < itemsCount - 1 ? ++current : 0;
+          } else if (direction === 'prev') {
+            current = current > 0 ? --current : itemsCount - 1;
+          }
 
-              var g = this,
-                d = c.isFunction(c.Deferred) ? c.Deferred() : 0,
-                r = c.isFunction(d.notify),
-                e = g.find("img").add(g.filter("img")),
-                l = [],
-                j = [],
-                h = [];
-              c.isPlainObject(f) && c.each(f, function(b, a) {
-                if ("callback" === b)
-                  f = a;
-                else if (d)
-                  d[b](a)
+          var $newItem = $items.eq(current);
+
+          $oldItem.css('opacity', 0);
+          $newItem.css('opacity', 1);
+
+        }
+
+        function startSlideshow() {
+          isSlideshowActive = true;
+          clearTimeout(slideshowtime);
+          slideshowtime = setTimeout(function() {
+            navigate('next');
+            startSlideshow();
+          }, interval);
+
+        }
+
+        function stopSlideshow() {
+          isSlideshowActive = false;
+          clearTimeout(slideshowtime);
+        }
+
+        return {
+          init: init
+        };
+
+      })();
+
+      $(function() {
+        cbpBGSlideshow.init();
+      });
+
+      function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("btn_enviar").files[0]);
+
+        oFReader.onload = function(oFREvent) {
+          document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+      };
+
+      // init Full Slider </
+      (function(c, q) {
+        var m = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+        c.fn.imagesLoaded = function(f) {
+          function n() {
+            var b = c(j),
+              a = c(h);
+            d && (h.length ? d.reject(e, b, a) : d.resolve(e));
+            c.isFunction(f) && f.call(g, e, b, a)
+          }
+
+          function p(b) {
+            k(b.target, "error" === b.type)
+          }
+
+          function k(b, a) {
+            b.src === m || -1 !== c.inArray(b, l) || (l.push(b), a ? h.push(b) : j.push(b), c.data(b, "imagesLoaded", {
+              isBroken: a,
+              src: b.src
+            }), r && d.notifyWith(c(b), [a, e, c(j), c(h)]), e.length === l.length && (setTimeout(n), e.unbind(".imagesLoaded", p)))
+          }
+
+          var g = this,
+            d = c.isFunction(c.Deferred) ? c.Deferred() : 0,
+            r = c.isFunction(d.notify),
+            e = g.find("img").add(g.filter("img")),
+            l = [],
+            j = [],
+            h = [];
+          c.isPlainObject(f) && c.each(f, function(b, a) {
+            if ("callback" === b)
+              f = a;
+            else if (d)
+              d[b](a)
+          });
+          e.length ? e.bind("load.imagesLoaded error.imagesLoaded", p).each(function(b, a) {
+            var d = a.src,
+              e = c.data(a, "imagesLoaded");
+            if (e && e.src === d)
+              k(a, e.isBroken);
+            else if (a.complete && a.naturalWidth !== q)
+              k(a, 0 === a.naturalWidth || 0 === a.naturalHeight);
+            else if (a.readyState || a.complete)
+              a.src = m, a.src =
+              d
+          }) : n();
+          return d ? d.promise(g) : g
+        }
+      })(jQuery);
+
+      var cbpBGSlideshow = (function() {
+        var $slideshow = $('#cbp-bislideshow'),
+          $items = $slideshow.children('li'),
+          itemsCount = $items.length,
+          $controls = $('#cbp-bicontrols'),
+          navigation = {
+            $navPrev: $controls.find('span.cbp-biprev'),
+            $navNext: $controls.find('span.cbp-binext'),
+            $navPlayPause: $controls.find('span.cbp-bipause')
+          },
+          current = 0,
+          slideshowtime,
+          isSlideshowActive = true,
+          interval = 12000;
+
+        function init(config) {
+          $slideshow.imagesLoaded(function() {
+
+            if (Modernizr.backgroundsize) {
+              $items.each(function() {
+                var $item = $(this);
+                $item.css('background-image', 'url(' + $item.find('img').attr('src') + ')');
               });
-              e.length ? e.bind("load.imagesLoaded error.imagesLoaded", p).each(function(b, a) {
-                var d = a.src,
-                  e = c.data(a, "imagesLoaded");
-                if (e && e.src === d)
-                  k(a, e.isBroken);
-                else if (a.complete && a.naturalWidth !== q)
-                  k(a, 0 === a.naturalWidth || 0 === a.naturalHeight);
-                else if (a.readyState || a.complete)
-                  a.src = m, a.src =
-                  d
-              }) : n();
-              return d ? d.promise(g) : g
-            }
-          })(jQuery);
-
-          var cbpBGSlideshow = (function() {
-            var $slideshow = $('#cbp-bislideshow'),
-              $items = $slideshow.children('li'),
-              itemsCount = $items.length,
-              $controls = $('#cbp-bicontrols'),
-              navigation = {
-                $navPrev: $controls.find('span.cbp-biprev'),
-                $navNext: $controls.find('span.cbp-binext'),
-                $navPlayPause: $controls.find('span.cbp-bipause')
-              },
-              current = 0,
-              slideshowtime,
-              isSlideshowActive = true,
-              interval = 12000;
-
-            function init(config) {
-              $slideshow.imagesLoaded(function() {
-
-                if (Modernizr.backgroundsize) {
-                  $items.each(function() {
-                    var $item = $(this);
-                    $item.css('background-image', 'url(' + $item.find('img').attr('src') + ')');
-                  });
-                } else {
-                  $slideshow.find('img').show();
-
-                }
-
-                $items.eq(current).css('opacity', 1);
-                initEvents();
-                startSlideshow();
-
-              });
+            } else {
+              $slideshow.find('img').show();
 
             }
 
-            function initEvents() {
-              navigation.$navPlayPause.on('click', function() {
+            $items.eq(current).css('opacity', 1);
+            initEvents();
+            startSlideshow();
 
-                var $control = $(this);
-                if ($control.hasClass('cbp-biplay')) {
-                  $control.removeClass('cbp-biplay').addClass('cbp-bipause');
-                  startSlideshow();
-                } else {
-                  $control.removeClass('cbp-bipause').addClass('cbp-biplay');
-                  stopSlideshow();
-                }
-
-              });
-
-              navigation.$navPrev.on('click', function() {
-                navigate('prev');
-                if (isSlideshowActive) {
-                  startSlideshow();
-                }
-              });
-              navigation.$navNext.on('click', function() {
-                navigate('next');
-                if (isSlideshowActive) {
-                  startSlideshow();
-                }
-              });
-
-            }
-
-            function navigate(direction) {
-              var $oldItem = $items.eq(current);
-
-              if (direction === 'next') {
-                current = current < itemsCount - 1 ? ++current : 0;
-              } else if (direction === 'prev') {
-                current = current > 0 ? --current : itemsCount - 1;
-              }
-
-              var $newItem = $items.eq(current);
-
-              $oldItem.css('opacity', 0);
-              $newItem.css('opacity', 1);
-
-            }
-
-            function startSlideshow() {
-              isSlideshowActive = true;
-              clearTimeout(slideshowtime);
-              slideshowtime = setTimeout(function() {
-                navigate('next');
-                startSlideshow();
-              }, interval);
-
-            }
-
-            function stopSlideshow() {
-              isSlideshowActive = false;
-              clearTimeout(slideshowtime);
-            }
-
-            return {
-              init: init
-            };
-
-          })();
-
-          $(function() {
-            cbpBGSlideshow.init();
           });
 
-          function PreviewImage() {
-            var oFReader = new FileReader();
-            oFReader.readAsDataURL(document.getElementById("btn_enviar").files[0]);
+        }
 
-            oFReader.onload = function(oFREvent) {
-              document.getElementById("uploadPreview").src = oFREvent.target.result;
-            };
+        function initEvents() {
+          navigation.$navPlayPause.on('click', function() {
+
+            var $control = $(this);
+            if ($control.hasClass('cbp-biplay')) {
+              $control.removeClass('cbp-biplay').addClass('cbp-bipause');
+              startSlideshow();
+            } else {
+              $control.removeClass('cbp-bipause').addClass('cbp-biplay');
+              stopSlideshow();
+            }
+
+          });
+
+          navigation.$navPrev.on('click', function() {
+            navigate('prev');
+            if (isSlideshowActive) {
+              startSlideshow();
+            }
+          });
+          navigation.$navNext.on('click', function() {
+            navigate('next');
+            if (isSlideshowActive) {
+              startSlideshow();
+            }
+          });
+
+        }
+
+        function navigate(direction) {
+          var $oldItem = $items.eq(current);
+
+          if (direction === 'next') {
+            current = current < itemsCount - 1 ? ++current : 0;
+          } else if (direction === 'prev') {
+            current = current > 0 ? --current : itemsCount - 1;
+          }
+
+          var $newItem = $items.eq(current);
+
+          $oldItem.css('opacity', 0);
+          $newItem.css('opacity', 1);
+
+        }
+
+        function startSlideshow() {
+          isSlideshowActive = true;
+          clearTimeout(slideshowtime);
+          slideshowtime = setTimeout(function() {
+            navigate('next');
+            startSlideshow();
+          }, interval);
+
+        }
+
+        function stopSlideshow() {
+          isSlideshowActive = false;
+          clearTimeout(slideshowtime);
+        }
+
+        return {
+          init: init
+        };
+
+      })();
+
+      $(function() {
+        cbpBGSlideshow.init();
+      });
+
+      $(document).ready(function() {
+        $("#div-plus").hide();
+        $("#question-one").bind("click", function() {
+          $("#div-plus").slideToggle("slow");
+        });
+      });
+      $(document).ready(function() {
+        $("#div-plus1").hide();
+        $("#question-two").bind("click", function() {
+          $("#div-plus1").slideToggle("slow");
+        });
+      });
+      $(document).ready(function() {
+        $("#div-plus2").hide();
+        $("#question-tree").bind("click", function() {
+          $("#div-plus2").slideToggle("slow");
+        });
+      });
+      $(document).ready(function() {
+        $("#div-plus3").hide();
+        $("#question-for").bind("click", function() {
+          $("#div-plus3").slideToggle("slow");
+        });
+      });
+      $(document).ready(function() {
+        $("#div-plus4").hide();
+        $("#question-five").bind("click", function() {
+          $("#div-plus4").slideToggle("slow");
+        });
+      });
+      $(document).ready(function() {
+        $("#div-plus5").hide();
+        $("#question-six").bind("click", function() {
+          $("#div-plus5").slideToggle("slow");
+        });
+      });
+      $(document).ready(function() {
+        $("#div-plus6").hide();
+        $("#question-seven").bind("click", function() {
+          $("#div-plus6").slideToggle("slow");
+        });
+      });
+      $(document).ready(function() {
+        $("#div-plus7").hide();
+        $("#question-eight").bind("click", function() {
+          $("#div-plus7").slideToggle("slow");
+        });
+      });
+      $(document).ready(function() {
+        $("#div-plus8").hide();
+        $("#question-nine").bind("click", function() {
+          $("#div-plus8").slideToggle("slow");
+        });
+      });
+    </script>
+
+    <script>
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function(e) {
+            $('#img_prev').attr('src', e.target.result);
           };
 
-          // init Full Slider </
-          (function(c, q) {
-            var m = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
-            c.fn.imagesLoaded = function(f) {
-              function n() {
-                var b = c(j),
-                  a = c(h);
-                d && (h.length ? d.reject(e, b, a) : d.resolve(e));
-                c.isFunction(f) && f.call(g, e, b, a)
-              }
-
-              function p(b) {
-                k(b.target, "error" === b.type)
-              }
-
-              function k(b, a) {
-                b.src === m || -1 !== c.inArray(b, l) || (l.push(b), a ? h.push(b) : j.push(b), c.data(b, "imagesLoaded", {
-                  isBroken: a,
-                  src: b.src
-                }), r && d.notifyWith(c(b), [a, e, c(j), c(h)]), e.length === l.length && (setTimeout(n), e.unbind(".imagesLoaded", p)))
-              }
-
-              var g = this,
-                d = c.isFunction(c.Deferred) ? c.Deferred() : 0,
-                r = c.isFunction(d.notify),
-                e = g.find("img").add(g.filter("img")),
-                l = [],
-                j = [],
-                h = [];
-              c.isPlainObject(f) && c.each(f, function(b, a) {
-                if ("callback" === b)
-                  f = a;
-                else if (d)
-                  d[b](a)
-              });
-              e.length ? e.bind("load.imagesLoaded error.imagesLoaded", p).each(function(b, a) {
-                var d = a.src,
-                  e = c.data(a, "imagesLoaded");
-                if (e && e.src === d)
-                  k(a, e.isBroken);
-                else if (a.complete && a.naturalWidth !== q)
-                  k(a, 0 === a.naturalWidth || 0 === a.naturalHeight);
-                else if (a.readyState || a.complete)
-                  a.src = m, a.src =
-                  d
-              }) : n();
-              return d ? d.promise(g) : g
-            }
-          })(jQuery);
-
-          var cbpBGSlideshow = (function() {
-            var $slideshow = $('#cbp-bislideshow'),
-              $items = $slideshow.children('li'),
-              itemsCount = $items.length,
-              $controls = $('#cbp-bicontrols'),
-              navigation = {
-                $navPrev: $controls.find('span.cbp-biprev'),
-                $navNext: $controls.find('span.cbp-binext'),
-                $navPlayPause: $controls.find('span.cbp-bipause')
-              },
-              current = 0,
-              slideshowtime,
-              isSlideshowActive = true,
-              interval = 12000;
-
-            function init(config) {
-              $slideshow.imagesLoaded(function() {
-
-                if (Modernizr.backgroundsize) {
-                  $items.each(function() {
-                    var $item = $(this);
-                    $item.css('background-image', 'url(' + $item.find('img').attr('src') + ')');
-                  });
-                } else {
-                  $slideshow.find('img').show();
-
-                }
-
-                $items.eq(current).css('opacity', 1);
-                initEvents();
-                startSlideshow();
-
-              });
-
-            }
-
-            function initEvents() {
-              navigation.$navPlayPause.on('click', function() {
-
-                var $control = $(this);
-                if ($control.hasClass('cbp-biplay')) {
-                  $control.removeClass('cbp-biplay').addClass('cbp-bipause');
-                  startSlideshow();
-                } else {
-                  $control.removeClass('cbp-bipause').addClass('cbp-biplay');
-                  stopSlideshow();
-                }
-
-              });
-
-              navigation.$navPrev.on('click', function() {
-                navigate('prev');
-                if (isSlideshowActive) {
-                  startSlideshow();
-                }
-              });
-              navigation.$navNext.on('click', function() {
-                navigate('next');
-                if (isSlideshowActive) {
-                  startSlideshow();
-                }
-              });
-
-            }
-
-            function navigate(direction) {
-              var $oldItem = $items.eq(current);
-
-              if (direction === 'next') {
-                current = current < itemsCount - 1 ? ++current : 0;
-              } else if (direction === 'prev') {
-                current = current > 0 ? --current : itemsCount - 1;
-              }
-
-              var $newItem = $items.eq(current);
-
-              $oldItem.css('opacity', 0);
-              $newItem.css('opacity', 1);
-
-            }
-
-            function startSlideshow() {
-              isSlideshowActive = true;
-              clearTimeout(slideshowtime);
-              slideshowtime = setTimeout(function() {
-                navigate('next');
-                startSlideshow();
-              }, interval);
-
-            }
-
-            function stopSlideshow() {
-              isSlideshowActive = false;
-              clearTimeout(slideshowtime);
-            }
-
-            return {
-              init: init
-            };
-
-          })();
-
-          $(function() {
-            cbpBGSlideshow.init();
-          });
-
-          $(document).ready(function() {
-            $("#div-plus").hide();
-            $("#question-one").bind("click", function() {
-              $("#div-plus").slideToggle("slow");
-            });
-          });
-          $(document).ready(function() {
-            $("#div-plus1").hide();
-            $("#question-two").bind("click", function() {
-              $("#div-plus1").slideToggle("slow");
-            });
-          });
-          $(document).ready(function() {
-            $("#div-plus2").hide();
-            $("#question-tree").bind("click", function() {
-              $("#div-plus2").slideToggle("slow");
-            });
-          });
-          $(document).ready(function() {
-            $("#div-plus3").hide();
-            $("#question-for").bind("click", function() {
-              $("#div-plus3").slideToggle("slow");
-            });
-          });
-          $(document).ready(function() {
-            $("#div-plus4").hide();
-            $("#question-five").bind("click", function() {
-              $("#div-plus4").slideToggle("slow");
-            });
-          });
-          $(document).ready(function() {
-            $("#div-plus5").hide();
-            $("#question-six").bind("click", function() {
-              $("#div-plus5").slideToggle("slow");
-            });
-          });
-          $(document).ready(function() {
-            $("#div-plus6").hide();
-            $("#question-seven").bind("click", function() {
-              $("#div-plus6").slideToggle("slow");
-            });
-          });
-          $(document).ready(function() {
-            $("#div-plus7").hide();
-            $("#question-eight").bind("click", function() {
-              $("#div-plus7").slideToggle("slow");
-            });
-          });
-          $(document).ready(function() {
-            $("#div-plus8").hide();
-            $("#question-nine").bind("click", function() {
-              $("#div-plus8").slideToggle("slow");
-            });
-          });
-        </script>
-</body>
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
+  </body>
 
 </html>

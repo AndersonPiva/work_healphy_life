@@ -16,13 +16,13 @@
 					<h4 class="col-xs-12 col-xs-offset-1">Tenha acesso as informações de seu perfil e atualize-as quando necessário.</h4>
 					<div class="panel panel-default col-xs-4 col-xs-offset-4 col-sm-5 col-md-3 col-md-offset-5 div-content padding">
 						<div class="field">
-								  <%= image_tag current_user.cover.url(:medium),class:'img-responsive' %>
+								  <%= image_tag current_user.cover.url(:medium),class:'img-responsive', id: 'img_prev' %>
 						</div>
 						<div id="div_file">
 							<p id="texto">
 								Carregar Foto
 							</p>
-							<%= f.file_field :cover, as: :file, class:'btn_enviar' %>
+							<%= f.file_field :cover, as: :file, class:'btn_enviar', :onchange => 'readURL(this);' %>
 						</div>
 					</div>
 					<div class="panel panel-default col-xs-10 col-xs-offset-1 div-content">

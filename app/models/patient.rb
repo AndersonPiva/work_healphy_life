@@ -6,7 +6,8 @@ class Patient < ActiveRecord::Base
 
  belongs_to :clinic
  belongs_to :user
-
+ has_attached_file :cover, styles: { :medium => "300x300>", :thumb => "50x50", :small => "168x168", :thumb => "40x40", :tiny => "32x32" }, default_url: "/img/missing.png"
+ has_many :clinics, :dependent => :destroy
  has_many :appointments, :dependent => :destroy
  has_many :weighings, :dependent => :destroy
  has_many :measurements, :dependent => :destroy
@@ -24,7 +25,7 @@ class Patient < ActiveRecord::Base
    bicepsLeft = nil
 
    self.measurements.each do |measurement|
-     if measurement.nameMeasure == "Biceps Esquerdo"
+     if measurement.nameMeasure == "Bíceps Esquerdo"
        bicepsLeft = measurement.size
      end
    end
@@ -36,7 +37,7 @@ class Patient < ActiveRecord::Base
    bicepsRigth = nil
 
    self.measurements.each do |measurement|
-     if measurement.nameMeasure == "Biceps Direito"
+     if measurement.nameMeasure == "Bíceps Direito"
        bicepsRigth = measurement.size
      end
    end
@@ -61,7 +62,7 @@ class Patient < ActiveRecord::Base
    bellySize = nil
 
    self.measurements.each do |measurement|
-     if measurement.nameMeasure == "Abdomen"
+     if measurement.nameMeasure == "Abdômen"
        bellySize = measurement.size
      end
    end

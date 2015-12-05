@@ -15,19 +15,19 @@
   <div class="form-group field">
     <label class="col-sm-3 control-label" for="data"><%= t('day_week') %></label>
     <div class="col-sm-9">
-      <%= f.text_field :weekDay, :placeholder => 'Digite o dia da semana em que será realizado o treino', class: 'form-control' %>
+      <%= f.text_field :weekDay, :placeholder => t('training_day_week'), class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
     <label class="col-sm-3 control-label" for="horario"><%= t('muscular_groups') %></label>
     <div class="col-sm-9">
-      <%= f.text_field :muscularGroups, :placeholder => 'Digite os grupos musculares que serão treinados', class: 'form-control' %>
+      <%= f.text_field :muscularGroups, :placeholder => t('muscular_groups_trained'), class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">
     <label class="col-sm-3 control-label" for="preco"><%= t('description') %></label>
     <div class="col-sm-9">
-      <%= f.text_area :description, :placeholder => 'Digite a descrição geral do treino', class: 'form-control' %>
+      <%= f.text_area :description, :placeholder => t('general_description'), class: 'form-control' %>
     </div>
   </div>
   <div class="form-group field">

@@ -39,5 +39,8 @@
         </button>
       </div>
     </div>
+    <% if flash[:notice] %>
+    <div class="col-xs-12"><%= flash[:notice] %></div>
+    <% end %>
   </div>
 <% end %>

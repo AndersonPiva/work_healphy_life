@@ -9,6 +9,9 @@
 		<div class="content-wrapper">
       <div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1 min-height">
+					<div id="notice" class="col-xs-offset-1">
+						<%= notice %>
+					</div>
           <h1 class="col-xs-offset-1"><i class="fa fa fa-check-circle"></i> <%= t('realizations_trainings') %></h1>
           <h4 class="col-xs-offset-1"><%= t('realizations_trainings_one') %></h4>
 					<%= link_to ' Cadastrar nova realização', new_realization_path, class: 'btn btn-primary col-xs-offset-1 div-content fa fa-plus-circle' %>

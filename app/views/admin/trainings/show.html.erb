@@ -9,77 +9,77 @@
 		<div class="content-wrapper">
       <div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1">
-          <h1 class="col-xs-offset-1"><i class="fa fa-bullseye"></i> Detalhes do Treino</h1>
-          <h4 class="col-xs-offset-1">Veja todos os detalhes do treino que você cadastrou para seu paciente.</h4>
+          <h1 class="col-xs-offset-1"><i class="fa fa-bullseye"></i> <%= t('details_of_training') %></h1>
+          <h4 class="col-xs-offset-1"><%= t('details_of_training_one') %></h4>
           <div class="div-content">
             <div class="panel panel-default col-xs-10 col-xs-offset-1">
                 <legend>
-                  <i class="fa fa-tags"></i> Dados Gerais
+                  <i class="fa fa-tags"></i> <%= t('general_data') %>
                 </legend>
                 <div class="form-horizontal">
                   <div class="form-group">
-                    <label for="paciente" class="control-label col-sm-2">Paciente</label>
+                    <label for="paciente" class="control-label col-sm-3"><%= t('patient') %></label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" value="<%= @training.patient.name %>" disabled/>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="weekDay" class="control-label col-sm-2">Dia da Semana</label>
+                    <label for="weekDay" class="control-label col-sm-3"><%= t('day_week') %></label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" value="<%= @training.weekDay %>" disabled/>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="muscularGroups" class="control-label col-sm-2">Grupos Musculares</label>
+                    <label for="muscularGroups" class="control-label col-sm-3"><%= t('muscular_groups') %></label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" value="<%= @training.muscularGroups %>" disabled/>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="description" class="control-label col-sm-2">Descrição</label>
+                    <label for="description" class="control-label col-sm-3"><%= t('description') %></label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" value="<%= @training.description %>" disabled/>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="dataStart" class="control-label col-sm-2">Data de Início</label>
+                    <label for="dataStart" class="control-label col-sm-3"><%= t('date_start') %></label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" value="<%= @training.dateStart %>" disabled/>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="dateEnd" class="control-label col-sm-2">Data de Fim</label>
+                    <label for="dateEnd" class="control-label col-sm-3"><%= t('date_end') %></label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" value="<%= @training.dateEnd %>" disabled/>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="duration" class="control-label col-sm-2">Duração</label>
+                    <label for="duration" class="control-label col-sm-3"><%= t('duration') %></label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" value="<%= @training.duration %>" disabled/>
                     </div>
                   </div>
                 </div>
                 <legend>
-                  <i class="fa fa-star"></i> Exercícios
+                  <i class="fa fa-star"></i> <%= t('exercises') %>
                 </legend>
                 <div class="table-responsive">
                   <table class="table table-hover">
                     <tr>
                       <td class="text-center">
-                        <strong>Nome</strong>
+                        <strong><%= t('name') %></strong>
                       </td>
                       <td class="text-center">
-                        <strong>Descrição</strong>
+                        <strong><%= t('description') %></strong>
                       </td>
                       <td class="text-center">
-                        <strong>Séries</strong>
+                        <strong><%= t('series') %></strong>
                       </td>
                       <td class="text-center">
-                        <strong>Repetições</strong>
+                        <strong><%= t('repeats') %></strong>
                       </td>
                       <td class="text-center">
-                        <strong>Duração</strong>
+                        <strong><%= t('duration') %></strong>
                       </td>
                     </tr>
                     <% @training.exercises.each do |exercise| %>

@@ -31,10 +31,10 @@
               <% @recent_activities_last_login.each do |recent_activity| %>
                 <tr>
                   <td class="text-center">
-                    <%= recent_activity.date %>
+                    <%= recent_activity.date.strftime("%d/%m/%Y") %>
                   </td>
                   <td class="text-center">
-                    <%= recent_activity.shedule %>
+                    <%= recent_activity.shedule.strftime("%H:%M") %>
                   </td>
                   <td class="text-center">
                     <%= recent_activity.patient.name %>

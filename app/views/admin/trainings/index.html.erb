@@ -9,6 +9,9 @@
 		<div class="content-wrapper">
       <div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1 min-height">
+					<div id="notice" class="col-xs-offset-1">
+						<%= notice %>
+					</div>
           <h1 class="col-xs-offset-1"><i class="fa fa-bullseye"></i> <%= t('trainings') %></h1>
           <h4 class="col-xs-offset-1"><%= t('trainings_one') %></h4>
           <div class="div-content">
@@ -17,14 +20,14 @@
           <div class="table-responsive col-xs-12 div-content">
             <table class="table table-hover">
               <tr>
-                <td class="text-center"><strong>Paciente</strong></td>
-                <td class="text-center"><strong>Dia da Semana</strong></td>
-                <td class="text-center"><strong>Grupos Musculares</strong></strong></td>
-                <td class="text-center"><strong>Descrição</strong></td>
-                <td class="text-center"><strong>Data de Início</strong></td>
-                <td class="text-center"><strong>Data de término</strong></td>
-                <td class="text-center"><strong>Duração</strong></td>
-                <td class="text-center"><strong>Opções</strong></td>
+                <td class="text-center"><strong><%= t('patient') %></strong></td>
+                <td class="text-center"><strong><%= t('day_week') %></strong></td>
+                <td class="text-center"><strong><%= t('muscular_groups') %></strong></strong></td>
+                <td class="text-center"><strong><%= t('description') %></strong></td>
+                <td class="text-center"><strong><%= t('date_start') %></strong></td>
+                <td class="text-center"><strong><%= t('date_end') %></strong></td>
+                <td class="text-center"><strong><%= t('duration') %></strong></td>
+                <td class="text-center"><strong><%= t('options') %></strong></td>
               </tr>
 							<% @trainings_for_user.each do |training| %>
 								<tr>

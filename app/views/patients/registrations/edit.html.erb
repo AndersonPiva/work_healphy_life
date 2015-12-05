@@ -9,14 +9,25 @@
     <div class="content-wrapper">
       <div class="perfil-content">
         <div class="panel panel-default col-xs-10 col-xs-offset-1">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
           <h1 class="col-xs-offset-1">
             <i class="fa fa-user"></i>
             Meu Perfil <%= link_to "Cancelar Minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'option' %></h1>
           <h4 class="col-xs-offset-1">Edite seu perfil para mantê-lo atualizado.</h4>
+          <div class="panel panel-default col-xs-4 col-xs-offset-4 col-sm-5 col-md-3 col-md-offset-5 div-content padding">
+            <div class="field">
+                  <%= image_tag current_patient.cover.url(:medium),class:'img-responsive', id: 'img_prev' %>
+            </div>
+            <div id="div_file">
+              <p id="texto">
+                Carregar Foto
+              </p>
+              <%= f.file_field :cover, as: :file, class:'btn_enviar', :onchange => 'readURL(this);' %>
+            </div>
+          </div>
           <div class="div-content">
             <div class="panel panel-default col-xs-10 col-xs-offset-1">
-              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-              <%= devise_error_messages! %>
               <div class="form-horizontal">
                 <legend>
                   <i class="fa fa-tags"></i>
