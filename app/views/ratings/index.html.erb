@@ -21,7 +21,7 @@
               </tr>
               <% current_patient.ratings.each do |rating| %>
                 <tr>
-                  <td class="text-center"><%= rating.date %></td>
+                  <td class="text-center"><%= rating.date.strftime("%d/%m/%y") %></td>
                   <td class="text-center"><%= rating.patient.name %></td>
                   <td class="text-center"><%= rating.getBF %></td>
                   <td class="text-center"><%= link_to '', rating_path(rating, format: :pdf), title: 'Clique para abrir em pdf', class: 'btn btn-default btn-sm fa fa-file-pdf-o', target: '_blank' %> </td>

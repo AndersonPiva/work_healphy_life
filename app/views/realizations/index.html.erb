@@ -13,7 +13,7 @@
 						<%= notice %>
 					</div>
           <h1 class="col-xs-offset-1"><i class="fa fa fa-check-circle"></i> <%= t('realizations_trainings') %></h1>
-          <h4 class="col-xs-offset-1"><%= t('realizations_trainings_one') %></h4>
+          <h4 class="col-xs-offset-1">Tenha acesso a todas as suas realizações de treinos, cadastre novas.</h4>
 					<%= link_to ' Cadastrar nova realização', new_realization_path, class: 'btn btn-primary col-xs-offset-1 div-content fa fa-plus-circle' %>
 				  <div class="table-responsive col-xs-12 div-content">
             <table class="table table-hover">
@@ -28,7 +28,7 @@
               </tr>
               <% current_patient.realizations.each do |realization| %>
                 <tr>
-                  <td class="text-center"><%= realization.date %></td>
+                  <td class="text-center"><%= realization.date.strftime("%d/%m/%y") %></td>
                   <td class="text-center"><%= realization.patient.name %></td>
                   <td class="text-center"><%= realization.training.muscularGroups %></td>
                   <td class="text-center"><%= realization.status %></td>

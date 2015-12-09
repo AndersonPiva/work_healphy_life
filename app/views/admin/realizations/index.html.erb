@@ -24,7 +24,7 @@
               </tr>
               <% @realizations_for_user.each do |realization| %>
                 <tr>
-                  <td class="text-center"><%= realization.date %></td>
+                  <td class="text-center"><%= realization.date.strftime("%d/%m/%y") %></td>
                   <td class="text-center"><%= realization.patient.name %></td>
                   <td class="text-center"><%= realization.training.muscularGroups %></td>
                   <td class="text-center"><%= realization.status %></td>

@@ -27,7 +27,7 @@
               </tr>
               <% @ratings_for_user.each do |rating| %>
                 <tr>
-                  <td class="text-center"><%= rating.date %></td>
+                  <td class="text-center"><%= rating.date.strftime("%d/%m/%y") %></td>
                   <td class="text-center"><%= rating.patient.name %></td>
                   <td class="text-center"><%= rating.getBF %></td>
                   <td class="text-center"><%= link_to '', admin_rating_path(rating, format: :pdf), title: t('details'), class: 'btn btn-success btn-xs fa fa-ellipsis-h', target: 'blank' %> <%= link_to '', edit_admin_rating_path(rating), title: t('edit'), class: 'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', admin_rating_path(rating), method: :delete, data: { confirm: t('sure') } , title: 'Delete', class: 'btn btn-danger btn-xs fa fa-times'%></td>

@@ -43,7 +43,7 @@
             <strong>Data de Início:</strong>
           </td>
           <td colspan="2" style="text-align: center;">
-            <%= @training.dateStart %>
+            <%= @training.dateStart.strftime("%d/%m/%y") %>
           </td>
         </tr>
         <tr>
@@ -51,15 +51,15 @@
             <strong>Data de Término:</strong>
           </td>
           <td colspan="2" style="text-align: center;">
-            <%= @training.dateEnd %>
+            <%= @training.dateEnd.strftime("%d/%m/%y") %>
           </td>
         </tr>
         <tr>
           <td colspan="2" style="text-align: center;">
-            <strong>Duração (dias):</strong>
+            <strong>Duração (tempo):</strong>
           </td>
           <td colspan="2" style="text-align: center;">
-            <%= @training.duration %>
+            <%= @training.duration.strftime("%H:%m")%>
           </td>
         </tr>
         <tr>
@@ -126,7 +126,7 @@
           <%= exercise.repeats %>
         </td>
         <td style="text-align: center; width: 170px;">
-          <%= exercise.duration %>
+          <%= exercise.duration.strftime("%H:%m") %>
         </td>
       </tr>
       <% end %>

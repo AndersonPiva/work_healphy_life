@@ -8,7 +8,7 @@
     </aside>
     <div class="content-wrapper">
       <div class="perfil-content">
-        <div class="panel panel-default col-xs-10 col-xs-offset-1">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1 panel-margin">
           <h1 class="col-xs-offset-1">
             <i class="fa fa-arrows-v"></i>
             <%= t('details_measurement') %></h1>
@@ -35,7 +35,7 @@
                 <div class="form-group">
                   <label for="data" class="control-label col-sm-3"><%= t('date_of') %></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" value="<%= @measurement.date %>" disabled/>
+                    <input type="text" class="form-control" value="<%= @measurement.date.strftime("%d/%m/%y") %>" disabled/>
                   </div>
                 </div>
                 <div class="form-group">

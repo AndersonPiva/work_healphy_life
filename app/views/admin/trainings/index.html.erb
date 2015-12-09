@@ -44,13 +44,13 @@
 										<%= training.description%>
 									</td>
 									<td class="text-center">
-										<%= training.dateStart%>
+										<%= training.dateStart.strftime("%d/%m/%y")%>
 									</td>
 									<td class="text-center">
-										<%= training.dateEnd%>
+										<%= training.dateEnd.strftime("%d/%m/%y")%>
 									</td>
 									<td class="text-center">
-										<%= training.duration%>
+										<%= training.duration.strftime("%H:%m")%>
 									</td>
 									<td class="text-center">
 										<%= link_to '', admin_training_path(training), title: t('details'), class: 'btn btn-success btn-xs fa fa-ellipsis-h' %> <%= link_to '', edit_admin_training_path(training), title: t('edit'), class: 'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', admin_training_path(training), method: :delete, data: { confirm: 'Are you sure?' }, title:'Delete', class: 'btn btn-danger btn-xs fa fa-times'  %>

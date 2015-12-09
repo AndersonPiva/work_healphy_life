@@ -313,7 +313,6 @@ class Rating < ActiveRecord::Base
     if self.getIMC >= 40
       classification = "Obesidade Mórbida (Grau III)"
     end
-
     classification
   end
 end

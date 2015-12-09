@@ -13,7 +13,7 @@
 						<%= notice %>
 					</div>
           <h1 class="col-xs-offset-1"><i class="fa fa-arrows-v"></i> <%= t('measurements') %></h1>
-          <h4 class="col-xs-offset-1"><%= t('measurements_one') %></h4>
+          <h4 class="col-xs-offset-1">Tenha acesso a todas as suas medições, cadastre novas.</h4>
           <div class="div-content">
 						<%= link_to t('register_measurement1'), new_measurement_path, class: 'btn btn-primary col-xs-offset-1 fa fa-plus-circle margin' %>
           </div>
@@ -28,7 +28,7 @@
               </tr>
               <% current_patient.measurements.each do |measurement| %>
                 <tr>
-                  <td class="text-center"><%= measurement.date %></td>
+                  <td class="text-center"><%= measurement.date.strftime("%d/%m/%y") %></td>
                   <td class="text-center"><%= measurement.patient.name %></td>
                   <td class="text-center"><%= measurement.nameMeasure %></td>
                   <td class="text-center"><%= measurement.size %></td>

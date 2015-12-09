@@ -23,13 +23,13 @@
                 <div class="form-group field">
                   <label class="col-sm-2 control-label" for="data"><%= t('date_of') %></label>
                   <div class="col-sm-9">
-                    <input class="form-control" disabled type="text" value="<%= @appointment.dateAppointment%>"/>
+                    <input class="form-control" disabled type="text" value="<%= @appointment.dateAppointment.strftime("%d/%m/%y")%>"/>
                   </div>
                 </div>
                 <div class="form-group field">
                   <label class="col-sm-2 control-label" for="horario"><%= t('hour') %></label>
                   <div class="col-sm-9">
-                    <input class="form-control" disabled type="text" value="<%= @appointment.schedule%>"/>
+                    <input class="form-control" disabled type="text" value="<%= @appointment.schedule.strftime("%H:%m")%>"/>
                   </div>
                 </div>
                 <div class="form-group field">

@@ -1,4 +1,6 @@
 en:
+  title: 'Title'
+  app_title: "System of management of Sports Cliics Sistema de gerenciamento de Clínicas Esportivas"
   details_of_training: "Details of Training"
   myprofile: " My profile"
   about1: " About"
@@ -160,7 +162,6 @@ en:
   details: "Details"
   training: "Training"
   options: "Options"
-  app_title: "Management System Of Sports Clinics"
   not_saved: "This operation cant'n be realized for any reasons. Please check your guest card: "
   totally_free: "Totally Free"
   have_better_controll: "Have better control experience of your sports clinic. Meet our Life Healthy system."

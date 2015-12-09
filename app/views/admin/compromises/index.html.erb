@@ -33,7 +33,7 @@
                 <%= day.day %>
                 <% compromises.each do |compromise| %><br>
                 <%= link_to h(compromise.title), admin_compromise_path(compromise) %>
-                <%= link_to '', edit_admin_patient_path(compromise), title: t('edit') ,class:'btn btn-primary btn-xs fa fa-pencil' %>
+                <%= link_to '', edit_admin_compromise_path(compromise), title: t('edit') ,class:'btn btn-primary btn-xs fa fa-pencil' %>
                 <%= link_to '', admin_compromise_path(compromise), method: :delete, data: { confirm: t('sure') }, title: 'Delete', class:'btn btn-danger btn-xs fa fa-times' %>
                 <% end %>
                 <% end %>

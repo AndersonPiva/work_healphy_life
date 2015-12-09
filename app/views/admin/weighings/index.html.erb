@@ -27,7 +27,7 @@
               </tr>
               <% @weighings_foruser.each do |weighing| %>
                 <tr>
-                  <td class="text-center"><%= weighing.dateWeighing %></td>
+                  <td class="text-center"><%= weighing.dateWeighing.strftime("%d/%m/%y") %></td>
                   <td class="text-center"><%= weighing.patient.name %></td>
                   <td class="text-center"><%= weighing.weight %></td>
                   <td class="text-center"><%= link_to '', admin_weighing_path(weighing), title: t('details'), class: 'btn btn-success btn-xs fa fa-ellipsis-h' %> <%= link_to '', edit_admin_weighing_path(weighing), title: t('edit'), class: 'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', admin_weighing_path(weighing), method: :delete, data: { confirm: t('sure') } , title: 'Delete', class: 'btn btn-danger btn-xs fa fa-times'%></td>

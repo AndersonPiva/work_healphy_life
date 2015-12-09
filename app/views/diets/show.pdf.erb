@@ -43,7 +43,7 @@
             <strong>Data de Início:</strong>
           </td>
           <td colspan="2" style="text-align: center;">
-            <%= @diet.dateStart %>
+            <%= @diet.dateStart.strftime("%d/%m/%y") %>
           </td>
         </tr>
         <tr>
@@ -51,7 +51,7 @@
             <strong>Data de Término:</strong>
           </td>
           <td colspan="2" style="text-align: center;">
-            <%= @diet.dateEnd %>
+            <%= @diet.dateEnd.strftime("%d/%m/%y") %>
           </td>
         </tr>
         <tr>
@@ -98,7 +98,7 @@
           <%= meal.name %>
         </td>
         <td style="text-align: center; width: 170px;">
-          <%= meal.time %>
+          <%= meal.time.strftime("%H:%m") %>
         </td>
         <td style="text-align: center; width: 170px;">
           <%= meal.description %>

@@ -20,7 +20,7 @@
               <div class="form-group field">
                 <label for="data" class="col-sm-2 control-label"><%= t('date_of') %></label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" value="<%= @weighing.dateWeighing%>" disabled/>
+                  <input type="text" class="form-control" value="<%= @weighing.dateWeighing.strftime("%d/%m/%y")%>" disabled/>
                 </div>
               </div>
               <div class="form-group field">

@@ -29,8 +29,8 @@
               <% current_patient.diets.each do |diet| %>
                 <tr>
                   <td class="text-center"><%= diet.patient.name %></td>
-                  <td class="text-center"><%= diet.dateStart %></td>
-            			<td class="text-center"><%= diet.dateEnd %></td>
+                  <td class="text-center"><%= diet.dateStart.strftime("%d/%m/%y") %></td>
+            			<td class="text-center"><%= diet.dateEnd.strftime("%d/%m/%y") %></td>
                   <td class="text-center"><%= diet.duration %> dias</td>
                   <td class="text-center">
                     <%= diet.getTotalCalories %>

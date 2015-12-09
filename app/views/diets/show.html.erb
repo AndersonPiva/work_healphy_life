@@ -26,13 +26,13 @@
                 <div class="form-group">
                   <label for="dateStart" class="control-label col-sm-3"> <%= t('date_start') %> </label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" value="<%= @diet.dateStart %>" disabled/>
+                    <input type="text" class="form-control" value="<%= @diet.dateStart.strftime("%d/%m/%y") %>" disabled/>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="label" class="control-label col-sm-3"><%= t('date_end') %></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" value="<%= @diet.dateEnd %>" disabled/>
+                    <input type="text" class="form-control" value="<%= @diet.dateEnd.strftime("%d/%m/%y") %>" disabled/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -66,7 +66,7 @@
                           <%= meal.name %>
                         </td>
                         <td class="text-center">
-                          <%= meal.time %>
+                          <%= meal.time.strftime("%H:%m") %>
                         </td>
                         <td class="text-center">
                           <%= meal.description %>

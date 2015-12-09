@@ -30,10 +30,10 @@
               </tr>
               <% current_user.appointments.each do |appointment| %>
                 <tr>
-                  <td class="text-center"><%= appointment.dateAppointment %></td>
+                  <td class="text-center"><%= appointment.dateAppointment.strftime("%d/%m/%y") %></td>
                   <td class="text-center"><%= appointment.patient.name %></td>
                   <td class="text-center"><%= appointment.clinic.name %></td>
-                  <td class="text-center"><%= appointment.schedule %></td>
+                  <td class="text-center"><%= appointment.schedule.strftime("%H:%m") %></td>
                   <td class="text-center"><%= appointment.price %></td>
                   <td class="text-center"><%= appointment.description %></td>
                   <td class="text-center"><%= link_to '', admin_appointment_path(appointment), title: t('details'), class: 'btn btn-success btn-xs fa fa-ellipsis-h' %> <%= link_to '', edit_admin_appointment_path(appointment), title: t('edit'), class: 'btn btn-primary btn-xs fa fa-pencil' %> <%= link_to '', admin_appointment_path(appointment), method: :delete, data: { confirm: t('sure') }, title:'Delete', class: 'btn btn-danger btn-xs fa fa-times'  %></td>

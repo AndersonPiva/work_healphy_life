@@ -38,13 +38,13 @@
 										<%= training.description%>
 									</td>
 									<td class="text-center">
-										<%= training.dateStart%>
+										<%= training.dateStart.strftime("%d/%m/%y")%>
 									</td>
 									<td class="text-center">
-										<%= training.dateEnd%>
+										<%= training.dateEnd.strftime("%d/%m/%y")%>
 									</td>
 									<td class="text-center">
-										<%= training.duration%>
+										<%= training.duration.strftime("%H:%m")%>
 									</td>
 									<td class="text-center">
 										<%= link_to '', training_path(training, format: :pdf), title: 'Clique para abrir em pdf', class: 'btn btn-default btn-sm fa fa-file-pdf-o', target:'_blank' %>
