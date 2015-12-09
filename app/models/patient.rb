@@ -16,6 +16,7 @@
  has_many :ratings, :dependent => :destroy
  has_many :diets, :dependent => :destroy
  has_many :recent_activities, :dependent => :destroy
+ has_many :reminders, :dependent => :destroy
 
  def getAge
    Date.today.year - self.birthdate.year

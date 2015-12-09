@@ -22,30 +22,18 @@ class AppointmentsController < ApplicationController
     @appointment.user_id = current_patient.user_id
     @appointment.clinic_id = current_patient.clinic_id
 
-    @aux=0
-
-    @appointments_for_user = []
-    Appointment.all.each do |appointment|
-      if appointment.patient.user_id == current_patient.user_id
-        @appointments_for_user << appointment
-      end
-    end
-
-    @appointments_for_user.each do |appointment|
-      if appointment.dateAppointment == @appointment.dateAppointment
-        @aux = 1
-      end
-    end
+    @reminder = Reminder.new description: 'Você tem uma consulta agendada para o dia ', patient_id: current_patient.id
+    @reminder.appointment = @appointment
+    @reminder.save
 
     respond_to do |format|
-      if @aux == 0
-        @appointment.save
+      if @appointment.save
         format.html { redirect_to appointments_path, notice: I18n.t('register_created') }
         format.json { render :show, status: :created, location: @appointment }
       else
-        flash[:notice] = "Data/Horário indisponíveis, Tente novamente"
         format.html { render :new}
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
+        @reminder.destroy
       end
     end
   end

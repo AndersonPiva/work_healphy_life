@@ -1,0 +1,36 @@
+<div class="skin-blue sidebar-mini min-height">
+	<div class="wrapper">
+		<header class="main-header">
+			<%= render "privates/navbarprivate" %>
+		</header>
+		<aside class="main-sidebar">
+			<%= render "privates/menubar" %>
+		</aside>
+		<div class="content-wrapper">
+      <div class="perfil-content">
+        <div class="panel panel-default col-xs-10 col-xs-offset-1 min-height">
+					<div id="notice" class="col-xs-offset-1">
+						<%= notice %>
+					</div>
+          <h1 class="col-xs-offset-1"><i class="fa fa-refresh"></i> Lembretes</h1>
+          <h4 class="col-xs-offset-1">Não se esqueça das datas das consultas agendadas</h4>
+				  <div class="table-responsive col-xs-12 div-content">
+            <table class="table table-hover">
+              <tr>
+                <td class="text-center"><%= t('description') %></strong></td>
+              </tr>
+              <% @reminders_for_patient.each do |reminder| %>
+                <tr>
+                  <td class="text-center">
+                    <%= reminder.description %> <%= link_to reminder.getDate, reminder_path(reminder) %>
+                  </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+	<%= render "privates/footerprivate" %>
+</div>

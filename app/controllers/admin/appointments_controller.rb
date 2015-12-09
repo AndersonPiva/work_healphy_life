@@ -18,12 +18,17 @@ class Admin::AppointmentsController < Admin::AdminController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.user_id = current_user.id
+
+    @reminder = Reminder.new description: 'Você tem uma consulta agendada para o dia ', patient_id: @appointment.patient_id
+    @reminder.appointment = @appointment
+    @reminder.save
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to admin_appointments_path, notice: I18n.t('register_created') }
       else
         format.html { render :new }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
+        @reminder.destroy
       end
     end
   end

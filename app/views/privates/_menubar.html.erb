@@ -95,5 +95,10 @@
       <%= link_to t('recent_activities') ,admin_recent_activities_path, class:'fa fa-history'%>
     </li>
     <% end %>
+    <% if current_patient.present? %>
+      <li>
+        <%= link_to t('reminders'), reminders_path, class: 'fa fa-refresh' %>
+      </li>
+    <% end %>
   </ul>
 </section>

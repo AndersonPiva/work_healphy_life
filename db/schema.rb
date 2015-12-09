@@ -36,12 +36,14 @@ ActiveRecord::Schema.define(version: 20151228041729) do
     t.integer  "user_id",         limit: 4
     t.integer  "clinic_id",       limit: 4
     t.integer  "patient_id",      limit: 4
+    t.integer  "reminder_id",     limit: 4
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
 
   add_index "appointments", ["clinic_id"], name: "index_appointments_on_clinic_id", using: :btree
   add_index "appointments", ["patient_id"], name: "index_appointments_on_patient_id", using: :btree
+  add_index "appointments", ["reminder_id"], name: "index_appointments_on_reminder_id", using: :btree
   add_index "appointments", ["user_id"], name: "index_appointments_on_user_id", using: :btree
 
   create_table "clinics", force: :cascade do |t|
@@ -207,6 +209,15 @@ ActiveRecord::Schema.define(version: 20151228041729) do
   add_index "recent_activities", ["patient_id"], name: "index_recent_activities_on_patient_id", using: :btree
   add_index "recent_activities", ["user_id"], name: "index_recent_activities_on_user_id", using: :btree
 
+  create_table "reminders", force: :cascade do |t|
+    t.string   "description", limit: 255
+    t.integer  "patient_id",  limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "reminders", ["patient_id"], name: "index_reminders_on_patient_id", using: :btree
+
   create_table "trainings", force: :cascade do |t|
     t.string   "weekDay",        limit: 255
     t.string   "muscularGroups", limit: 255
@@ -266,6 +277,7 @@ ActiveRecord::Schema.define(version: 20151228041729) do
   add_foreign_key "addresses", "clinics"
   add_foreign_key "appointments", "clinics"
   add_foreign_key "appointments", "patients"
+  add_foreign_key "appointments", "reminders"
   add_foreign_key "appointments", "users"
   add_foreign_key "clinics", "users"
   add_foreign_key "compromises", "users"
@@ -280,6 +292,7 @@ ActiveRecord::Schema.define(version: 20151228041729) do
   add_foreign_key "realizations", "trainings"
   add_foreign_key "recent_activities", "patients"
   add_foreign_key "recent_activities", "users"
+  add_foreign_key "reminders", "patients"
   add_foreign_key "trainings", "patients"
   add_foreign_key "weighings", "patients"
 end

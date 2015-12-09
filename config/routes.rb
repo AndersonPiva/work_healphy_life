@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reminders
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :recent_activities
   devise_for :patients, :controllers => {:registrations => "registrations"}

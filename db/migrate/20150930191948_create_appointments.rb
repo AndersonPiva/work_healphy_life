@@ -8,6 +8,7 @@ class CreateAppointments < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.references :clinic, index: true, foreign_key: true
       t.references :patient, index: true, foreign_key: true
+      t.references :reminder, index: true, foreign_key: true
 
       t.timestamps null: false
     end
