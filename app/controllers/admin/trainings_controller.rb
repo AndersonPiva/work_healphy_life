@@ -23,7 +23,6 @@ class Admin::TrainingsController < Admin::AdminController
 
   def create
     @training = Training.new(training_params)
-
     respond_to do |format|
       if @training.save
         format.html { redirect_to admin_trainings_path, notice: t('register_created') }
